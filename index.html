@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login to Game</title>
+    <link rel="stylesheet" href="other.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            overscroll-behavior: none; /* Prevents bounce/rubber-band effect */
+        }
+        
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            background-color: #f5f5f5;
+            position: fixed; /* Prevents container from moving */
+            top: 0;
+            left: 0;
+        }
+        
+        #togglePassword {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+            right: 15px;
+            /* Removed margin-right: 5px to eliminate the squeeze */
+        }
+        
+        .eye-icon {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1><i class="fas fa-gamepad"></i> Login</h1>
+            <form id="accessForm">
+                <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input type="password" id="accessCode" placeholder="Enter access code" required>
+                    <button type="button" id="togglePassword">
+                        <i class="fas fa-eye eye-icon"></i>
+                    </button>
+                </div>
+                <button type="submit">Play Now <i class="fas fa-arrow-right"></i></button>
+            </form>
+            <p id="errorMessage" class="error-message" style="display: none;"><i class="fas fa-exclamation-circle"></i> Invalid code. Try again!</p>
+        </div>
+    </div>
+
+    <script>
+        // List of valid access codes
+        const VALID_CODES = ['67monkey'];
+
+        // Function to check the access code
+        function checkAccessCode(event) {
+            event.preventDefault(); // Prevent form submission
+            const enteredCode = document.getElementById('accessCode').value;
+            const submitButton = document.querySelector('button[type="submit"]');
+            const originalButtonContent = submitButton.innerHTML;
+            const originalWidth = submitButton.offsetWidth;
+            
+            // Ensure button maintains its width during animation
+            submitButton.style.width = originalWidth + 'px';
+            
+            // Check if the entered code is valid
+            if (VALID_CODES.includes(enteredCode)) {
+                // Apply transition and transform for a cooler effect
+                submitButton.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                submitButton.style.transform = 'scale(1.1)';
+                submitButton.style.backgroundColor = '#4CAF50'; // Green
+                submitButton.style.boxShadow = '0 0 20px rgba(76, 175, 80, 0.5)';
+                submitButton.innerHTML = '<i class="fas fa-check" style="color: white; font-size: 24px;"></i>';
+                
+                // Add a pulse animation
+                submitButton.animate([
+                    { boxShadow: '0 0 0 0 rgba(76, 175, 80, 0.7)' },
+                    { boxShadow: '0 0 0 10px rgba(76, 175, 80, 0)' }
+                ], {
+                    duration: 800,
+                    iterations: 1
+                });
+                
+                // Save access status in sessionStorage
+                sessionStorage.setItem('accessGranted', 'true');
+                
+                // Redirect after a short delay
+                setTimeout(() => {
+                    window.location.href = 'games.html';
+                }, 800);
+            } else {
+                // Apply transition and transform for error effect
+                submitButton.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                submitButton.style.backgroundColor = '#F44336'; // Red
+                submitButton.style.boxShadow = '0 0 20px rgba(244, 67, 54, 0.5)';
+                submitButton.innerHTML = '<i class="fas fa-times" style="color: white; font-size: 24px;"></i>';
+                
+                // Add shake animation
+                submitButton.animate([
+                    { transform: 'translateX(0)' },
+                    { transform: 'translateX(-5px)' },
+                    { transform: 'translateX(5px)' },
+                    { transform: 'translateX(-5px)' },
+                    { transform: 'translateX(5px)' },
+                    { transform: 'translateX(0)' }
+                ], {
+                    duration: 500,
+                    iterations: 1
+                });
+                
+                // Reset button after a short delay
+                setTimeout(() => {
+                    submitButton.style.transition = 'all 0.3s ease';
+                    submitButton.style.transform = '';
+                    submitButton.style.backgroundColor = '';
+                    submitButton.style.boxShadow = '';
+                    submitButton.style.width = '';
+                    submitButton.innerHTML = originalButtonContent;
+                }, 800);
+            }
+        }
+
+        // Attach the function to the form's submit event
+        document.getElementById('accessForm').addEventListener('submit', checkAccessCode);
+
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('accessCode');
+            const eyeIcon = this.querySelector('i');
+            
+            if (passwordInput.getAttribute('type') === 'password') {
+                passwordInput.setAttribute('type', 'text');
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.setAttribute('type', 'password');
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        });
+    </script>
+    <script src="panicKey.js"></script>
+</body>
+</html>

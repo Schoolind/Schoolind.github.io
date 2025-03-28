@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Games</title>
+    <script src="auth-check.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .nav-button-container {
+            position: fixed;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .nav-button-container:hover,
+        .nav-button-container:focus-within {
+            bottom: 20px;
+        }
+
+        .nav-button-container::before {
+            content: '▲';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #2d2d2d;
+            font-size: 20px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-button-container:hover::before {
+            opacity: 0;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #3d3d3d;
+            transform: translateY(-2px);
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .nav-button:hover .nav-icon {
+            color: #4CAF50;
+        }
+
+        .nav-button.logout:hover .nav-icon {
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <!-- Remove the nav bar from the top -->
+    <div class="content">
+
+
+        <head>
+            <style>
+                .search {
+                    display: flex;
+                    justify-content: center;
+                    margin: 20px auto;
+                    max-width: 600px;
+                    position: relative;
+                }
+
+                .search input {
+                    width: 100%;
+                    padding: 15px 20px;
+                    border: 2px solid #4fc3f7;
+                    border-radius: 25px;
+                    font-size: 16px;
+                    background: rgba(30, 30, 30, 0.8);
+                    color: #fff;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 0 10px rgba(79, 195, 247, 0.1);
+                }
+
+                .search button {
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    padding: 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .search button i {
+                    color: #4fc3f7;
+                    font-size: 20px;
+                    transition: all 0.3s ease;
+                }
+
+                .search input:focus {
+                    outline: none;
+                    border-color: #64d8ff;
+                    box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
+                    transform: translateY(-2px);
+                }
+
+                .search input:focus + button i,
+                .search button:hover i {
+                    color: #64d8ff;
+                    transform: scale(1.1);
+                }
+
+                .search input::placeholder {
+                    color: rgba(79, 195, 247, 0.6);
+                }
+
+                .search input:focus::placeholder {
+                    opacity: 0.7;
+                    transform: translateX(5px);
+                }
+            </style>
+        </head>
+
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search apps..." oninput="searchGames()">
+            <button type="button"><i class="fas fa-search"></i></button>
+        </div>
+
+        <script>
+            function searchGames() {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const gameElements = document.querySelectorAll('#games a');
+                const gamesContainer = document.getElementById('games');
+                
+                gameElements.forEach(game => {
+                    const gameName = game.querySelector('img').getAttribute('alt').toLowerCase();
+                    if (gameName.includes(searchTerm)) {
+                        game.style.display = 'inline-block';
+                    } else {
+                        game.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+
+        <style>
+            #games {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            #games a {
+                flex: 0 0 auto;
+                width: 200px;
+                height: 200px;
+                display: inline-block;
+            }
+
+            #games img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            body {
+                background-attachment: fixed !important;
+                min-height: 100vh;
+            }
+        </style>
+
+        <script>
+            // Check if access is granted
+            if (!sessionStorage.getItem('accessGranted')) {
+                // Redirect to login page
+                window.location.href = 'index.html';
+            }
+            
+            // Search functionality
+            function searchGames() {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const gameElements = document.querySelectorAll('#games a');
+                
+                gameElements.forEach(game => {
+                    const gameName = game.getAttribute('alt') || game.querySelector('img').getAttribute('alt').toLowerCase();
+                    if (gameName.includes(searchTerm)) {
+                        game.style.display = 'block';
+                    } else {
+                        game.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Logout functionality
+            document.getElementById('logout').addEventListener('click', function() {
+                sessionStorage.removeItem('accessGranted');
+                window.location.href = 'index.html';
+            });
+        </script>
+
+        <div id="games">
+            <a href="https://chromewebstore.google.com/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=en" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA" alt="google translate"></a>
+            <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><img src="images/hf-logo.svg" alt="huggingface"></a>
+            <a href="https://aifaceswap.io/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/iB6PUkP6Cbo0D75sE3rrt0rO_RsaKzUWiP7PvejvfDZC2Bvj0GQHsNDfjMAGMQ5Jew=w240-h480-rw" alt="faceswap"></a>
+            <a href="https://gptzero.me/" target="_blank" rel="noopener noreferrer"><img src="https://images.seeklogo.com/logo-png/51/1/gptzero-logo-png_seeklogo-512553.png" alt="gptzero"></a>
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/lmG9HlI0awHie0cyBieWXeNjpyXvHPwDBb8MNOVIyp0P8VEh95AiBHtUZSDVR3HLe3A" alt="Chatgpt ai"></a>
+            <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer"><img src="https://custom.typingmind.com/assets/models/microsoft-copilot.png" alt="microsoft copilot ai"></a>
+            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/4S1nfdKsH_1tJodkHrBHimqlCTE6qx6z22zpMyPaMc_Rlr1EdSFDI1I6UEVMnokG5zI=w240-h480-rw" alt="claude ai"></a>
+            <a href="https://chat.qwen.ai/" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/141221163?s=200&v=4" alt="Qwen ai"></a>
+            <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/6STp0lYx2ctvQ-JZpXA1LeAAZIlq6qN9gpy7swLPlRhmp-hfvZePcBxqwVkqN2BH1g" alt="perplexity ai"></a>
+            <a href="https://www.turbolearn.ai/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/c678Vjj3oQ8UmrDCYzczS6JDcFor4XxHLnc2gAW9Wk_pbE3KEMw1WZk-rTPucPoV7Sg=w240-h480-rw" alt="turbo learn ai"></a>
+            <a href="https://firefly.adobe.com/?media=featured" target="_blank" rel="noopener noreferrer"><img src="images/adobe-firefly.webp" alt="adobe firefly ai"></a>
+            <a href="https://tvpass.org/channels" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/3845/3845752.png" alt="tvpass"></a>
+            <a href="https://home.by.me/en/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/EP6upfxog-LOcXgvU1lXFwYpIgCnuQIqrxt8jvMOKsfV6MhxFUO7w97n0zz8YkS0lp4" alt="Home by me"></a>
+            <a href="https://www.remove.bg" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/4kF2IUQxdLs86iAVsmnHA1B34uO-dvtszKM8qzscc1InZb-2_JI0WANyOiWiV3qyNg" alt="remove background"></a>
+            <a href="https://www.napkin.ai/" target="_blank" rel="noopener noreferrer"><img src="https://www.napkin.ai/apple-touch-icon.png" alt="napkin ai"></a>
+            <a href="https://chatedu.io/en" target="_blank" rel="noopener noreferrer"><img src="https://chatedu.io/_next/image?url=%2Flogo.png&w=256&q=75" alt="chatedu ai"></a>
+            <a href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/OceHg5bH7EsTRwl-lD7jjV9WM0mpj0oH4YfA-CSbjvfa7NCLQBu5-4cLwNlDvCUp5Q4=w240-h480-rw" alt="wolfram alpha"></a>
+            <a href="https://www.3dtuning.com/en-US/" target="_blank" rel="noopener noreferrer"><img src="images/3dturning.webp" alt="3dtuning"></a>
+        </div>
+
+
+
+
+
+            
+
+
+
+
+ 
+    </div>
+
+    <!-- Keep only this nav bar at the bottom -->
+    <div class="nav-button-container">
+        <button class="nav-button" onclick="window.location.href='games.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024" stroke-width="0" fill="currentColor" stroke="currentColor" class="nav-icon">
+                <path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path>
+            </svg>
+        </button>
+        <button class="nav-button" onclick="window.location.href='games/Chat.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+        </button>
+        <button class="nav-button" onclick="window.location.href='settings.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0" class="nav-icon">
+                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+        </button>
+        <button id="panicButton" class="nav-button panic-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+        </button>
+        <button class="nav-button logout" onclick="window.location.href='index.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Add panic button functionality -->
+    <script>
+        // Panic button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const panicButton = document.getElementById('panicButton');
+            if (panicButton) {
+                panicButton.addEventListener('click', function() {
+                    const panicSettings = JSON.parse(localStorage.getItem('panicKey') || '{}');
+                    if (panicSettings.url) {
+                        window.location.href = panicSettings.url;
+                    } else {
+                        alert('Please set up a panic URL in settings first');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="tabCloak.js"></script>
+<style>
+    #games a {
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+    }
+
+    #games a:active {
+        transform: scale(0.92);
+        filter: brightness(0.8);
+    }
+
+    #games a::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    #games a:active::after {
+        opacity: 1;
+        animation: ripple 0.4s ease-out;
+    }
+
+    @keyframes ripple {
+        0% {
+            transform: scale(1);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+    }
+
+    #games img {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    #games a:hover img {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+</style>
+<script>
+    // Apply cloak on page load
+    window.addEventListener('load', function() {
+        const savedCloak = localStorage.getItem('tabCloak');
+        if (savedCloak) {
+            const cloak = JSON.parse(savedCloak);
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = cloak.icon;
+            document.head.appendChild(newFavicon);
+            document.title = cloak.title;
+        }
+    });
+</script>
+<script src="panicKey.js"></script>
+</body>
+</html>
+<script src="backgroundTheme.js"></script>
+</body>
+</html>

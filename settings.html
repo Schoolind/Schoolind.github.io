@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="icon" type="image/x-icon" href="images/DALL·E 2025-03-20 18.25.01 - A modern and professional logo featuring the words 'School' and 'UK'. The design should be clean and sleek, incorporating elements such as a book, a g (2).ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        .settings-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: linear-gradient(145deg, #2d2d2d, #222);
+            border-radius: 16px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #4fc3f7;
+            text-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .setting-box {
+            background: linear-gradient(to right, #3d3d3d, #333);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #4fc3f7;
+        }
+
+        .setting-title {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #4fc3f7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .setting-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #4fc3f7;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4fc3f7;
+        }
+
+        button:hover {
+            background: rgba(79, 195, 247, 0.2);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .setting-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .setting-title {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #4fc3f7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .setting-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #4fc3f7;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4fc3f7;
+        }
+
+        .setting-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        button {
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover::after {
+            opacity: 1;
+        }
+
+        .tab-icon {
+            width: 32px;
+            height: 32px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+        }
+
+        button:hover {
+            background: rgba(76, 175, 80, 0.2);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        button:hover .tab-icon {
+            transform: scale(1.2);
+            filter: brightness(1.3) drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        .default-icon {
+            color: #ff4444;
+            font-size: 32px;
+            width: 32px;
+            height: 32px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.3));
+        }
+
+        button:hover .default-icon {
+            transform: rotate(90deg) scale(1.2);
+            filter: brightness(1.3) drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+        }
+
+        .default-button {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+
+        .default-button:hover {
+            background: rgba(255, 68, 68, 0.2);
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Removing the first settings-container div that was duplicated -->
+    
+    <script>
+        // Apply saved cloak on page load
+        window.addEventListener('load', function() {
+            const savedCloak = localStorage.getItem('tabCloak');
+            if (savedCloak) {
+                const cloak = JSON.parse(savedCloak);
+                applyTabCloak(cloak);
+            }
+        });
+
+        // Add the savePanicUrl function
+        function savePanicUrl() {
+            let url = document.getElementById('panicUrl').value;
+            
+            if (!url) {
+                alert('Please enter a valid URL');
+                return;
+            }
+
+            // Add https:// if not present
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+
+            localStorage.setItem('panicKey', JSON.stringify({ url }));
+            alert('Panic URL saved!');
+        }
+
+        function setTabCloak(cloak) {
+            let title, icon;
+
+            switch(cloak) {
+                case 'google':
+                    title = 'Google';
+                    icon = 'https://www.google.com/favicon.ico';
+                    break;
+                case 'drive':
+                    title = 'Google Drive';
+                    icon = 'https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png';
+                    break;
+                case 'powerschool':
+                    title = 'Grades and Attendance';
+                    icon = 'images/powerschool.webp';
+                    break;
+                case 'docs':
+                    title = 'Google Docs';
+                    icon = 'https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico';
+                    break;
+                case 'classroom':
+                    title = 'Google Classroom';
+                    icon = 'https://ssl.gstatic.com/classroom/favicon.png';
+                    break;
+                case 'canvas':
+                    title = 'Canvas';
+                    icon = 'https://instructure-uploads.s3.amazonaws.com/account_57310000000000001/attachments/3319/favicon.ico?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&Expires=1912675353&Signature=JHdDn8qhskjryamL%2B6uQkbpO6wE%3D&response-cache-control=Cache-Control%3Amax-age%3D473364000%2C%20public&response-expires=473364000';
+                    break;
+                case 'duolingo':
+                    title = "The world's best way to learn Spanish";
+                    icon = 'https://d35aaqx5ub95lt.cloudfront.ne    t/favicon.ico';
+                    break;
+                case 'ixl':
+                    title = 'IXL | Math, Language Arts, Science, Social Studies, and Spanish';
+                    icon = 'https://www.ixl.com/favicon.ico';
+                    break;
+                default:
+                    title = 'SchoolUK';
+                    icon = 'images/DALL·E 2025-03-20 18.25.01 - A modern and professional logo featuring the words \'School\' and \'UK\'. The design should be clean and sleek, incorporating elements such as a book, a g (2).ico';
+            }
+
+            // Remove existing favicon
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
+
+            // Create new favicon link
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = icon;
+            document.head.appendChild(newFavicon);
+
+            // Update title and save settings
+            document.title = title;
+            localStorage.setItem('tabCloak', JSON.stringify({ title, icon }));
+        }
+    </script>
+    <script src="/checkAccess.js"></script>
+    <script src="tabCloak.js"></script>
+<script>
+        // Apply cloak on page load
+        window.addEventListener('load', function() {
+            const savedCloak = localStorage.getItem('tabCloak');
+            if (savedCloak) {
+                const cloak = JSON.parse(savedCloak);
+                const existingFavicon = document.querySelector("link[rel*='icon']");
+                if (existingFavicon) {
+                    existingFavicon.remove();
+                }
+                const newFavicon = document.createElement('link');
+                newFavicon.rel = 'icon';
+                newFavicon.type = 'image/x-icon';
+                newFavicon.href = cloak.icon;
+                document.head.appendChild(newFavicon);
+                document.title = cloak.title;
+            }
+        });
+    </script>
+<script>
+        // Panic Key functionality
+// Remove duplicate declaration since panicKeyInput is already declared elsewhere
+        
+        function savePanicKey() {
+            let url = document.getElementById('panicUrl').value;
+            const key = document.getElementById('panicKey').value.toLowerCase();
+            
+            if (!url) {
+                alert('Please enter a valid URL');
+                return;
+            }
+            if (!key) {
+                alert('Please enter a key');
+                return;
+            }
+
+            // Add https:// if not present
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+
+            localStorage.setItem('panicKey', JSON.stringify({ url, key }));
+            alert('Panic key saved!');
+        }
+
+        // Add key listener for panic key activation
+        document.addEventListener('keydown', function(event) {
+            const panicSettings = JSON.parse(localStorage.getItem('panicKey') || '{}');
+            if (panicSettings.key && event.key.toLowerCase() === panicSettings.key.toLowerCase()) {
+                window.location.href = panicSettings.url;
+            }
+        });
+
+        // Load saved panic key settings
+        window.addEventListener('load', function() {
+            const panicSettings = JSON.parse(localStorage.getItem('panicKey') || '{}');
+            if (panicSettings.url) {
+                document.getElementById('panicUrl').value = panicSettings.url;
+                document.getElementById('panicKey').value = panicSettings.key;
+            }
+        });
+    </script>
+<script>
+        // Panic Key functionality
+        const panicKeyInput = document.getElementById('panicKey');
+        
+        function savePanicKey() {
+            let url = document.getElementById('panicUrl').value;
+            const key = document.getElementById('panicKey').value.toLowerCase();
+            
+            if (!url) {
+                alert('Please enter a valid URL');
+                return;
+            }
+            if (!key) {
+                alert('Please enter a key');
+                return;
+            }
+
+            // Add https:// if not present
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+
+            localStorage.setItem('panicKey', JSON.stringify({ url, key }));
+            alert('Panic key saved!');
+        }
+
+        // Add key listener for panic key activation
+        document.addEventListener('keydown', function(event) {
+            const panicSettings = JSON.parse(localStorage.getItem('panicKey') || '{}');
+            if (panicSettings.key && event.key.toLowerCase() === panicSettings.key.toLowerCase()) {
+                window.location.href = panicSettings.url;
+            }
+        });
+
+        // Load saved panic key settings
+        window.addEventListener('load', function() {
+            const panicSettings = JSON.parse(localStorage.getItem('panicKey') || '{}');
+            if (panicSettings.url) {
+                document.getElementById('panicUrl').value = panicSettings.url;
+                document.getElementById('panicKey').value = panicSettings.key;
+            }
+        });
+    </script>
+<style>
+        input[type="text"], input[type="url"] {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid #4fc3f7;
+            border-radius: 12px;
+            color: #4fc3f7;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(79, 195, 247, 0.1),
+                        inset 0 0 15px rgba(79, 195, 247, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        input[type="text"]:focus, input[type="url"]:focus {
+            background: rgba(40, 40, 40, 0.9);
+            border-color: #4fc3f7;
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.2),
+                        inset 0 0 20px rgba(79, 195, 247, 0.1);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        input[type="text"]::placeholder, input[type="url"]::placeholder {
+            color: rgba(79, 195, 247, 0.4);
+            font-style: italic;
+        }
+
+        input[type="text"]:hover, input[type="url"]:hover {
+            border-color: #64d8ff;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.15),
+                        inset 0 0 15px rgba(79, 195, 247, 0.08);
+        }
+    </style>
+
+    <div class="settings-container">
+        <h1>Settings</h1>
+        
+        <div class="setting-box">
+            <div class="setting-title">
+                <i class="fas fa-shield-alt"></i>
+                Tab Cloaking
+            </div>
+            <div class="setting-content">
+                <button onclick="setTabCloak('google')">
+                    <img src="https://www.google.com/favicon.ico" alt="Google" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('drive')">
+                    <img src="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png" alt="Drive" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('powerschool')">
+                    <img src="images/powerschool.webp" alt="PowerSchool" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('docs')">
+                    <img src="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" alt="Docs" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('classroom')">
+                    <img src="https://ssl.gstatic.com/classroom/favicon.png" alt="Classroom" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('canvas')">
+                    <img src="https://instructure-uploads.s3.amazonaws.com/account_57310000000000001/attachments/3319/favicon.ico?AWSAccessKeyId=AKIAJFNFXH2V2O7RPCAA&Expires=1912675353&Signature=JHdDn8qhskjryamL%2B6uQkbpO6wE%3D&response-cache-control=Cache-Control%3Amax-age%3D473364000%2C%20public&response-expires=473364000" alt="Canvas" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('duolingo')">
+                    <img src="https://d35aaqx5ub95lt.cloudfront.net/favicon.ico" alt="Duolingo" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('ixl')">
+                    <img src="https://www.ixl.com/favicon.ico" alt="IXL" class="tab-icon">
+                </button>
+                <button onclick="setTabCloak('default')" class="default-button">
+                    <i class="fas fa-times default-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="setting-box">
+            <div class="setting-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                Panic Button
+            </div>
+            <div class="setting-content" style="display: block;">
+                <div style="margin-bottom: 15px;">
+                    <input type="url" id="panicUrl" placeholder="Enter URL (e.g., https://google.com)" 
+                           style="width: 100%; padding: 10px; background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); 
+                                  border-radius: 8px; color: white; margin-bottom: 10px;">
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <button onclick="savePanicUrl()" style="width: auto; padding: 10px 20px;">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        .theme-button {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            margin: 5px;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-preview {
+            width: 100%;
+            height: 45px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-button span {
+            font-size: 12px;
+            color: #4fc3f7;
+        }
+
+        .theme-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+        }
+
+        .theme-button:hover .theme-preview {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+        }
+    </style>
+    <script src="backgroundTheme.js"></script>
+</body>
+</html>
+
+<!-- Add the navigation bar from games.html -->
+<!-- Keep only this nav bar at the bottom -->
+    <div class="nav-button-container">
+        <button class="nav-button" onclick="window.location.href='games.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024" stroke-width="0" fill="currentColor" stroke="currentColor" class="nav-icon">
+                <path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path>
+            </svg>
+        </button>
+        <button class="nav-button" onclick="window.location.href='games/Chat.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+        </button>
+        <button class="nav-button" onclick="window.location.href='settings.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0" class="nav-icon">
+                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+        </button>
+        <button id="panicButton" class="nav-button panic-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+        </button>
+        <button class="nav-button logout" onclick="window.location.href='index.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Add panic button functionality -->
+    <script>
+        // Panic button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const panicButton = document.getElementById('panicButton');
+            if (panicButton) {
+                panicButton.addEventListener('click', function() {
+                    const panicSettings = JSON.parse(localStorage.getItem('panicKey') || '{}');
+                    if (panicSettings.url) {
+                        window.location.href = panicSettings.url;
+                    } else {
+                        alert('Please set up a panic URL in settings first');
+                    }
+                });
+            }
+        });
+    </script>

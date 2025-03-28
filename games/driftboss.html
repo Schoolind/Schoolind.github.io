@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
+  <style>
+
+
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: hsl(226, 97%, 62%)
+    }
+
+    iframe {
+      border: none;
+      border-radius: none;
+      width: 100%; /* 100% of the viewport width */
+      height: 100vh; /* 100% of the viewport height */
+    }
+
+   
+  
+  </style>
+</head>
+<body>
+  
+  <iframe 
+    id="myIframe" 
+    src="https://driftbossonline.github.io/file/">
+  </iframe>
+<script src="/checkAccess.js"></script>
+<script>
+    // Apply cloak on page load
+    window.addEventListener('load', function() {
+        const savedCloak = localStorage.getItem('tabCloak');
+        if (savedCloak) {
+            const cloak = JSON.parse(savedCloak);
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = cloak.icon;
+            document.head.appendChild(newFavicon);
+            document.title = cloak.title;
+        }
+    });
+</script>
+<link rel="stylesheet" href="../navbar.css">
+<script src="../navbar.js"></script>
+<script src="../panicKey.js"></script>
+<script src="../backgroundTheme.js"></script>
+</body>
+
+</body>
+
+</html>

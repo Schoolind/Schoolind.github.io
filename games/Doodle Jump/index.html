@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Doodle Jump</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="canvas">Aww, your browser doesn't support HTML5!</canvas>
+        <div id="mainMenu">
+            <h1>Doodle Jump</h1>
+            <h3>Welcome to the Game!</h3>
+            <p class="info">Use <span class="key left">←</span> <span class="key right">→</span> to move<br>Press Space to start</p>
+            <a class="button" href="javascript:init()">Play Game</a>
+        </div>
+        <div id="gameOverMenu">
+            <h1>Game Over</h1>
+            <h3 id="go_score">Your Score: 0</h3>
+            <a class="button" href="javascript:reset()">Play Again</a>
+        </div>
+        <img id="sprite" src="sprites.png" />
+        <div id="scoreBoard">
+            <p id="score">0</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="../../navbar.css">
+    <script src="../../navbar.js"></script>
+    <script src="../../panicKey.js"></script>
+    <script src="tabCloak.js"></script>
+    <script>
+        // Apply cloak on page load
+        window.addEventListener('load', function() {
+            const savedCloak = localStorage.getItem('tabCloak');
+            if (savedCloak) {
+                const cloak = JSON.parse(savedCloak);
+                const existingFavicon = document.querySelector("link[rel*='icon']");
+                if (existingFavicon) {
+                    existingFavicon.remove();
+                }
+                const newFavicon = document.createElement('link');
+                newFavicon.rel = 'icon';
+                newFavicon.type = 'image/x-icon';
+                newFavicon.href = cloak.icon;
+                document.head.appendChild(newFavicon);
+                document.title = cloak.title;
+            }
+        });
+    </script>
+    <script src="/checkAccess.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>Boxing Random</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <meta name="generator" content="Scirra Construct" />
+    <link rel="manifest" href="appmanifest.json" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script>
+        if (location.protocol.substr(0, 4) === "file") {
+            alert("Web exports won't work until you upload them. (When running on the file: protocol, browsers block many features from working for security reasons.)");
+        }
+    </script>
+    <script src="box2d.wasm.js"></script>
+    <noscript>
+      <div id="notSupportedWrap">
+        <h2 id="notSupportedTitle">This content requires JavaScript</h2>
+        <p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+      </div>
+    </noscript>
+    <script src="scripts/supportcheck.js"></script>
+    <script src="scripts/offlineclient.js" type="module"></script>
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/register-sw.js" type="module"></script>
+    <link rel="stylesheet" href="../../navbar.css">
+    <script src="../../navbar.js"></script>
+    <script src="../../panicKey.js"></script>
+    <script src="tabCloak.js"></script>
+    <script>
+        // Apply cloak on page load
+        window.addEventListener('load', function() {
+            const savedCloak = localStorage.getItem('tabCloak');
+            if (savedCloak) {
+                const cloak = JSON.parse(savedCloak);
+                const existingFavicon = document.querySelector("link[rel*='icon']");
+                if (existingFavicon) {
+                    existingFavicon.remove();
+                }
+                const newFavicon = document.createElement('link');
+                newFavicon.rel = 'icon';
+                newFavicon.type = 'image/x-icon';
+                newFavicon.href = cloak.icon;
+                document.head.appendChild(newFavicon);
+                document.title = cloak.title;
+            }
+        });
+    </script>
+    <script src="/checkAccess.js"></script>
+    <!-- Full file list: offline.json -->
+</body>
+
+</html>
