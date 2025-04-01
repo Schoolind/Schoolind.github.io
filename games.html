@@ -173,11 +173,102 @@
                 padding: 20px;
             }
 
+            /* Add styles for favorites section */
+            #favorites-section {
+                margin-top: 20px;
+                margin-bottom: 30px;// ... existing code ...
+#favorites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    min-height: 100px;
+}
+
+#favorites a {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+}
+
+#favorites img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+// ... existing code ...
+                border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+                padding-bottom: 20px;
+            }
+
+            #favorites-header {
+                color: #4fc3f7;
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            #favorites {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                padding: 10px;
+                min-height: 100px;
+            }
+
+            #no-favorites {
+                color: rgba(255, 255, 255, 0.7);
+                text-align: center;
+                width: 100%;
+                padding: 30px;
+                font-style: italic;
+            }
+
+            /* Star icon styles */
+            .favorite-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.5);
+                border: none;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 10;
+                transition: all 0.2s ease;
+            }
+
+            .favorite-btn:hover {
+                transform: scale(1.1);
+                background: rgba(0, 0, 0, 0.7);
+            }
+
+            .favorite-btn i {
+                color: #ddd;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+            .favorite-btn.active i {
+                color: #FFD700;
+            }
+
             #games a {
                 flex: 0 0 auto;
                 width: 200px;
                 height: 200px;
                 display: inline-block;
+                position: relative;
             }
 
             #games img {
@@ -214,12 +305,127 @@
                 });
             }
             
+            // Favorites functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                // Load favorites from localStorage
+                let favorites = JSON.parse(localStorage.getItem('gameFavorites') || '[]');
+                
+                // Initialize favorites section
+                updateFavoritesSection();
+                
+                // Add star buttons to all games
+                const gameLinks = document.querySelectorAll('#games a');
+                gameLinks.forEach(game => {
+                    const gamePath = game.getAttribute('href');
+                    const gameImg = game.querySelector('img');
+                    const gameName = gameImg.getAttribute('alt');
+                    
+                    // Create star button
+                    const starBtn = document.createElement('button');
+                    starBtn.className = 'favorite-btn';
+                    starBtn.innerHTML = '<i class="fas fa-star"></i>';
+                    
+                    // Check if this game is already a favorite
+                    if (favorites.some(fav => fav.path === gamePath)) {
+                        starBtn.classList.add('active');
+                    }
+                    
+                    // Add click event to star button
+                    starBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Toggle favorite status
+                        if (starBtn.classList.contains('active')) {
+                            // Remove from favorites
+                            favorites = favorites.filter(fav => fav.path !== gamePath);
+                            starBtn.classList.remove('active');
+                        } else {
+                            // Add to favorites
+                            favorites.push({
+                                name: gameName,
+                                path: gamePath,
+                                img: gameImg.getAttribute('src')
+                            });
+                            starBtn.classList.add('active');
+                        }
+                        
+                        // Save to localStorage
+                        localStorage.setItem('gameFavorites', JSON.stringify(favorites));
+                        
+                        // Update favorites section
+                        updateFavoritesSection();
+                    });
+                    
+                    // Add star button to game
+                    game.appendChild(starBtn);
+                });
+                
+                // Function to update favorites section
+                function updateFavoritesSection() {
+                    const favoritesContainer = document.getElementById('favorites');
+                    favoritesContainer.innerHTML = '';
+                    
+                    if (favorites.length === 0) {
+                        const noFavs = document.createElement('div');
+                        noFavs.id = 'no-favorites';
+                        noFavs.textContent = 'Star your favorite games to see them here!';
+                        favoritesContainer.appendChild(noFavs);
+                        return;
+                    }
+                    
+                    // Add each favorite game to the favorites section
+                    favorites.forEach(fav => {
+                        const favLink = document.createElement('a');
+                        favLink.href = fav.path;
+                        
+                        const favImg = document.createElement('img');
+                        favImg.src = fav.img;
+                        favImg.alt = fav.name;
+                        
+                        const removeBtn = document.createElement('button');
+                        removeBtn.className = 'favorite-btn active';
+                        removeBtn.innerHTML = '<i class="fas fa-star"></i>';
+                        
+                        removeBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Remove from favorites
+                            favorites = favorites.filter(f => f.path !== fav.path);
+                            localStorage.setItem('gameFavorites', JSON.stringify(favorites));
+                            
+                            // Update star on main game list
+                            const mainGameBtn = document.querySelector(`#games a[href="${fav.path}"] .favorite-btn`);
+                            if (mainGameBtn) {
+                                mainGameBtn.classList.remove('active');
+                            }
+                            
+                            // Update favorites section
+                            updateFavoritesSection();
+                        });
+                        
+                        favLink.appendChild(favImg);
+                        favLink.appendChild(removeBtn);
+                        favoritesContainer.appendChild(favLink);
+                    });
+                }
+            });
+            
             // Logout functionality
             document.getElementById('logout').addEventListener('click', function() {
                 sessionStorage.removeItem('accessGranted');
                 window.location.href = 'index.html';
             });
         </script>
+
+        <!-- Add favorites section before the games list -->
+        <div id="favorites-section">
+            <h2 id="favorites-header">My Favorites</h2>
+            <div id="favorites">
+                <div id="no-favorites">Star your favorite games to see them here!</div>
+            </div>
+        </div>
 
         <div id="games">
             <a href="games\ovo\index.html"><img src="images/OvO.png" alt="ovo"></a>
@@ -402,80 +608,242 @@
     </script>
     <script src="tabCloak.js"></script>
 <style>
-    #games a {
-        display: inline-block;
-        position: relative;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-origin: center;
-    }
-
-    #games a:active {
-        transform: scale(0.92);
-        filter: brightness(0.8);
-    }
-
-    #games a::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-    }
-
-    #games a:active::after {
-        opacity: 1;
-        animation: ripple 0.4s ease-out;
-    }
-
-    @keyframes ripple {
-        0% {
-            transform: scale(1);
-            opacity: 0.5;
-        }
-        100% {
-            transform: scale(1.2);
-            opacity: 0;
-        }
-    }
-
-    #games img {
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    #games a:hover img {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
-</style>
-<script>
-    // Apply cloak on page load
-    window.addEventListener('load', function() {
-        const savedCloak = localStorage.getItem('tabCloak');
-        if (savedCloak) {
-            const cloak = JSON.parse(savedCloak);
-            const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) {
-                existingFavicon.remove();
+            #games {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                padding: 20px;
             }
-            const newFavicon = document.createElement('link');
-            newFavicon.rel = 'icon';
-            newFavicon.type = 'image/x-icon';
-            newFavicon.href = cloak.icon;
-            document.head.appendChild(newFavicon);
-            document.title = cloak.title;
-        }
-    });
-</script>
-<script src="panicKey.js"></script>
-</body>
-</html>
-<script src="backgroundTheme.js"></script>
-</body>
-</html>
+
+            /* Add styles for favorites section */
+            #favorites-section {
+                margin-top: 20px;
+                margin-bottom: 30px;
+                border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+                padding-bottom: 20px;
+            }
+
+            #favorites-header {
+                color: #4fc3f7;
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            #favorites {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                padding: 10px;
+                min-height: 100px;
+            }
+
+            #no-favorites {
+                color: rgba(255, 255, 255, 0.7);
+                text-align: center;
+                width: 100%;
+                padding: 30px;
+                font-style: italic;
+            }
+
+            /* Star icon styles */
+            .favorite-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.5);
+                border: none;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 10;
+                transition: all 0.2s ease;
+            }
+
+            .favorite-btn:hover {
+                transform: scale(1.1);
+                background: rgba(0, 0, 0, 0.7);
+            }
+
+            .favorite-btn i {
+                color: #ddd;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+            .favorite-btn.active i {
+                color: #FFD700;
+            }
+
+            #games a {
+                flex: 0 0 auto;
+                width: 200px;
+                height: 200px;
+                display: inline-block;
+                position: relative;
+            }
+
+            #games img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            body {
+                background-attachment: fixed !important;
+                min-height: 100vh;
+            }
+        </style>
+
+        <script>
+            // Check if access is granted
+            if (!sessionStorage.getItem('accessGranted')) {
+                // Redirect to login page
+                window.location.href = 'index.html';
+            }
+            
+            // Search functionality
+            function searchGames() {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const gameElements = document.querySelectorAll('#games a');
+                
+                gameElements.forEach(game => {
+                    const gameName = game.getAttribute('alt') || game.querySelector('img').getAttribute('alt').toLowerCase();
+                    if (gameName.includes(searchTerm)) {
+                        game.style.display = 'block';
+                    } else {
+                        game.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Favorites functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                // Load favorites from localStorage
+                let favorites = JSON.parse(localStorage.getItem('gameFavorites') || '[]');
+                
+                // Initialize favorites section
+                updateFavoritesSection();
+                
+                // Add star buttons to all games
+                const gameLinks = document.querySelectorAll('#games a');
+                gameLinks.forEach(game => {
+                    const gamePath = game.getAttribute('href');
+                    const gameImg = game.querySelector('img');
+                    const gameName = gameImg.getAttribute('alt');
+                    
+                    // Create star button
+                    const starBtn = document.createElement('button');
+                    starBtn.className = 'favorite-btn';
+                    starBtn.innerHTML = '<i class="fas fa-star"></i>';
+                    
+                    // Check if this game is already a favorite
+                    if (favorites.some(fav => fav.path === gamePath)) {
+                        starBtn.classList.add('active');
+                    }
+                    
+                    // Add click event to star button
+                    starBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Toggle favorite status
+                        if (starBtn.classList.contains('active')) {
+                            // Remove from favorites
+                            favorites = favorites.filter(fav => fav.path !== gamePath);
+                            starBtn.classList.remove('active');
+                        } else {
+                            // Add to favorites
+                            favorites.push({
+                                name: gameName,
+                                path: gamePath,
+                                img: gameImg.getAttribute('src')
+                            });
+                            starBtn.classList.add('active');
+                        }
+                        
+                        // Save to localStorage
+                        localStorage.setItem('gameFavorites', JSON.stringify(favorites));
+                        
+                        // Update favorites section
+                        updateFavoritesSection();
+                    });
+                    
+                    // Add star button to game
+                    game.appendChild(starBtn);
+                });
+                
+                // Function to update favorites section
+                function updateFavoritesSection() {
+                    const favoritesContainer = document.getElementById('favorites');
+                    favoritesContainer.innerHTML = '';
+                    
+                    if (favorites.length === 0) {
+                        const noFavs = document.createElement('div');
+                        noFavs.id = 'no-favorites';
+                        noFavs.textContent = 'Star your favorite games to see them here!';
+                        favoritesContainer.appendChild(noFavs);
+                        return;
+                    }
+                    
+                    // Add each favorite game to the favorites section
+                    favorites.forEach(fav => {
+                        const favLink = document.createElement('a');
+                        favLink.href = fav.path;
+                        
+                        const favImg = document.createElement('img');
+                        favImg.src = fav.img;
+                        favImg.alt = fav.name;
+                        
+                        const removeBtn = document.createElement('button');
+                        removeBtn.className = 'favorite-btn active';
+                        removeBtn.innerHTML = '<i class="fas fa-star"></i>';
+                        
+                        removeBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Remove from favorites
+                            favorites = favorites.filter(f => f.path !== fav.path);
+                            localStorage.setItem('gameFavorites', JSON.stringify(favorites));
+                            
+                            // Update star on main game list
+                            const mainGameBtn = document.querySelector(`#games a[href="${fav.path}"] .favorite-btn`);
+                            if (mainGameBtn) {
+                                mainGameBtn.classList.remove('active');
+                            }
+                            
+                            // Update favorites section
+                            updateFavoritesSection();
+                        });
+                        
+                        favLink.appendChild(favImg);
+                        favLink.appendChild(removeBtn);
+                        favoritesContainer.appendChild(favLink);
+                    });
+                }
+            });
+            
+            // Logout functionality
+            document.getElementById('logout').addEventListener('click', function() {
+                sessionStorage.removeItem('accessGranted');
+                window.location.href = 'index.html';
+            });
+        </script>
+
+        <!-- Add favorites section before the games list -->
+        <div id="favorites-section">
+            <h2 id="favorites-header">My Favorites</h2>
+            <div id="favorites">
+                <div id="no-favorites">Star your favorite games to see them here!</div>
+            </div>
+        </div>
+
+
