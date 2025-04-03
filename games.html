@@ -408,22 +408,31 @@
                         favImg.src = fav.img;
                         favImg.alt = fav.name;
                         
-                        favLink.appendChild(favImg);
-                        favoritesContainer.appendChild(favLink);
-                    });
-
-                    // Update all star buttons in the main games list
-                    const gameLinks = document.querySelectorAll('#games a');
-                    gameLinks.forEach(game => {
-                        const gamePath = game.getAttribute('href');
-                        const starBtn = game.querySelector('.favorite-btn');
-                        if (starBtn) {
-                            if (favorites.some(fav => fav.path === gamePath)) {
-                                starBtn.classList.add('active');
-                            } else {
-                                starBtn.classList.remove('active');
+                        const removeBtn = document.createElement('button');
+                        removeBtn.className = 'favorite-btn active';
+                        removeBtn.innerHTML = '<i class="fas fa-star"></i>';
+                        
+                        removeBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Remove from favorites
+                            favorites = favorites.filter(f => f.path !== fav.path);
+                            localStorage.setItem('gameFavorites', JSON.stringify(favorites));
+                            
+                            // Update star on main game list
+                            const mainGameBtn = document.querySelector(`#games a[href="${fav.path}"] .favorite-btn`);
+                            if (mainGameBtn) {
+                                mainGameBtn.classList.remove('active');
                             }
-                        }
+                            
+                            // Update favorites section
+                            updateFavoritesSection();
+                        });
+                        
+                        favLink.appendChild(favImg);
+                        favLink.appendChild(removeBtn);
+                        favoritesContainer.appendChild(favLink);
                     });
                 }
             });
@@ -876,22 +885,31 @@
                         favImg.src = fav.img;
                         favImg.alt = fav.name;
                         
-                        favLink.appendChild(favImg);
-                        favoritesContainer.appendChild(favLink);
-                    });
-
-                    // Update all star buttons in the main games list
-                    const gameLinks = document.querySelectorAll('#games a');
-                    gameLinks.forEach(game => {
-                        const gamePath = game.getAttribute('href');
-                        const starBtn = game.querySelector('.favorite-btn');
-                        if (starBtn) {
-                            if (favorites.some(fav => fav.path === gamePath)) {
-                                starBtn.classList.add('active');
-                            } else {
-                                starBtn.classList.remove('active');
+                        const removeBtn = document.createElement('button');
+                        removeBtn.className = 'favorite-btn active';
+                        removeBtn.innerHTML = '<i class="fas fa-star"></i>';
+                        
+                        removeBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Remove from favorites
+                            favorites = favorites.filter(f => f.path !== fav.path);
+                            localStorage.setItem('gameFavorites', JSON.stringify(favorites));
+                            
+                            // Update star on main game list
+                            const mainGameBtn = document.querySelector(`#games a[href="${fav.path}"] .favorite-btn`);
+                            if (mainGameBtn) {
+                                mainGameBtn.classList.remove('active');
                             }
-                        }
+                            
+                            // Update favorites section
+                            updateFavoritesSection();
+                        });
+                        
+                        favLink.appendChild(favImg);
+                        favLink.appendChild(removeBtn);
+                        favoritesContainer.appendChild(favLink);
                     });
                 }
             });
