@@ -78,92 +78,6 @@
     <div class="content">
 
 
-        <head>
-            <style>
-                .search {
-                    display: flex;
-                    justify-content: center;
-                    margin: 20px auto;
-                    max-width: 600px;
-                    position: relative;
-                }
-
-                .search input {
-                    width: 100%;
-                    padding: 15px 20px;
-                    border: 2px solid #4fc3f7;
-                    border-radius: 25px;
-                    font-size: 16px;
-                    background: rgba(30, 30, 30, 0.8);
-                    color: #fff;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 0 10px rgba(79, 195, 247, 0.1);
-                }
-
-                .search button {
-                    position: absolute;
-                    right: 15px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: none;
-                    border: none;
-                    padding: 10px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                }
-
-                .search button i {
-                    color: #4fc3f7;
-                    font-size: 20px;
-                    transition: all 0.3s ease;
-                }
-
-                .search input:focus {
-                    outline: none;
-                    border-color: #64d8ff;
-                    box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
-                    transform: translateY(-2px);
-                }
-
-                .search input:focus + button i,
-                .search button:hover i {
-                    color: #64d8ff;
-                    transform: scale(1.1);
-                }
-
-                .search input::placeholder {
-                    color: rgba(79, 195, 247, 0.6);
-                }
-
-                .search input:focus::placeholder {
-                    opacity: 0.7;
-                    transform: translateX(5px);
-                }
-            </style>
-        </head>
-
-        <div class="search">
-            <input type="text" id="searchInput" placeholder="Search apps..." oninput="searchGames()">
-            <button type="button"><i class="fas fa-search"></i></button>
-        </div>
-
-        <script>
-            function searchGames() {
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                const gameElements = document.querySelectorAll('#games a');
-                const gamesContainer = document.getElementById('games');
-                
-                gameElements.forEach(game => {
-                    const gameName = game.querySelector('img').getAttribute('alt').toLowerCase();
-                    if (gameName.includes(searchTerm)) {
-                        game.style.display = 'inline-block';
-                    } else {
-                        game.style.display = 'none';
-                    }
-                });
-            }
-        </script>
-
         <style>
             #games {
                 display: flex;
@@ -199,21 +113,6 @@
                 window.location.href = 'index.html';
             }
             
-            // Search functionality
-            function searchGames() {
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                const gameElements = document.querySelectorAll('#games a');
-                
-                gameElements.forEach(game => {
-                    const gameName = game.getAttribute('alt') || game.querySelector('img').getAttribute('alt').toLowerCase();
-                    if (gameName.includes(searchTerm)) {
-                        game.style.display = 'block';
-                    } else {
-                        game.style.display = 'none';
-                    }
-                });
-            }
-            
             // Logout functionality
             document.getElementById('logout').addEventListener('click', function() {
                 sessionStorage.removeItem('accessGranted');
@@ -222,20 +121,26 @@
         </script>
 
         <div id="games">
-           
-
+            <!-- Added 6 images from the web -->
+            <a href="#" alt="nature landscape">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Beautiful mountain landscape">
+            </a>
+            <a href="#" alt="beach sunset">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Tropical beach sunset">
+            </a>
+            <a href="#" alt="forest">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969" alt="Misty forest path">
+            </a>
+            <a href="#" alt="waterfall">
+                <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d" alt="Majestic waterfall">
+            </a>
+            <a href="#" alt="city skyline">
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df" alt="City skyline at night">
+            </a>
+            <a href="#" alt="wildlife">
+                <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef3" alt="Wildlife photography">
+            </a>
         </div>
-
-
-
-
-
-            
-
-
-
-
- 
     </div>
 
     <!-- Keep only this nav bar at the bottom -->
