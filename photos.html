@@ -194,6 +194,25 @@
         </div>
     </div>
 
+    <!-- Updated video section -->
+    <div class="video-container">
+        <h2>Featured videos</h2>
+        <div class="video-gallery">
+            <div class="video-item">
+                <video controls>
+                    <source src="funnyimages\fight.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="funnyimages\brokethechair.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
     <!-- Keep only this nav bar at the bottom -->
     <div class="nav-button-container">
         <button class="nav-button" onclick="window.location.href='games.html'">
@@ -294,6 +313,52 @@
     }
 
     #games a:hover img {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Video container styling */
+    .video-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px auto;
+        padding: 20px;
+    }
+    
+    .video-container h2 {
+        color: #4fc3f7;
+        margin-bottom: 20px;
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .video-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    .video-item {
+        flex: 0 0 auto;
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+    }
+    
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-color: #000;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    
+    .video-container video:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
