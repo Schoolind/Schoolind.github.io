@@ -3,9 +3,22 @@ function checkAccess() {
     console.log('Access check:', accessGranted); // Add logging to debug
     if (!accessGranted || accessGranted !== 'true') {
         console.log('Access denied, redirecting to index.html');
-        // Use relative path that works both locally and on GitHub Pages
-        const baseUrl = window.location.pathname.includes('/Schooluk/') ? '/Schooluk/' : '/';
-        window.location.href = baseUrl + 'index.html';
+        // Get the current URL path
+        const currentPath = window.location.pathname;
+        console.log('Current path:', currentPath);
+        
+        // Determine if we're on GitHub Pages or local
+        let redirectPath;
+        if (currentPath.includes('/Schooluk/')) {
+            // GitHub Pages environment
+            redirectPath = '/Schooluk/index.html';
+        } else {
+            // Local environment
+            redirectPath = '/index.html';
+        }
+        
+        console.log('Redirecting to:', redirectPath);
+        window.location.href = redirectPath;
     } else {
         console.log('Access granted');
     }
