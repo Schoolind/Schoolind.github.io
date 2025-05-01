@@ -3,7 +3,9 @@ function checkAccess() {
     console.log('Access check:', accessGranted); // Add logging to debug
     if (!accessGranted || accessGranted !== 'true') {
         console.log('Access denied, redirecting to index.html');
-        window.location.href = '/Schooluk/index.html';
+        // Use relative path that works both locally and on GitHub Pages
+        const baseUrl = window.location.pathname.includes('/Schooluk/') ? '/Schooluk/' : '/';
+        window.location.href = baseUrl + 'index.html';
     } else {
         console.log('Access granted');
     }
