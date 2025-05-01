@@ -1,3 +1,28 @@
+// Check if the user is coming from the games.html page
+(function() {
+    // Get the referrer URL
+    const referrer = document.referrer;
+    
+    // Check if we're in a game page (in the games folder)
+    const isGamePage = window.location.pathname.includes('/games/');
+    
+    // If this is a game page and not coming from games.html, redirect to games.html
+    if (isGamePage) {
+        // Check if referrer is games.html or if no access has been granted
+        const comingFromGamesPage = referrer.includes('games.html');
+        const hasAccess = sessionStorage.getItem('accessGranted');
+        
+        if (!comingFromGamesPage && hasAccess) {
+            // Set a flag to allow returning to this game after redirect
+            sessionStorage.setItem('requestedGame', window.location.href);
+            // Redirect to games.html
+            window.location.href = '/games.html';
+        } else if (!hasAccess) {
+            // If no access at all, redirect to login page
+            window.location.href = '/index.html';
+        }
+    }
+})();
 function checkAccess() {
     const accessGranted = sessionStorage.getItem('accessGranted');
     console.log('Access check:', accessGranted); // Add logging to debug
