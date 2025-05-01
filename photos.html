@@ -87,20 +87,53 @@
                 padding: 20px;
             }
 
-            #games a {
+            #games .image-item {
                 flex: 0 0 auto;
                 width: 200px;
                 height: 200px;
                 display: inline-block;
+                position: relative;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transform-origin: center;
+            }
+
+            #games .image-item:active {
+                transform: scale(0.92);
+                filter: brightness(0.8);
+            }
+
+            #games .image-item::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+
+            #games .image-item:active::after {
+                opacity: 1;
+                animation: ripple 0.4s ease-out;
             }
 
             #games img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
             }
 
-            body {
+            #games .image-item:hover img {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+    body {
                 background-attachment: fixed !important;
                 min-height: 100vh;
             }
@@ -121,76 +154,76 @@
         </script>
 
         <div id="games">
-            <!-- Added 6 images from the web -->
-            <a href="#" alt="nature landscape">
+            <!-- Images are now not clickable -->
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250213_153252.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="beach sunset">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084810.jpg" alt="Tropical beach sunset">
-            </a>
-            <a href="#" alt="forest">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084814.jpg" alt="Misty forest path">
-            </a>
-            <a href="#" alt="waterfall">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084818.jpg" alt="Majestic waterfall">
-            </a>
-            <a href="#" alt="city skyline">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084819.jpg" alt="City skyline at night">
-            </a>
-            <a href="#" alt="wildlife">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084821.jpg" alt="Wildlife photography">
-            </a>]
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084833.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084834.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\IMG_20250214_084848.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\1.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\2.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\3.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\4.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\5.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\6.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\7.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\8.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\9.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\10.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\11.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\12.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\13.jpg" alt="Beautiful mountain landscape">
-            </a>
-            <a href="#" alt="nature landscape">
+            </div>
+            <div class="image-item">
                 <img src="funnyimages\14.jpg" alt="Beautiful mountain landscape">
-            </a>
+            </div>
         </div>
     </div>
 
