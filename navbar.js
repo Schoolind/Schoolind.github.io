@@ -1,6 +1,4 @@
-function createNavBar(pathPrefix = '') {
-    // Update pathPrefix to include Schooluk
-    pathPrefix = '/Schooluk/';
+
     
     const navHtml = `
         <div class="nav-button-container">
