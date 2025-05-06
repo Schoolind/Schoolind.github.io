@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Movie of the Day</title>
+    <script src="auth-check.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .nav-button-container {
+            position: fixed;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .nav-button-container:hover,
+        .nav-button-container:focus-within {
+            bottom: 20px;
+        }
+
+        .nav-button-container::before {
+            content: '▲';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #2d2d2d;
+            font-size: 20px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-button-container:hover::before {
+            opacity: 0;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #3d3d3d;
+            transform: translateY(-2px);
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .nav-button:hover .nav-icon {
+            color: #4CAF50;
+        }
+
+        .nav-button.logout:hover .nav-icon {
+            color: #ff4444;
+        }
+        
+        .movie-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .movie-frame {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .movie-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .description {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        
+        .description h2 {
+            color: #4fc3f7;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(79, 195, 247, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .date {
+            color: #4fc3f7;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="movie-container">
+            <h1>Movie of the Day</h1>
+            <p class="date" id="current-date">Today's Date</p>
+            
+            <div class="movie-frame">
+                <!-- Example YouTube embed - replace the src URL with your daily movie link -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Movie of the Day" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            
+            <div class="description">
+                <h2>Today's Featured Movie</h2>
+                <script src="navbar.js"></script>
+                <script src="checkAccess.js"></script>
+<script>
+    // Apply cloak on page load
+    window.addEventListener('load', function() {
+        const savedCloak = localStorage.getItem('tabCloak');
+        if (savedCloak) {
+            const cloak = JSON.parse(savedCloak);
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = cloak.icon;
+            document.head.appendChild(newFavicon);
+            document.title = cloak.title;
+        }
+    });
+</script>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation buttons container -->
+  
+
+   
+</body>
+</html>
