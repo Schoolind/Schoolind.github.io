@@ -1,3 +1,8 @@
+<html lang="en-us"><head></head><body class="dark"><module>
+<moduleprefs title="Google.com">
+<content type="html"><!--[CDATA[
+
+
 <!DOCTYPE html-->
 
 
@@ -52,8 +57,8 @@
     </style>
 
 
-    <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" tabindex="-1" width="414" height="264" style="cursor: default;"></canvas>
+    <div id="unity-container" class="unity-mobile">
+        <canvas id="unity-canvas" tabindex="-1" width="501" height="319" style="cursor: default;"></canvas>
     </div>
     <div id="loading-cover" style="background: url(&quot;https://cdn.jsdelivr.net/gh/z-f3-f1/1@main/background.jpg&quot;) center center / cover; display: none;">
         <div id="unity-loading-bar">
@@ -149,8 +154,7 @@
             document.body.appendChild(script);
         });
 
-        loadingCover.style.background = "url('https://cdn.jsdelivr.net/gh/z-f3-f1/1@main/background.jpg') center / cover";
-        loadingCover.style.display = "";
+        
         document.addEventListener('contextmenu', event => event.preventDefault());
 
         function FocusGame() {
