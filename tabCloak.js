@@ -47,7 +47,7 @@ function setTabCloak(cloak) {
             break;
         case 'powerschool':
             title = 'Grades and Attendance';
-            icon = 'images/powerschool.webp';
+            icon = 'https://wcpss.powerschool.com/favicon.ico';
             break;
         case 'docs':
             title = 'Google Docs';
