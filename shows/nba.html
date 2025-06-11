@@ -14,7 +14,7 @@
     :root {
       --bg-dark-primary: #0b0b0b;
       --bg-dark-secondary: #1a1a1a;
-      --primary-red: 	#F57D0D;
+      --primary-red: #cc0000;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
     }
@@ -46,7 +46,7 @@
     }
 
     header img {
-      height: 70px;
+      height: 35px;
     }
 
     main {
@@ -68,65 +68,53 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
 
-    #my-jwplayer {
+    iframe {
       width: 100%;
       height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Nicktoons.png" alt="Nicktoons Logo">
+    <img src="../images/NBA_TV.svg.webp" alt="NBA Logo">
   </header>
 
   <main>
     <div class="video-wrapper">
-      <div id="my-jwplayer"></div>
+      <iframe
+        allowfullscreen
+        scrolling="no"
+        title="ESPN Stream"
+        src="https://kleanembed.online/embed/T1ag4xopruwaFuThuwUS7lNI4HeTucot">
+      </iframe>
     </div>
   </main>
-
-  <script>
-    // Replace with your actual .m3u8 stream URL
-    const m3u8StreamUrl = "https://fl1.moveonjoy.com/NICKTOONS/tracks-v1a1/mono.m3u8";
-
-    jwplayer("my-jwplayer").setup({
-      file: m3u8StreamUrl,
-      width: "100%",
-      aspectratio: "16:9",
-      autostart: true,
-      controls: true,
-      mute: false,
-      stretching: "uniform",
-      skin: { name: "seven" },
-      primary: "html5"
-    });
-  </script>
-
   <script src="/checkAccess.js"></script>
-  <script>
+<script>
+    // Apply cloak on page load
     window.addEventListener('load', function() {
         const savedCloak = localStorage.getItem('tabCloak');
         if (savedCloak) {
             const cloak = JSON.parse(savedCloak);
             const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) existingFavicon.remove();
-
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
             const newFavicon = document.createElement('link');
             newFavicon.rel = 'icon';
             newFavicon.type = 'image/x-icon';
             newFavicon.href = cloak.icon;
             document.head.appendChild(newFavicon);
-
             document.title = cloak.title;
         }
     });
-  </script>
-
-  <link rel="stylesheet" href="../navbar.css">
-  <script src="../navbar.js"></script>
-  <script src="../panicKey.js"></script>
-  <script src="../backgroundTheme.js"></script>
+</script>
+<link rel="stylesheet" href="../navbar.css">
+<script src="../navbar.js"></script>
+<script src="../panicKey.js"></script>
+<script src="../backgroundTheme.js"></script>
 
 </body>
 </html>
