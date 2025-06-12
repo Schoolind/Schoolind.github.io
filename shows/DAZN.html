@@ -14,7 +14,7 @@
     :root {
       --bg-dark-primary: #0b0b0b;
       --bg-dark-secondary: #1a1a1a;
-      --primary-red: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      --primary-red: #b1b1b1;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
     }
@@ -41,49 +41,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 2px solid var(--primary-red);
       flex-shrink: 0;
       padding: 0 20px;
-      position: relative;
-    }
-
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background-image: var(--primary-red);
     }
 
     header img {
-      height: 140px;
+      height: 35px;
     }
 
     .server-select {
       background-color: var(--bg-dark-primary);
       color: var(--text-primary);
       padding: 8px 12px;
-      border: 2px solid transparent;
+      border: 1px solid var(--primary-red);
       border-radius: 4px;
       font-family: 'Poppins', sans-serif;
       cursor: pointer;
       outline: none;
-      background-clip: padding-box;
-      position: relative;
-      z-index: 1;
-    }
-
-    .server-select::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      z-index: -1;
-      border-radius: 6px;
-      background: var(--primary-red);
     }
 
     .server-select:hover {
@@ -124,16 +99,18 @@
 <body>
 
   <header>
-    <img src="https://brandlogos.net/wp-content/uploads/2022/09/nbc-logo_brandlogos.net_xxaj7.png" alt="NBC Sports Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/DAZN_Logo_Master.svg" alt="TNT Sports Logo">
     <select class="server-select" id="serverSelect" onchange="changeServer()">
       <option value="">Select Server</option>
-      <option value="server1">philadelphia</option>
-      <option value="server2">chicago⭐</option>
-      <option value="server3">california⭐</option>
-      <option value="server4">washington⭐</option>
-      <option value="server5">bayarea⭐</option>
-      <option value="server6">boston⭐</option>
-      <option value="server7">golf⭐</option>
+      <option value="server1">Dazn 1⭐</option>
+      <option value="server2">Dazn 2⭐</option>
+      <option value="server3">Dazn 1 spanish⭐</option>
+      <option value="server4">Dazn 2 spanish⭐</option>
+      <option value="server5">Dazn 3 spanish⭐</option>
+      <option value="server6">Dazn 4 spanish⭐</option>
+      <option value="server7">Dazn f1⭐</option>
+      <option value="server8">Dazn laliga⭐</option>
+      <option value="server9">Dazn laliga 2⭐</option>
     </select>
   </header>
 
@@ -144,7 +121,7 @@
         allowfullscreen
         scrolling="no"
         title="TNT Sports Stream"
-        src="../shows/nbc/sports.html">
+        src="https://thedaddy.to/embed/stream-426.php">
       </iframe>
     </div>
   </main>
@@ -154,17 +131,19 @@
       const select = document.getElementById('serverSelect');
       const iframe = document.getElementById('streamFrame');
       const selectedServer = select.value;
-
+      
       const servers = {
-        'server1': 'https://kleanembed.online/embed/b46c64f505d77d9c3ba37c2f3037f0f3',
-        'server2': 'https://thedaddy.to/embed/stream-776.php',
-        'server3': 'https://thedaddy.to/embed/stream-755.php',
-        'server4': 'https://thedaddy.to/embed/stream-778.php',
-        'server5': 'https://thedaddy.to/embed/stream-753.php',
-        'server6': 'https://thedaddy.to/embed/stream-754.php',
-        'server7': 'https://thedaddy.to/embed/stream-318.php',
+        'server1': 'https://thedaddy.to/embed/stream-426.php',
+        'server2': 'https://thedaddy.to/embed/stream-427.php',
+        'server3': 'https://thedaddy.to/embed/stream-445.php',
+        'server4': 'https://thedaddy.to/embed/stream-446.php',
+        'server5': 'https://thedaddy.to/embed/stream-447.php',
+        'server6': 'https://thedaddy.to/embed/stream-448.php',
+        'server7': 'https://thedaddy.to/embed/stream-537.php',
+        'server8': 'https://thedaddy.to/embed/stream-538.php',
+        'server9': 'https://thedaddy.to/embed/stream-43.php'
       };
-
+      
       if (selectedServer && servers[selectedServer]) {
         iframe.src = servers[selectedServer];
       }
@@ -173,6 +152,7 @@
 
   <script src="/checkAccess.js"></script>
   <script>
+    // Apply cloak on page load
     window.addEventListener('load', function() {
         const savedCloak = localStorage.getItem('tabCloak');
         if (savedCloak) {
