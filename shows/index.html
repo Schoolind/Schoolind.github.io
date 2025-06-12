@@ -53,7 +53,7 @@
     <h1>TV Channels Directory</h1>
 
     <div class="category">
-        <h2>Sports Networks</h2>
+        <h2>unblocked Channels</h2>
         <div class="grid">
             <a href="espn.html" class="channel-link">ESPN</a>
             <a href="espn2.html" class="channel-link">ESPN 2</a>
@@ -76,12 +76,6 @@
             <a href="nbc.html" class="channel-link">NBC</a>
             <a href="skysports.html" class="channel-link">Sky Sports</a>
             <a href="tntsports.html" class="channel-link">TNT Sports</a>
-        </div>
-    </div>
-
-    <div class="category">
-        <h2>Entertainment Channels</h2>
-        <div class="grid">
             <a href="TNT.html" class="channel-link">TNT</a>
             <a href="USA.html" class="channel-link">USA</a>
             <a href="ABC.html" class="channel-link">ABC</a>
@@ -90,7 +84,36 @@
             <a href="nicktoons.html" class="channel-link">Nicktoons</a>
             <a href="dragonballz.html" class="channel-link">Dragon Ball Z</a>
             <a href="b10n.html" class="channel-link">B10N</a>
+            <a href="trutv.html" class="channel-link">trutv</a>
+            <a href="fubo.html" class="channel-link">fubo</a>
+            <a href="tsn.html" class="channel-link">tsn</a>
+            <a href="fifa.html" class="channel-link">FIFA</a>
         </div>
     </div>
+
+    </div>
+    <script src="/checkAccess.js"></script>
+<script>
+    // Apply cloak on page load
+    window.addEventListener('load', function() {
+        const savedCloak = localStorage.getItem('tabCloak');
+        if (savedCloak) {
+            const cloak = JSON.parse(savedCloak);
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = cloak.icon;
+            document.head.appendChild(newFavicon);
+            document.title = cloak.title;
+        }
+    });
+</script>
+<link rel="stylesheet" href="../navbar.css">
+<script src="../navbar.js"></script>
+
 </body>
 </html>

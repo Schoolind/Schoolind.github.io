@@ -13,8 +13,8 @@
 
     :root {
       --bg-dark-primary: #0b0b0b;
-      --bg-dark-secondary: #1a1a1a;
-      --primary-red: #4b00ad;
+      --bg-dark-secondary: #202020;
+      --primary-red: #ff3300;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
     }
@@ -46,7 +46,7 @@
     }
 
     header img {
-      height: 35px;
+      height: 70px;
     }
 
     main {
@@ -68,51 +68,65 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
 
-    iframe {
+    #my-jwplayer {
       width: 100%;
       height: 100%;
-      border: none;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="../images/beIN_SPORTS_Logo_POSM_RGB.png" alt="ESPN Logo">
+    <img src="../images/fubo-sports-network-logo-dark.png" alt="Fubo Sports Network Logo">
   </header>
 
   <main>
     <div class="video-wrapper">
-      <iframe
-        allowfullscreen
-        scrolling="no"
-        title="ESPN Stream"
-        src="https://kleanembed.online/embed/afdb73c451239369681c5e34207bf17a">
-      </iframe>
+      <div id="my-jwplayer"></div>
     </div>
   </main>
+
+  <script>
+    // Replace with your actual .m3u8 stream URL
+    const m3u8StreamUrl = "https://apollo.production-public.tubi.io/live/ac-fubo.m3u8";
+
+    jwplayer("my-jwplayer").setup({
+      file: m3u8StreamUrl,
+      width: "100%",
+      aspectratio: "16:9",
+      autostart: true,
+      controls: true,
+      mute: false,
+      stretching: "uniform",
+      skin: { name: "seven" },
+      primary: "html5"
+    });
+  </script>
+
   <script src="/checkAccess.js"></script>
-<script>
-    // Apply cloak on page load
+  <script>
     window.addEventListener('load', function() {
         const savedCloak = localStorage.getItem('tabCloak');
         if (savedCloak) {
             const cloak = JSON.parse(savedCloak);
             const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) {
-                existingFavicon.remove();
-            }
+            if (existingFavicon) existingFavicon.remove();
+
             const newFavicon = document.createElement('link');
             newFavicon.rel = 'icon';
             newFavicon.type = 'image/x-icon';
             newFavicon.href = cloak.icon;
             document.head.appendChild(newFavicon);
+
             document.title = cloak.title;
         }
     });
-</script>
-<link rel="stylesheet" href="../navbar.css">
-<script src="../navbar.js"></script>
+  </script>
+
+  <link rel="stylesheet" href="../navbar.css">
+  <script src="../navbar.js"></script>
+  <script src="../panicKey.js"></script>
+  <script src="../backgroundTheme.js"></script>
 
 </body>
 </html>
