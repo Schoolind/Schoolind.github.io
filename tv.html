@@ -7,16 +7,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            background-color: #1b1b1b;
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+        body {
+            background-color: #1b1b1b;
             color: #fff;
         }
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 20px;
             margin-bottom: 0;
             color: #fff;
         }
@@ -31,13 +37,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 15px;
+            height: calc(100vh - 40px);
+            box-sizing: border-box;
         }
         .date {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: #fff;
-            margin: 8px 0 20px 0;
+            margin: 5px 0 15px 0;
             text-align: center;
+            opacity: 0.8;
         }
         .video-group {
             display: flex;
@@ -45,16 +54,21 @@
             align-items: center;
             width: 100%;
             max-width: 1600px;
-            margin-bottom: 30px;
+            flex: 1;
+            min-height: 0;
+            padding: 5px 0;
         }
         .movie-frame {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
+            height: 100%;
+            min-height: 0;
             overflow: hidden;
             background-color: #000;
-            border-radius: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            flex: 1;
+            display: flex;
         }
         .movie-frame iframe {
             position: absolute;
@@ -66,22 +80,26 @@
             border-radius: 12px;
         }
         .button-group {
-            margin-bottom: 20px;
+            margin: 10px 0;
             display: flex;
-            gap: 15px;
+            gap: 8px;
             justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 10px;
         }
         .select-btn {
-            width: 90px;
-            padding: 10px 0;
-            font-size: 1rem;
+            width: 80px;
+            padding: 8px 0;
+            font-size: 0.9rem;
             background-color: #333;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             color: #fff;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.2s ease;
             text-align: center;
+            flex: 1;
+            max-width: 100px;
         }
         .select-btn.active,
         .select-btn:hover {
@@ -179,7 +197,7 @@
     </style>
 </head>
 <body>
-    <div class="content">
+    <div class="content" style="padding: 5px 0; height: 100vh; box-sizing: border-box;">
         <div class="movie-container">
             <h1>TV</h1>
             <p class="date" id="current-date">Today's Date</p>
@@ -200,64 +218,13 @@
                 </div>
             </div>
             
-            <h2>Live TV</h2>
             
-            <input type="text" id="live-tv-search" placeholder="Search Live TV..." aria-label="Search Live TV">
-            
-            <div class="link-container" id="link-container">
-                <a href="shows/espn.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/554px-ESPN_wordmark.svg.png" alt="ESPN"></a>
-                <a href="shows/espn2.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/ESPN2_logo.svg/512px-ESPN2_logo.svg.png?20160127215859" alt="ESPN 2"></a>
-                <a href="shows/espnu.html" class="link-box"><img src="images/ESPNU_(Horizontal).svg" alt="ESPNU"></a>
-                <a href="shows/espnacc.html" class="link-box"><img src="images/ACC_Network_ESPN.svg" alt="ESPN ACC Network"></a>
-                <a href="shows/b10n.html" class="link-box"><img src="images/Big_Ten_Network_Logo.svg" alt="Big Ten Network"></a>
-                <a href="shows/sec.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/SEC_Network_%282024%29.svg/1200px-SEC_Network_%282024%29.svg.png" alt="SEC"></a>
-                <a href="shows/espnnews.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/ESPNews.svg/2560px-ESPNews.svg.png" alt="ESPN News"></a>
-                <a href="shows/espndeportes.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/ESPN_Deportes.svg/1280px-ESPN_Deportes.svg.png" alt="ESPN Deportes"></a>
-                <a href="shows/ABC.html" class="link-box"><img src="images/abc.webp" alt="ABC"></a>
-                <a href="shows/nba.html" class="link-box"><img src="images/NBA_TV.svg.webp" alt="NBA TV"></a>
-                <a href="shows/nflnetwork.html" class="link-box"><img src="images/NFL_Network_logo.svg.png" alt="NFL Network"></a>
-                <a href="shows/nflredzone.html" class="link-box"><img src="images/Nfl-redzone-2014-logo.webp" alt="NFL RedZone"></a>
-                <a href="shows/nhl.html" class="link-box"><img src="images/nhl.png" alt="NHL Network"></a>
-                <a href="shows/mlbtv.html" class="link-box"><img src="images/mlb.png" alt="MLB TV"></a>
-                <a href="shows/mlbnetwork.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/MLBNetworkLogo.svg/1200px-MLBNetworkLogo.svg.png" alt="MLB Network"></a>
-                <a href="shows/cbs.html" class="link-box"><img src="images/CBS_logo.svg.png" alt="CBS"></a>
-                <a href="shows/cbssportsnetwork.html" class="link-box"><img src="images/cbssports.png" alt="CBS Sports Network"></a>
-                <a href="shows/cbsgolazo.html" class="link-box"><img src="images/Golazo_Network_logo.webp" alt="CBS Golazo"></a>
-                <a href="shows/fs1.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/2015_Fox_Sports_1_logo.svg/150px-2015_Fox_Sports_1_logo.svg.png?20171004153543" alt="FS1"></a>
-                <a href="shows/fs2.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/FS2_logo_2015.svg/192px-FS2_logo_2015.svg.png?20240925003530" alt="FS2"></a>
-                <a href="shows/fdeportes.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/FOX_Deportes_logo.png" alt="Fox Deportes"></a>
-                <a href="shows/foxsportssoccer.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/Fox_Soccer_Plus_logo.svg/1200px-Fox_Soccer_Plus_logo.svg.png" alt="Fox Sports Soccer"></a>
-                <a href="shows/trutv.html" class="link-box"><img src="images/TruTV_2014.svg" alt="TruTV"></a>
-                <a href="shows/USA.html" class="link-box"><img src="images/USA.avif" alt="USA Network"></a>
-                <a href="shows/Tennis.html" class="link-box"><img src="images/Tennis_Channel_logo.png" alt="Tennis channel"></a>
-                <a href="shows/TNT.html" class="link-box"><img src="images/tnt.webp" alt="TNT"></a>
-                <a href="shows/tbs.html" class="link-box"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/680f90a5-35e4-4f31-b1b6-ee9b3e8fda12/dd6uepo-9ab14983-50e1-4c29-9226-55c08c1e22cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY4MGY5MGE1LTM1ZTQtNGYzMS1iMWI2LWVlOWIzZThmZGExMlwvZGQ2dWVwby05YWIxNDk4My01MGUxLTRjMjktOTIyNi01NWMwOGMxZTIyY2QucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.M6W-C-uFoKzKojFZga_wMC91_cO0VwBmmHnjQJFGKLI" alt="TBS"></a>
-                <a href="shows/beinsports.html" class="link-box"><img src="images/beIN_SPORTS_Logo_POSM_RGB.png" alt="beIN Sports"></a>
-                <a href="shows/premsports1.html" class="link-box"><img src="images/PremierSports.jpg" alt="Premier Sports 1"></a>
-                <a href="shows/premsports2.html" class="link-box"><img src="images/Premier_Sports_2_II.svg" alt="Premier Sports 2"></a>
-                <a href="shows/fubo.html" class="link-box"><img src="images/fubo-sports-network-logo-dark.png" alt="Fubo Sports"></a>
-                <a href="shows/fanduel.html" class="link-box"><img src="https://cdn.sanity.io/images/pbwem9y5/fanduel_marketing_production/873dcb93915f7258898f83396518af91a43b9b02-2003x600.png" alt="FanDuel TV"></a>
-                <a href="shows/fdsn.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/FanDuel_Sports_Network_logo.svg/2560px-FanDuel_Sports_Network_logo.svg.png   " alt="FanDuel Sports network"></a>
-                <a href="shows/laligatv.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/LaLiga_logo_2023.svg/2048px-LaLiga_logo_2023.svg.png" alt="La Liga TV"></a>
-                <a href="shows/cartoonnetwork.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/1200px-Cartoon_Network_2010_logo.svg.png" alt="Cartoon Network"></a>
-                <a href="shows/foodnetwork.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Food_Network_New_Logo.png" alt="Food Network"></a>
-                <a href="shows/nicktoons.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Nicktoons.png" alt="Nicktoons"></a>
-                <a href="shows/ION.html" class="link-box"><img src="https://ewscripps-brightspot-lower.s3.amazonaws.com/b5/63/73d728894ffe9c98564d5db1019d/ion-herologo-white.png" alt="ION"></a>
-                <a href="shows/channel5.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Channel_5_2025.svg/1200px-Channel_5_2025.svg.png" alt="Channel 5"></a>
-                <a href="shows/nbc.html" class="link-box"><img src="https://brandlogos.net/wp-content/uploads/2022/09/nbc-logo_brandlogos.net_xxaj7.png" alt="NBC"></a>
-                <a href="shows/dragonballz.html" class="link-box"><img src="images/Dragon_Ball_Z_Logo_A.png" alt="Dragon Ball Z"></a>
-                <a href="shows/DAZN.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/DAZN_Logo_Master.svg" alt="DAZN"></a>
-                <a href="shows/tsn.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/TSN_Logo.svg/2560px-TSN_Logo.svg.png" alt="TSN"></a>
-                <a href="shows/skysports.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sky_Sport_-_Logo_2020.svg/1200px-Sky_Sport_-_Logo_2020.svg.png" alt="Sky Sports"></a>
-                <a href="shows/fifa.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/FIFA_logo_without_slogan.svg/1280px-FIFA_logo_without_slogan.svg.png" alt="fifa"></a>
-                <a href="shows/tntsports.html" class="link-box"><img src="https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/01/TNT-Sports-Logo.png" alt="tntsports"></a>
-                <a href="multistream.html" class="link-box"><img src="images/mult.png" alt="multistream"></a>
-            </div>
         </div>
     </div>
 
     <link rel="stylesheet" href="navbar.css">
     <script src="navbar.js"></script>
+    <script src="tabCloak.js"></script>
     <script src="checkAccess.js"></script>
     <script src="popup.js"></script>
 

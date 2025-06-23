@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TV</title>
+    <script src="auth-check.js"></script>
+    <link rel="stylesheet" href="https://schooluk.github.io/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #1b1b1b;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        h1 {
+            font-size: 4rem;
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 0;
+            color: #fff;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        .movie-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .date {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 8px 0 20px 0;
+            text-align: center;
+        }
+        .video-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1600px;
+            margin-bottom: 30px;
+        }
+        .movie-frame {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+            border-radius: 12px;
+        }
+        .movie-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+        .button-group {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .select-btn {
+            width: 90px;
+            padding: 10px 0;
+            font-size: 1rem;
+            background-color: #333;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .select-btn.active,
+        .select-btn:hover {
+            background-color: #4CAF50;
+        }
+        #live-tv-search {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 15px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+        }
+        #live-tv-search::placeholder {
+            color: #bbb;
+        }
+        .link-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 1200px) {
+            .link-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .link-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .link-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .link-box {
+            position: relative;
+            background-color: #2d2d2d;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #3d3d3d;
+        }
+        .link-box:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-color: #4CAF50;
+        }
+        
+        .link-box:hover img {
+            transform: scale(1.05);
+        }
+        .link-box img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .star-wrapper {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: default;
+            z-index: 2;
+        }
+        .star-wrapper .fa-star {
+            font-size: 24px;
+            color: gold;
+            background: transparent;
+            /* removed border and padding for no box */
+        }
+        .star-wrapper .tooltip-text {
+            visibility: hidden;
+            width: 220px;
+            background-color: rgba(0,0,0,0.85);
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 6px 10px;
+            position: absolute;
+            z-index: 1000;
+            top: 30px;
+            right: 50%;
+            transform: translateX(50%);
+            font-size: 0.85rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 0 10px rgba(255,215,0,0.7);
+            user-select: none;
+        }
+        .star-wrapper:hover .tooltip-text,
+        .star-wrapper:focus .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .multistream-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 15px 30px;
+            border-radius: 12px;
+            margin: 20px 0 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #2a3a5e;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .multistream-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            border-color: #4facfe;
+        }
+        
+        .multistream-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .multistream-logo {
+            position: relative;
+            width: auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .multistream-logo i {
+            font-size: 2.5rem;
+            color: #4facfe;
+            margin: 0 1px;
+            opacity: 1;
+        }
+        
+        .multistream-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="movie-container">
+            
+           
+            
+            <h2>Live TV</h2>
+            
+            <a href="multistream.html" class="multistream-header">
+                <div class="multistream-logo">
+                    <i class="fas fa-tv"></i>
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h1 class="multistream-title">Multistream</h1>
+            </a>
+            
+            <input type="text" id="live-tv-search" placeholder="Search Live TV..." aria-label="Search Live TV">
+            
+            <div class="link-container" id="link-container">
+                <a href="shows/ABC.html" class="link-box"><img src="images/abc.webp" alt="ABC"></a>
+                <a href="shows/b10n.html" class="link-box"><img src="images/Big_Ten_Network_Logo.svg" alt="Big Ten Network"></a>
+                <a href="shows/beinsports.html" class="link-box"><img src="images/beIN_SPORTS_Logo_POSM_RGB.png" alt="beIN Sports"></a>
+                <a href="shows/cartoonnetwork.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/1200px-Cartoon_Network_2010_logo.svg.png" alt="Cartoon Network"></a>
+                <a href="shows/cbs.html" class="link-box"><img src="images/CBS_logo.svg.png" alt="CBS"></a>
+                
+                <a href="shows/cbsgolazo.html" class="link-box"><img src="images/Golazo_Network_logo.webp" alt="CBS Golazo"></a>
+                <a href="shows/cbssportsnetwork.html" class="link-box"><img src="images/cbssports.png" alt="CBS Sports Network"></a>
+                <a href="shows/channel5.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Channel_5_2025.svg/1200px-Channel_5_2025.svg.png" alt="Channel 5"></a>
+                <a href="shows/DAZN.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/DAZN_Logo_Master.svg" alt="DAZN"></a>
+                <a href="shows/dragonballz.html" class="link-box"><img src="images/Dragon_Ball_Z_Logo_A.png" alt="Dragon Ball Z"></a>
+                
+                <a href="shows/espn.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/554px-ESPN_wordmark.svg.png" alt="ESPN"></a>
+                <a href="shows/espn2.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/ESPN2_logo.svg/512px-ESPN2_logo.svg.png?20160127215859" alt="ESPN 2"></a>
+                <a href="shows/espnacc.html" class="link-box"><img src="images/ACC_Network_ESPN.svg" alt="ESPN ACC Network"></a>
+                <a href="shows/espndeportes.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/ESPN_Deportes.svg/1280px-ESPN_Deportes.svg.png" alt="ESPN Deportes"></a>
+                <a href="shows/espnnews.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/ESPNews.svg/2560px-ESPNews.svg.png" alt="ESPN News"></a>
+                
+                <a href="shows/espnu.html" class="link-box"><img src="images/ESPNU_(Horizontal).svg" alt="ESPNU"></a>
+                <a href="shows/fanduel.html" class="link-box"><img src="https://cdn.sanity.io/images/pbwem9y5/fanduel_marketing_production/873dcb93915f7258898f83396518af91a43b9b02-2003x600.png" alt="FanDuel TV"></a>
+                <a href="shows/fdsn.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/FanDuel_Sports_Network_logo.svg/2560px-FanDuel_Sports_Network_logo.svg.png" alt="FanDuel Sports network"></a>
+                <a href="shows/fdeportes.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/FOX_Deportes_logo.png" alt="Fox Deportes"></a>
+                <a href="shows/foxsportssoccer.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/Fox_Soccer_Plus_logo.svg/1200px-Fox_Soccer_Plus_logo.svg.png" alt="Fox Sports Soccer"></a>
+                
+                <a href="shows/foodnetwork.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Food_Network_New_Logo.png" alt="Food Network"></a>
+                <a href="shows/fs1.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/2015_Fox_Sports_1_logo.svg/150px-2015_Fox_Sports_1_logo.svg.png?20171004153543" alt="FS1"></a>
+                <a href="shows/fs2.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/FS2_logo_2015.svg/192px-FS2_logo_2015.svg.png?20240925003530" alt="FS2"></a>
+                <a href="shows/fubo.html" class="link-box"><img src="images/fubo-sports-network-logo-dark.png" alt="Fubo Sports"></a>
+                <a href="shows/fifa.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/FIFA_logo_without_slogan.svg/1280px-FIFA_logo_without_slogan.svg.png" alt="FIFA"></a>
+                
+                <a href="shows/ION.html" class="link-box"><img src="https://ewscripps-brightspot-lower.s3.amazonaws.com/b5/63/73d728894ffe9c98564d5db1019d/ion-herologo-white.png" alt="ION"></a>
+                <a href="shows/laligatv.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/LaLiga_logo_2023.svg/2048px-LaLiga_logo_2023.svg.png" alt="La Liga TV"></a>
+                <a href="shows/mlbnetwork.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/MLBNetworkLogo.svg/1200px-MLBNetworkLogo.svg.png" alt="MLB Network"></a>
+                <a href="shows/mlbtv.html" class="link-box"><img src="images/mlb.png" alt="MLB TV"></a>
+                <a href="shows/nba.html" class="link-box"><img src="images/NBA_TV.svg.webp" alt="NBA TV"></a>
+                
+                <a href="shows/nbc.html" class="link-box"><img src="https://brandlogos.net/wp-content/uploads/2022/09/nbc-logo_brandlogos.net_xxaj7.png" alt="NBC"></a>
+                <a href="shows/nflnetwork.html" class="link-box"><img src="images/NFL_Network_logo.svg.png" alt="NFL Network"></a>
+                <a href="shows/nflredzone.html" class="link-box"><img src="images/Nfl-redzone-2014-logo.webp" alt="NFL RedZone"></a>
+                <a href="shows/nhl.html" class="link-box"><img src="images/nhl.png" alt="NHL Network"></a>
+                <a href="shows/nicktoons.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Nicktoons.png" alt="Nicktoons"></a>
+                
+                <a href="shows/premsports1.html" class="link-box"><img src="images/PremierSports.jpg" alt="Premier Sports 1"></a>
+                <a href="shows/premsports2.html" class="link-box"><img src="images/Premier_Sports_2_II.svg" alt="Premier Sports 2"></a>
+                <a href="shows/sec.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/SEC_Network_%282024%29.svg/1200px-SEC_Network_%282024%29.svg.png" alt="SEC Network"></a>
+                <a href="shows/skysports.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sky_Sport_-_Logo_2020.svg/1200px-Sky_Sport_-_Logo_2020.svg.png" alt="Sky Sports"></a>
+                <a href="shows/tbs.html" class="link-box"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/680f90a5-35e4-4f31-b1b6-ee9b3e8fda12/dd6uepo-9ab14983-50e1-4c29-9226-55c08c1e22cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY4MGY5MGE1LTM1ZTQtNGYzMS1iMWI2LWVlOWIzZThmZGExMlwvZGQ2dWVwby05YWIxNDk4My01MGUxLTRjMjktOTIyNi01NWMwOGMxZTIyY2QucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.M6W-C-uFoKzKojFZga_wMC91_cO0VwBmmHnjQJFGKLI" alt="TBS"></a>
+                
+                <a href="shows/Tennis.html" class="link-box"><img src="images/Tennis_Channel_logo.png" alt="Tennis Channel"></a>
+                <a href="shows/TNT.html" class="link-box"><img src="images/tnt.webp" alt="TNT"></a>
+                <a href="shows/tntsports.html" class="link-box"><img src="https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/01/TNT-Sports-Logo.png" alt="TNT Sports"></a>
+                <a href="shows/trutv.html" class="link-box"><img src="images/TruTV_2014.svg" alt="TruTV"></a>
+                <a href="shows/tsn.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/TSN_Logo.svg/2560px-TSN_Logo.svg.png" alt="TSN"></a>
+                
+                <a href="shows/USA.html" class="link-box"><img src="images/USA.avif" alt="USA Network"></a>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="navbar.css">
+    <script src="navbar.js"></script>
+    <script src="checkAccess.js"></script>
+    <script src="tabCloak.js"></script>
+
+    <script src="popup.js"></script>
+
+    <script>
+        const dateElement = document.getElementById('current-date');
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        dateElement.textContent = new Date().toLocaleDateString(undefined, options);
+
+        const buttons = document.querySelectorAll('.select-btn');
+        const iframe = document.getElementById('video-frame');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                iframe.src = button.getAttribute('data-src');
+            });
+        });
+
+        const searchInput = document.getElementById('live-tv-search');
+        const linkContainer = document.getElementById('link-container');
+        const links = linkContainer.querySelectorAll('.link-box');
+
+        searchInput.addEventListener('input', () => {
+            const filter = searchInput.value.toLowerCase();
+            links.forEach(link => {
+                const altText = link.querySelector('img').alt.toLowerCase();
+                if (altText.includes(filter)) {
+                    link.style.display = '';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        });
+
+        window.addEventListener('load', function () {
+            const savedCloak = localStorage.getItem('tabCloak');
+            if (savedCloak) {
+                const cloak = JSON.parse(savedCloak);
+                const existingFavicon = document.querySelector("link[rel*='icon']");
+                if (existingFavicon) {
+                    existingFavicon.remove();
+                }
+                const newFavicon = document.createElement('link');
+                newFavicon.rel = 'icon';
+                newFavicon.type = 'image/x-icon';
+                newFavicon.href = cloak.icon;
+                document.head.appendChild(newFavicon);
+                document.title = cloak.title;
+            }
+        });
+    </script>
+</body>
+</html>
