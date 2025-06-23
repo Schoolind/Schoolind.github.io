@@ -13,7 +13,7 @@
 
     :root {
       --bg-dark-primary: #0b0b0b;
-      --bg-dark-secondary: #215fac;
+      --bg-dark-secondary: #082c58;
       --primary-red: #003169;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
@@ -46,7 +46,7 @@
     }
 
     header img {
-      height: 140px;
+      height: 35px;
     }
 
     main {
@@ -58,27 +58,30 @@
     }
 
     .video-wrapper {
-      width: 100%;
-      max-width: calc(100vw - 40px);
-      max-height: calc(100vh - 80px); /* 60px header + 20px bottom padding */
-      aspect-ratio: 16 / 9;
+      width: 95%;
+      max-width: 95%;
+      height: calc(100vh - 100px); /* Account for header and some padding */
       background-color: black;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+    #my-jwplayer {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="../images/fs1.png" alt="CBS Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/2015_Fox_Sports_1_logo.svg/150px-2015_Fox_Sports_1_logo.svg.png?20171004153543" alt="CBS Logo">
   </header>
 
   <main>
