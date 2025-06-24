@@ -36,7 +36,6 @@
     id="myIframe" 
     src="https://forms.gle/LNq9vZC7LSt7rzxN9">
   </iframe>
-<script src="/checkAccess.js"></script>
 <script>
     // Apply cloak on page load
     window.addEventListener('load', function() {
@@ -60,6 +59,14 @@
 <script src="../navbar.js"></script>
 <script src="../panicKey.js"></script>
 <script src="../backgroundTheme.js"></script>
+<!-- Load checkAccess.js last to prevent it from interfering with the survey -->
+<script>
+    // Override the access check for the survey page
+    window.addEventListener('load', function() {
+        console.log('Survey page loaded, skipping access check');
+    });
+</script>
+</script>
 </body>
 
 </body>

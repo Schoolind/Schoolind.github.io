@@ -58,17 +58,22 @@
             min-height: 0;
             padding: 5px 0;
         }
-        .movie-frame {
+        .aspect-ratio-16-9 {
             position: relative;
             width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (height/width = 9/16 = 0.5625) */
+            margin: 10px 0;
+            max-width: 100%;
+        }
+        .movie-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            min-height: 0;
-            overflow: hidden;
             background-color: #000;
             border-radius: 8px;
-            margin-top: 10px;
-            flex: 1;
-            display: flex;
+            overflow: hidden;
         }
         .movie-frame iframe {
             position: absolute;
@@ -77,7 +82,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 12px;
+            border-radius: 8px;
         }
         .button-group {
             margin: 10px 0;
@@ -194,31 +199,147 @@
             opacity: 1;
             pointer-events: auto;
         }
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .top-bar {
+            position: fixed;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.98);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px 12px;
+            background-color: #2d2d2d;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            opacity: 0;
+            transform-origin: top center;
+        }
+        
+        .streams-title {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+        
+        .stream-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .top-bar-trigger {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            z-index: 999;
+            background: transparent;
+        }
+
+        .top-bar-trigger:hover + .top-bar,
+        .top-bar:hover {
+            top: 0;
+            transform: translateX(-50%) scale(1.02);
+            opacity: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .top-bar::after {
+            content: '▼';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #2d2d2d;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .top-bar:hover::after {
+            opacity: 0;
+        }
+
+        .stream-btn {
+            background: #3d3d3d;
+            border: none;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+
+        .stream-btn:hover {
+            background: #4CAF50;
+            transform: translateY(-3px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .stream-btn.active {
+            background: #4CAF50;
+        }
+        .video-container {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
-    <div class="content" style="padding: 5px 0; height: 100vh; box-sizing: border-box;">
-        <div class="movie-container">
-            <h1>TV</h1>
-            <p class="date" id="current-date">Today's Date</p>
-
-            <div class="video-group">
-                <div class="button-group">
-                    <button class="select-btn active" data-src="https://nunflix.org" id="btn-stream1">Stream 1</button>
-                    <button class="select-btn" data-src="https://rivestream.org/" id="btn-stream2">Stream 2</button>
-                    <button class="select-btn" data-src="https://watch.spencerdevs.xyz" id="btn-stream3">Stream 3</button>
-                    <button class="select-btn" data-src="https://cinemaos-v3.vercel.app" id="btn-stream4">Stream 4</button>
-                    <button class="select-btn" data-src="https://qstream.pages.dev" id="btn-stream5">Stream 5</button>
-                </div>
-                <div class="movie-frame">
-                    <iframe id="video-frame" src="https://nunflix.org" 
-                            title="TV" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                </div>
+    <div class="content">
+        <div class="top-bar-trigger"></div>
+        <div class="top-bar">
+            <div class="streams-title">Streams</div>
+            <div class="stream-buttons">
+                <button class="stream-btn" data-src="https://nunflix.org">1</button>
+                <button class="stream-btn" data-src="https://rivestream.org/">2</button>
+                <button class="stream-btn" data-src="https://watch.spencerdevs.xyz">3</button>
+                <button class="stream-btn" data-src="https://cinemaos-v3.vercel.app">4</button>
+                <button class="stream-btn" data-src="https://qstream.pages.dev">5</button>
             </div>
-            
-            
+        </div>
+        <div class="video-container">
+            <iframe id="video-frame" 
+                    src="https://nunflix.org" 
+                    title="TV" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
         </div>
     </div>
 
@@ -229,51 +350,46 @@
     <script src="popup.js"></script>
 
     <script>
-        const dateElement = document.getElementById('current-date');
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        dateElement.textContent = new Date().toLocaleDateString(undefined, options);
-
-        const buttons = document.querySelectorAll('.select-btn');
-        const iframe = document.getElementById('video-frame');
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                iframe.src = button.getAttribute('data-src');
-            });
-        });
-
-        const searchInput = document.getElementById('live-tv-search');
-        const linkContainer = document.getElementById('link-container');
-        const links = linkContainer.querySelectorAll('.link-box');
-
-        searchInput.addEventListener('input', () => {
-            const filter = searchInput.value.toLowerCase();
-            links.forEach(link => {
-                const altText = link.querySelector('img').alt.toLowerCase();
-                if (altText.includes(filter)) {
-                    link.style.display = '';
-                } else {
-                    link.style.display = 'none';
-                }
-            });
-        });
-
-        window.addEventListener('load', function () {
-            const savedCloak = localStorage.getItem('tabCloak');
-            if (savedCloak) {
-                const cloak = JSON.parse(savedCloak);
-                const existingFavicon = document.querySelector("link[rel*='icon']");
-                if (existingFavicon) {
-                    existingFavicon.remove();
-                }
-                const newFavicon = document.createElement('link');
-                newFavicon.rel = 'icon';
-                newFavicon.type = 'image/x-icon';
-                newFavicon.href = cloak.icon;
-                document.head.appendChild(newFavicon);
-                document.title = cloak.title;
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('video-frame');
+            const streamButtons = document.querySelectorAll('.stream-btn');
+            
+            // Set first stream as active by default
+            if (streamButtons.length > 0) {
+                streamButtons[0].classList.add('active');
             }
+            
+            // Handle stream button clicks
+            streamButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const src = this.getAttribute('data-src');
+                    
+                    // Update iframe source
+                    iframe.src = src;
+                    
+                    // Update active state
+                    streamButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Handle tab cloaking
+            window.addEventListener('load', function () {
+                const savedCloak = localStorage.getItem('tabCloak');
+                if (savedCloak) {
+                    const cloak = JSON.parse(savedCloak);
+                    const existingFavicon = document.querySelector("link[rel*='icon']");
+                    if (existingFavicon) {
+                        existingFavicon.remove();
+                    }
+                    const newFavicon = document.createElement('link');
+                    newFavicon.rel = 'icon';
+                    newFavicon.type = 'image/x-icon';
+                    newFavicon.href = cloak.icon;
+                    document.head.appendChild(newFavicon);
+                    document.title = cloak.title;
+                }
+            });
         });
     </script>
 </body>

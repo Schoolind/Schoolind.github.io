@@ -51,7 +51,7 @@ async function checkAccessCode(event) {
         
         // Redirect after a short delay
         setTimeout(() => {
-            window.location.href = 'games.html';
+            window.location.href = 'home.html';
         }, 800);
     } else {
         // Apply transition and transform for error effect
