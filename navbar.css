@@ -1,8 +1,9 @@
 .nav-wrapper {
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
     height: 100px; /* Stable hover area */
     display: flex;
     justify-content: center;
