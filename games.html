@@ -119,11 +119,39 @@
 
 
             .category-list li {
-                padding: 10px 15px;
+                padding: 12px 15px;
                 margin: 5px 0;
                 border-radius: 5px;
                 cursor: pointer;
                 transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.95em;
+            }
+
+            .category-list li i,
+            .category-list li svg {
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                color: #4fc3f7;
+                transition: all 0.2s ease;
+                flex-shrink: 0;
+            }
+
+            .category-list li:hover i,
+            .category-list li:hover svg {
+                transform: scale(1.1);
+            }
+
+            .category-list li.active i,
+            .category-list li.active svg {
+                color: #1b1b1b;
+            }
+            
+            .flash-icon {
+                fill: currentColor;
             }
 
 
@@ -165,18 +193,45 @@
             </div>
             <h3>Categories</h3>
             <ul class="category-list">
-                <li class="active" data-category="all">All Games</li>
-                <li data-category="action">Action</li>
-                <li data-category="sports">Sports</li>
-                <li data-category="adventure">Adventure</li>
-                <li data-category="puzzle">Puzzle</li>
-                <li data-category="racing">Racing</li>
-                <li data-category="cooking">Cooking</li>
-                <li data-category="mobile">Mobile</li>
-                <li data-category="gun">Gun</li>
-                <li data-category="2player">2 Player</li>
-                <li data-category="flash">Flash</li>
-                <li data-category="io">.io Games</li>
+                <li class="active" data-category="all">
+                    <i class="fas fa-gamepad"></i> All Games
+                </li>
+                <li data-category="strategy">
+                    <i class="fas fa-chess-knight"></i> Strategy
+                </li>
+                <li data-category="adventure">
+                    <i class="fas fa-mountain"></i> Adventure
+                </li>
+                <li data-category="puzzle">
+                    <i class="fas fa-puzzle-piece"></i> Puzzle
+                </li>
+                <li data-category="shooter">
+                    <i class="fas fa-crosshairs"></i> Shooter
+                </li>
+                <li data-category="sports">
+                    <i class="fas fa-futbol"></i> Sports
+                </li>
+                <li data-category="racing">
+                    <i class="fas fa-flag-checkered"></i> Racing
+                </li>
+                <li data-category="flash">
+                    <svg width="20" height="20" viewBox="0 0 800 600" class="flash-icon">
+                        <path d="M536.981323,226.734467 C540.780762,226.734955 544.083008,226.734955 547.739502,226.734955 C547.739502,257.451996 547.739502,287.693054 547.739502,318.828705 C545.888000,318.828705 543.982605,318.828705 542.077148,318.828735 C510.920868,318.828918 479.762329,319.020325 448.610291,318.656616 C442.861542,318.589539 440.697601,320.562622 438.752167,325.606781 C426.991180,356.100739 413.480164,385.771332 395.101746,412.964966 C368.932037,451.686981 334.827698,480.185760 289.592529,494.108521 C270.717285,499.918091 251.412979,503.203033 231.595032,503.004913 C229.956085,502.988525 228.316864,503.002777 226.344345,503.002777 C226.344345,472.369354 226.344345,442.143311 226.344345,411.715393 C233.613174,411.014252 240.899490,410.664124 248.069138,409.557831 C276.665588,405.145416 298.492828,389.980286 315.228821,366.808960 C331.760223,343.920959 342.699280,318.198090 353.109741,292.226196 C367.595581,256.087280 381.250702,219.601028 396.440033,183.763016 C408.369598,155.616211 424.187683,129.563568 444.704071,106.595924 C474.396942,73.355408 511.071899,52.564201 555.037415,45.170689 C567.753479,43.032284 580.725220,42.415039 594.013245,41.056099 C594.242615,44.015526 594.476624,45.636395 594.477844,47.257442 C594.499023,74.415039 594.457642,101.572762 594.533142,128.730164 C594.542236,132.007980 594.094727,133.962463 590.050537,133.978989 C546.731567,134.155991 516.588074,155.974350 495.527893,192.214508 C489.286987,202.953781 483.817047,214.141068 477.993805,225.123062 C478.291473,225.660034 478.589142,226.197021 478.886780,226.733994 C498.085876,226.733994 517.284973,226.733994 536.981323,226.734467 z" fill="currentColor"/>
+                    </svg>
+                    Flash
+                </li>
+                <li data-category="cooking">
+                    <i class="fas fa-utensils"></i> Cooking
+                </li>
+                <li data-category="2player">
+                    <i class="fas fa-users"></i> 2 Player
+                </li>
+                <li data-category="io">
+                    <i class="fas fa-globe"></i> .io Games
+                </li>
+                <li data-category="mobile">
+                    <i class="fas fa-mobile-alt"></i> Mobile
+                </li>
             </ul>
         </div>
 
@@ -544,187 +599,187 @@
             <a href="games\basketrandom\index.html" data-category="sports,2player"><img src="https://play-lh.googleusercontent.com/gP8T5Z1O-ngxIloiwcBZzrzyLPYDp0R_1BDNKUDZboIRPVImeyWI8-7aExvB9gAGNKc" alt="basket random"></a> 
             <a href="games\soccerrandom.html" data-category="sports,2player"><img src="images/soccerrandom.png" alt="soccer random"></a>
             <a href="games\vollyrandom.html" data-category="sports,2player"><img src="images/vollyrandom.png" alt="volly random"></a>
-            <a href="games\Boxingrandom\index.html" data-category="sports,action,2player"><img src="https://play-lh.googleusercontent.com/ZuMoNX6xiIBRwdtSL-FN0xCdXyahk8SRaPZ5_4HzkdQEp2Tm_GAsha9OcsRoSDgSw8Y" alt="Boxing random"></a>
-            <a href="games\cookieclicker\index.html" data-category="clicker,incremental"><img src="https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok" alt="clicker cookie clicker"></a>  
-            <a href="games\flappybird\index.html" data-category="arcade,challenging"><img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png" alt="flappy bird"></a> 
-            <a href="games\slope\index.html" data-category="racing,3d,action"><img src="images/slope.jpg" alt="slope"></a> 
-            <a href="games\ovo.html" data-category="action,arcade,2player"><img src="images/OvO.png" alt="ovo"></a>
-            <a href="games\tombofthemask\index.html" data-category="adventure,arcade,puzzle"><img src="https://play-lh.googleusercontent.com/ATGr-U4JBK2VjFzKGK9eMMkrDxJaazadOUoz_7Yl0U5NrWSFcFUzEtNurWXYzVWc8uOO" alt="tomb of the mask"></a>
-            <a href="games/worldshardestgame.html" data-category="action,challenging,arcade"><img src="https://play-lh.googleusercontent.com/WoyHFBEgzmhlM0VCsmH3zPqPFquIYZHQLCbcpVOBKgY4ku7Xb3XIB7rMWwZ6oLsAACA" alt="worlds hardest game"></a>
-            <a href="games\monkeymart.html" data-category="management,simulation,mobile"><img src="https://play-lh.googleusercontent.com/rWReIdyvDaYJPeOxn7hbC0b-96ixGpQKM_EndiQa3SUME8TtI_rNUcI4qsw5teK9mqk" alt="Monkey Mart"></a>
+            <a href="games\Boxingrandom\index.html" data-category="sports,2player"><img src="https://play-lh.googleusercontent.com/ZuMoNX6xiIBRwdtSL-FN0xCdXyahk8SRaPZ5_4HzkdQEp2Tm_GAsha9OcsRoSDgSw8Y" alt="Boxing random"></a>
+            <a href="games\cookieclicker\index.html" data-category="clicker"><img src="https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok" alt="clicker cookie clicker"></a>  
+            <a href="games\flappybird\index.html" data-category="mobile"><img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png" alt="flappy bird"></a> 
+            <a href="games\slope\index.html" data-category="racing,3d"><img src="images/slope.jpg" alt="slope"></a> 
+            <a href="games\ovo.html" data-category="shooter"><img src="images/OvO.png" alt="ovo"></a>
+            <a href="games\tombofthemask\index.html" data-category="puzzle"><img src="https://play-lh.googleusercontent.com/ATGr-U4JBK2VjFzKGK9eMMkrDxJaazadOUoz_7Yl0U5NrWSFcFUzEtNurWXYzVWc8uOO" alt="tomb of the mask"></a>
+            <a href="games/worldshardestgame.html" data-category="strategy,flash"><img src="https://play-lh.googleusercontent.com/WoyHFBEgzmhlM0VCsmH3zPqPFquIYZHQLCbcpVOBKgY4ku7Xb3XIB7rMWwZ6oLsAACA" alt="worlds hardest game"></a>
+            <a href="games\monkeymart.html" data-category="strategy,mobile"><img src="https://play-lh.googleusercontent.com/rWReIdyvDaYJPeOxn7hbC0b-96ixGpQKM_EndiQa3SUME8TtI_rNUcI4qsw5teK9mqk" alt="Monkey Mart"></a>
             <a href="games\subwaysurfers.html" data-category="arcade,runner,mobile"><img src="images/subway.jpg" alt="subway surfers"></a>
-            <a href="games\2048\index.html" data-category="puzzle,numbers,strategy"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2048_logo.svg/1200px-2048_logo.svg.png" alt="2048"></a>
-            <a href="games\tetris\index.html" data-category="puzzle,arcade,classic"><img src="images/Tetris.png" alt="tetris"></a>
-            <a href="games\Doodle Jump\index.html" data-category="arcade,platformer,mobile"><img src="images/doodle.png" alt="Doodle Jump"></a>
-            <a href="games\gunspin.html" data-category="action,shooter,arcade"><img src="images/gunspin.png" alt="Gun Spin"></a>
-            <a href="games\slowroads.html" data-category="driving,relaxing,3d"><img src="images/slowroads.png" alt="Slow Roads"></a>
+            <a href="games\2048\index.html" data-category="puzzle,strategy"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2048_logo.svg/1200px-2048_logo.svg.png" alt="2048"></a>
+            <a href="games\tetris\index.html" data-category="puzzle"><img src="images/Tetris.png" alt="tetris"></a>
+            <a href="games\Doodle Jump\index.html" data-category="mobile"><img src="images/doodle.png" alt="Doodle Jump"></a>
+            <a href="games\gunspin.html" data-category="shooter"><img src="images/gunspin.png" alt="Gun Spin"></a>
+            <a href="games\slowroads.html" data-category="racing"><img src="images/slowroads.png" alt="Slow Roads"></a>
             <a href="games\crossyroad.html" data-category="arcade,challenging,mobile"><img src="images/crossy.png" alt="crossy road"></a>
-            <a href="games\ageofwar.html" data-category="strategy,defense,war"><img src="images/ageofwar.jpg" alt="age of war"></a>
-            <a href="games/ageofwar2.html" data-category="strategy,defense,war"><img src="images/ageofwar2.png" alt="age of war 2"></a>
-            <a href="games\snowrider3d.html" data-category="racing,3d,action"><img src="images/snowrider3d.jpg" alt="snowrider 3d"></a>
-            <a href="games\getontop.html" data-category="action,2player,physics"><img src="images/3078616e30ecc5f326bd8e6cad728a03.avif" alt="get on top"></a>
+            <a href="games\ageofwar.html" data-category="strategy"><img src="images/ageofwar.jpg" alt="age of war"></a>
+            <a href="games/ageofwar2.html" data-category="strategy"><img src="images/ageofwar2.png" alt="age of war 2"></a>
+            <a href="games\snowrider3d.html" data-category="racing,3d"><img src="images/snowrider3d.jpg" alt="snowrider 3d"></a>
+            <a href="games\getontop.html" data-category="2player,physics"><img src="images/3078616e30ecc5f326bd8e6cad728a03.avif" alt="get on top"></a>
             <a href="games\golddigger.html" data-category="adventure,puzzle,mining"><img src="images/golddigger.avif" alt="gold digger"></a>
-            <a href="games\bulletbros.html" data-category="action,shooter,arcade"><img src="images/bulletbros.webp" alt="bullet bros"></a>
+            <a href="games\bulletbros.html" data-category="shooter,arcade"><img src="images/bulletbros.webp" alt="bullet bros"></a>
             <a href="games/leveldevil.html" data-category="platformer,challenging,retro"><img src="images/leveldevil.avif" alt="level devil"></a>
             <a href="games/resortempire.html" data-category="management,simulation,business"><img src="images/images.jpg" alt="resort empire"></a>
-            <a href="games/bitlife.html" data-category="simulation,life,strategy,mobile"><img src="images/Bitlife.webp" alt="bitlife"></a>
-            <a href="games/defendyournets.html" data-category="defense,strategy,action"><img src="images/defendyournuts2.jpg" alt="defend your nuts"></a>
-            <a href="games\basketballlegends\index.html" data-category="action"><img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/a1d3004c30bfd422125e43a558629ad4.png" alt="basketball legends 2020"></a>
-            <a href="games\basketballstars\index.html" data-category="action"><img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/bc02c9cdfc5b424ddf343b01edf791ce.png" alt="basket ball stars"></a>
-            <a href="games/Soccerallstars.html" data-category="action"><img src="images/soccerallstars.avif" alt="Soccer all stars"></a>
-            <a href="games/Basketbros/index.html" data-category="action"><img src="images/basket-bros.png" alt="basket bros"></a>
-            <a href="games/jetjoyride.html" data-category="action,mobile"><img src="images/images (1).jpg" alt="jetpack joy ride"></a>
-            <a href="games/linerider.html" data-category="action"><img src="images/linerider.png" alt="line rider"></a>
-            <a href="games/retrobowlcolege.html" data-category="action,mobile"><img src="images/retrobowlcollege.webp" alt="retrobowl colege"></a>
-            <a href="games/retrobowl.html" data-category="action,mobile"><img src="images/retro-bowl.jpg" alt="retrobowl"></a>
-            <a href="games/chicken-merge.html" data-category="action"><img src="images/chickenmerge.avif" alt="chicken merge"></a>
-            <a href="games/templerun.html" data-category="action,mobile"><img src="images/templerun.png" alt="temple run"></a>
-            <a href="games/googlefued.html" data-category="action"><img src="images/googlefued.png" alt="googlefued"></a>
-            <a href="games/blockblast.html" data-category="action,mobile"><img src="images/blockblast.webp" alt="block blast"></a>
-            <a href="games/geodash.html" data-category="action,mobile"><img src="images/geodash.png" alt="geometrydash"></a>
-            <a href="games/geoguesser.html" data-category="action"><img src="images/geoguess.webp" alt="geoguesser"></a>
-            <a href="games/advenutreedrivers.html" data-category="action"><img src="images/adventuredrivers-min.png" alt="adventure drivers"></a>
-            <a href="games\raftwars\index.html" data-category="action"><img src="images/raftwars1.png" alt="raft wars"></a>
-            <a href="games/raftwars2.html" data-category="action"><img src="images/raftswars2.webp" alt="raft wars 2"></a>
-            <a href="games/eggycar.html" data-category="action"><img src="images/eggy-car-game-icon_0.png" alt="eggy car"></a>
-            <a href="games/cuttherope.html" data-category="action"><img src="images/cutherope.png" alt="cut the rope"></a>
-            <a href="games/ducklife3.html" data-category="action"><img src="images/duck3.jpg" alt="duck life 3"></a>    
-            <a href="games/ducklife4.html" data-category="action"><img src="images/ducklife4.png" alt="duck life 4"></a>
-            <a href="games/ducklife5.html" data-category="action"><img src="images/duck5.png" alt="duck life 5"></a>
-            <a href="games/amoungus.html" data-category="action"><img src="images/amous.webp" alt="among us"></a>
+            <a href="games/bitlife.html" data-category="strategy,mobile"><img src="images/Bitlife.webp" alt="bitlife"></a>
+            <a href="games/defendyournets.html" data-category="strategy"><img src="images/defendyournuts2.jpg" alt="defend your nuts"></a>
+            <a href="games\basketballlegends\index.html" data-category="sports"><img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/a1d3004c30bfd422125e43a558629ad4.png" alt="basketball legends 2020"></a>
+            <a href="games\basketballstars\index.html" data-category="sports"><img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/bc02c9cdfc5b424ddf343b01edf791ce.png" alt="basket ball stars"></a>
+            <a href="games/Soccerallstars.html" data-category="sports"><img src="images/soccerallstars.avif" alt="Soccer all stars"></a>
+            <a href="games/Basketbros/index.html" data-category="sports"><img src="images/basket-bros.png" alt="basket bros"></a>
+            <a href="games/jetjoyride.html" data-category="mobile"><img src="images/images (1).jpg" alt="jetpack joy ride"></a>
+            <a href="games/linerider.html" data-category="racing"><img src="images/linerider.png" alt="line rider"></a>
+            <a href="games/retrobowlcolege.html" data-category="sports,mobile"><img src="images/retrobowlcollege.webp" alt="retrobowl colege"></a>
+            <a href="games/retrobowl.html" data-category="sports,mobile"><img src="images/retro-bowl.jpg" alt="retrobowl"></a>
+            <a href="games/chicken-merge.html" data-category="shooter"><img src="images/chickenmerge.avif" alt="chicken merge"></a>
+            <a href="games/templerun.html" data-category="mobile"><img src="images/templerun.png" alt="temple run"></a>
+            <a href="games/googlefued.html" data-category="puzzle"><img src="images/googlefued.png" alt="googlefued"></a>
+            <a href="games/blockblast.html" data-category="shooter"><img src="images/blockblast.webp" alt="block blast"></a>
+            <a href="games/geodash.html" data-category="mobile"><img src="images/geodash.png" alt="geometrydash"></a>
+            <a href="games/geoguesser.html" data-category="puzzle"><img src="images/geoguess.webp" alt="geoguesser"></a>
+            <a href="games/advenutreedrivers.html" data-category="adventure"><img src="images/adventuredrivers-min.png" alt="adventure drivers"></a>
+            <a href="games\raftwars\index.html" data-category="shooter"><img src="images/raftwars1.png" alt="raft wars"></a>
+            <a href="games/raftwars2.html" data-category="shooter"><img src="images/raftswars2.webp" alt="raft wars 2"></a>
+            <a href="games/eggycar.html" data-category="racing"><img src="images/eggy-car-game-icon_0.png" alt="eggy car"></a>
+            <a href="games/cuttherope.html" data-category="puzzle"><img src="images/cutherope.png" alt="cut the rope"></a>
+            <a href="games/ducklife3.html" data-category="adventure"><img src="images/duck3.jpg" alt="duck life 3"></a>    
+            <a href="games/ducklife4.html" data-category="adventure"><img src="images/ducklife4.png" alt="duck life 4"></a>
+            <a href="games/ducklife5.html" data-category="adventure"><img src="images/duck5.png" alt="duck life 5"></a>
+            <a href="games/amoungus.html" data-category="strategy"><img src="images/amous.webp" alt="among us"></a>
             <a href="games/paperio2.html" data-category="io"><img src="images/paper.io.jpg" alt="paper io 2"></a>
             <a href="games/paperio3d.html" data-category="io"><img src="images/paperio3.jpg" alt="paper io 3d"></a>
             <a href="games/yohohoio.html" data-category="io"><img src="images/yohoho-io.png" alt="yohoho io"></a>
             <a href="games/snowballio.html" data-category="io"><img src="images/snowballio.jpg" alt="snowball io"></a>
             <a href="games/hole.io.html" data-category="io,mobile"><img src="images/Hole.io_logo.jpg" alt="hole-io"></a>
-            <a href="games/run.html" data-category="action"><img src="images/run.png" alt="run"></a>
-            <a href="games/tinyfishing.html" data-category="action"><img src="images/tinyfishing.avif" alt="tiny fishing"></a>
-            <a href="games/minesweeper.html" data-category="action"><img src="images/minesweeper.png" alt="minesweeper"></a>
-            <a href="games/wordleunlimted.html" data-category="action"><img src="images/worldle.webp" alt="wordle unlimited"></a>
-            <a href="games/pacman.html" data-category="action"><img src="images/pacman.avif" alt="pacman"></a>
-            <a href="games/infintecraft.html" data-category="action"><img src="images/infinte.webp" alt="infinite craft"></a>
-            <a href="games/colorswitch.html" data-category="action,mobile"><img src="images/colorswitch.png" alt="color switch"></a>
-            <a href="games/strickforcekittys.html" data-category="action"><img src="images/stirckforce kittly.jpg  " alt="Strike force kitty"></a>
-            <a href="games/stickmanhook.html" data-category="action"><img src="images/stickmanhook.jpg" alt="stickman hook"></a>
-            <a href="games/driftboss.html" data-category="action"><img src="images/drift-boss.png" alt="drift boss"></a>
-            <a href="games/interactivebuddy.html" data-category="action"><img src="images/BuddyOld.webp" alt="interactive buddy"></a>
-            <a href="games/webecomewhatwebehold.html" data-category="action"><img src="images/we-become-what-we-behold.png" alt="we become what we be hold"></a>      
-            <a href="games/PapasPizzera.html" data-category="cooking"><img src="images/PapasPizzera.jpg" alt="Papas Pizzera"></a>
-            <a href="games/PapasBurgeria.html" data-category="cooking"><img src="images/PapasBurgeria.jpg" alt="Papas Burgeria"></a>
-            <a href="games/PapasTacomia.html" data-category="cooking"><img src="images/papas taco.png" alt="Papas Tacomia"></a>
-            <a href="games/PapasFreezeria.html" data-category="cooking"><img src="images/PapasFreezeria.png" alt="Papas Freezeria"></a>
-            <a href="games/PapasPancakeria.html" data-category="cooking"><img src="images/PapasPancakeria.png" alt="papas pancakeria"></a>
-            <a href="games/papaswingeria.html" data-category="cooking"><img src="images/PapasWingeria.png" alt="papas wingeria"></a>
-            <a href="games/PapasHotDoggeria.html" data-category="cooking"><img src="images/PapasHotDoggeria.png" alt="Papas Hot Doggeria"></a>
-            <a href="games/papacupcake.html" data-category="cooking"><img src="images/papacupcake.png" alt="Papas Cupcakeria"></a>
-            <a href="games/PapasPastaria.html" data-category="cooking"><img src="images/New Project.png" alt="Papas Pastaria"></a>
-            <a href="games/PapasDonuteria.html" data-category="cooking"><img src="images/PapasDonuteria.png" alt="Papas Donuteria"></a>
-            <a href="games/papacheese.html" data-category="cooking"><img src="images/PapasCheeseria.jpg" alt="papas Cheeseria"></a>
-            <a href="games/PapasBakeria.html" data-category="cooking"><img src="images/papasbackeria.png" alt="papas bakeria"></a>
-            <a href="games/papas-sushiria.html" data-category="cooking"><img src="images/papas-sushiria.png" alt="papas sushiria"></a>
-            <a href="games/PapasScooperia.html" data-category="cooking"><img src="images/PapasScooperia.png" alt="Papas Scooperia"></a>
-            <a href="games/Papa-louie-2.html" data-category="cooking,action"><img src="images/Papa-louie-2.png" alt="Papa louie 2"></a>
-            <a href="games/Papa-louie-3.html" data-category="cooking,action"><img src="images/papa-louie-3.webp" alt="Papa louie 3"></a>
-            <a href="games/jacksmith.html" data-category="action"><img src="images/jacksmith.jpg" alt="jacksmith"></a>
-            <a href="games/1v1lol.html" data-category="action"><img src="images/1v1lol.png" alt="1v1 lol"></a>
-            <a href="games/dinogame.html" data-category="action,mobile"><img src="images/dinosaur-game.png" alt="dinosaur game"></a>
-            <a href="games/moto-x3m.html" data-category="action"><img src="images/moto-x3m.jpg" alt="moto X3M"></a>
-            <a href="games/MotoX3MPoolParty.html" data-category="action"><img src="images/poolparty.png" alt="Moto X3M Pool Party"></a>
-            <a href="games/MotoX3MSpooky.html" data-category="action"><img src="images/MotoX3MSpooky.avif" alt="MotoX3MSpooky"></a>
-            <a href="games/MotoX3MWinter.html" data-category="action"><img src="images/MotoX3MWinter.avif" alt="Moto X3M Winter"></a>
-            <a href="games/fruitninja.html" data-category="action"><img src="images/fruitninja.png" alt="fruit ninja"></a>
-            <a href="games/learntofly.html" data-category="action"><img src="images/learentofly.png" alt="Learn To Fly"></a>
-            <a href="games/minecraft.html" data-category="action"><img src="images/Minecraft_Bedrock_icon.webp" alt="minecraft"></a>
-            <a href="games/TunnelRush.html" data-category="action"><img src="images/TunnelRush.jpg" alt="TunnelRush"></a>
-            <a href="games/FancyPants.html" data-category="action"><img src="images/FancyPants.jpg" alt="Fancy Pants"></a>
-            <a href="games/kingdomrush.html" data-category="strategy,mobile"><img src="images/kingdomrush.png" alt="kingdom rush"></a>
-            <a href="games/idle-dice.html" data-category="action"><img src="images/idle-dice.webp" alt="idle dice"></a>
-            <a href="games/BaconMayDie.html" data-category="action"><img src="images/BaconMayDie.webp" alt="Bacon May Die"></a>
-            <a href="games/Bloons-tower-denfense-5.html" data-category="action"><img src="images/Bloons-tower-denfense-5.png" alt="Bloons tower denfense"></a>
-            <a href="games/gswitch4.html" data-category="action"><img src="images/gswitch.webp" alt="gswitch"></a>
-            <a href="games/stickman climb.html" data-category="action"><img src="images/stickman-climb-2.avif" alt="stickman climb"></a>
-            <a href="games/idlelummber.html" data-category="action"><img src="images/idlelumber.jpg" alt="idle lumber"></a>
-            <a href="games/blumgi-ball.html" data-category="action"><img src="images/blumgi-ball.avif" alt="blumgi ball"></a> 
-            <a href="games/smashkarts.html" data-category="action,mobile"><img src="images/smashkarts.png" alt="smash karts"></a>
-            <a href="games/ducklings.html" data-category="action"><img src="images/ducklings.jpg" alt="ducklings"></a>
-            <a href="games/basketandball.html" data-category="action"><img src="images/basket-and-ball.png" alt="basket and ball"></a>
-            <a href="games/jellytruck.html" data-category="action"><img src="images/jellytruck.png" alt="jelly truck"></a>
-            <a href="games/theimpossablequiz.html" data-category="action"><img src="images/theimpossablequiz.avif" alt="the impossable quiz"></a>
-            <a href="games/happywheels.html" data-category="action,flash"><img src="images/happywheels.png" alt="happywheels"></a>
-            <a href="games/RooftopSnipers.html" data-category="action"><img src="images/rooftopsniperes.avif" alt="Rooftop Snipers"></a>
-            <a href="games/adventure-capitalist.html" data-category="action"><img src="images/AdVenture_Capitalist.webp" alt="adventure capitalist"></a>
-            <a href="games/rougsouls.html" data-category="action"><img src="images/rougsouls.jpg" alt="rougsouls"></a>
-            <a href="games/rougsouls-2.html" data-category="action"><img src="images/rougsouls-2.jpg" alt="rougsouls 2"></a>
-            <a href="games/swords-of-souls.html" data-category="action"><img src="images/swords-of-souls.webp" alt="swords of souls"></a>
-            <a href="games/TheEvolutiontest.html" data-category="action"><img src="images/KlKsq30.png" alt="The Evolution of trust"></a>
-            <a href="games/Rocketpult.html" data-category="action"><img src="images/rocketpult.png" alt="rocketpult"></a>
-            <a href="games/kingsgame.html" data-category="action"><img src="images/icn_heroimage.jpg" alt="kingsgame"></a>
-            <a href="games/baldi's Basics.html" data-category="action"><img src="images/unnamed.png" alt="baldis basics"></a>
-            <a href="games/madday.html" data-category="action"><img src="images/com.aceviral.madday--39-icon.png" alt="mad day"></a>
-            <a href="games/henrystickman1.html" data-category="action"><img src="images/break into the bank.avif" alt="henry stickmin break-into-bank"></a>
-            <a href="games/henrystickmin2.html" data-category="action"><img src="images/stickmanprison.avif" alt="henry stickmin escaping-prison"></a>
-            <a href="games/henrystickmin3.html" data-category="action"><img src="images/df942cb27fd6d1be99cbc496550825cb50a0a4c057476ce5cc350141b0ac7ada.avif" alt="henry stickmin stealing the diamond"></a>
-            <a href="games/henrystickmin4.html" data-category="action"><img src="images/680d89360540e68fb8d45babd5441c7d95e4879a1e9cd7d28399ff1f52616481.avif" alt="henry stickmin infiltrating-the-airship"></a>
-            <a href="games/henrystickmin5.html" data-category="action"><img src="images/russianhenry.avif" alt="henry stickmin fleeing-the-complex"></a>
-            <a href="games/crazycattle3d.html" data-category="action"><img src="images/5c7b8bf6-7023-4b6f-8687-2e9d6117f4cc.png" alt="crazy-cattle-3d"></a>
-            <a href="games\drivemad\index.html" data-category="action"><img src="https://play-lh.googleusercontent.com/7l3WAPbei9MXrxnCzImpXi2VxjEBtgDl0htwvTnA-YqpJAuQJPpSiby1oB8LZMgD0IAy=w240-h480-rw" alt="drive mad"></a>   
-            <a href="games/monstertracks.html" data-category="action"><img src="images/41c7ae4db13e7d7596bb0528f40a4012.jpg" alt="monster tracks"></a>
-            <a href="games/dinobros.html" data-category="action"><img src="images/dinobros.webp" alt="dino bros"></a>
-            <a href="games/Gobble.html" data-category="action"><img src="images/gooble.webp" alt="Gobble"></a>
-            <a href="games/recoil.html" data-category="action"><img src="images/recoil.avif" alt="recoil"></a>
-            <a href="games/roper.html" data-category="action"><img src="images/roper.png" alt="roper"></a>
-            <a href="games/Escaperoad.html" data-category="action"><img src="images/512_x_512.png" alt="escape road"></a>
-            <a href="games/escaperoad2.html" data-category="action"><img src="images/escape-road-2-game.png" alt="escape road 2"></a>
-            <a href="games/clusterrush.html" data-category="action"><img src="images/cluster-rush.png" alt="cluster rush"></a>
-            <a href="games/rocketleague.html" data-category="action"><img src="images/Rocket_League_logo.webp" alt="rocket league"></a>
-            <a href="games/uno.html" data-category="action"><img src="images/uno.webp" alt="uno"></a>
-            <a href="games/unblocker.html" data-category="action"><img src="images/dogecoin-doge-cryptocurrency-isolated-on-600nw-1907571817.webp" alt="unblocker"></a>
-            <a href="games/driftdudes.html" data-category="action"><img src="images/DriftDudesTeaser.jpg" alt="drift dudes"></a>
-            <a href="games\burritobison\index.html" data-category="action"><img src="images/burritobison.png" alt="burrito bison"></a>
-            <a href="games/pushyourluck.html" data-category="action"><img src="images/push-your-luck-game-icon.png " alt="push-your-luck"></a>
-            <a href="games/speedstars.html" data-category="action"><img src="images/speedstars.png " alt="speed stars"></a>
-            <a href="games/fnaf.html" data-category="action"><img src="images/fnaf.webp " alt="five nights at freddy's"></a>
-            <a href="games/championisland.html" data-category="action"><img src="images/Site-logo.webp" alt="champion-island"></a>
-            <a href="games/doodlebaseball.html" data-category="action"><img src="images/baseballgoogle.png" alt="doodle-baseball"></a>
-            <a href="games/doodlecricket.html" data-category="action"><img src="images/cricket.webp" alt="doodle-cricket"></a>
-            <a href="games/snake.html" data-category="action"><img src="images/snake.png" alt="doodle-snake"></a>
-            <a href="games/johnnyupgrade.html" data-category="action"><img src="images/johnny-upgrade-game-icon.png" alt="johnny upgrade"></a>
-            <a href="games/ballblast.html" data-category="action"><img src="images/ballblast.webp" alt="ball blast"></a>
-            <a href="games/granny.html" data-category="action"><img src="images/granny.webp" alt="granny"></a>
-            <a href="games/onlyup.html" data-category="action"><img src="images/onlyup.png" alt="onlyup"></a>
-            <a href="games/br2.html" data-category="action"><img src="images/bank-robbery-2-cover.jpg" alt="bankrobery"></a>
-            <a href="games/polytrack.html" data-category="action"><img src="images/polytrack.png" alt="polytrack"></a>
-            <a href="games/bottleflip.html" data-category="action"><img src="images/bottleflip.png" alt="bottle-flip"></a>
+            <a href="games/run.html" data-category="adventure"><img src="images/run.png" alt="run"></a>
+            <a href="games/tinyfishing.html" data-category="adventure"><img src="images/tinyfishing.avif" alt="tiny fishing"></a>
+            <a href="games/minesweeper.html" data-category="puzzle"><img src="images/minesweeper.png" alt="minesweeper"></a>
+            <a href="games/wordleunlimted.html" data-category="puzzle"><img src="images/worldle.webp" alt="wordle unlimited"></a>
+            <a href="games/pacman.html" data-category="strategy"><img src="images/pacman.avif" alt="pacman"></a>
+            <a href="games/infintecraft.html" data-category="puzzle"><img src="images/infinte.webp" alt="infinite craft"></a>
+            <a href="games/colorswitch.html" data-category="mobile"><img src="images/colorswitch.png" alt="color switch"></a>
+            <a href="games/strickforcekittys.html" data-category="adventure"><img src="images/stirckforce kittly.jpg  " alt="Strike force kitty"></a>
+            <a href="games/stickmanhook.html" data-category="strategy"><img src="images/stickmanhook.jpg" alt="stickman hook"></a>
+            <a href="games/driftboss.html" data-category="racing"><img src="images/drift-boss.png" alt="drift boss"></a>
+            <a href="games/interactivebuddy.html" data-category="adventure"><img src="images/BuddyOld.webp" alt="interactive buddy"></a>
+            <a href="games/webecomewhatwebehold.html" data-category="adventure"><img src="images/we-become-what-we-behold.png" alt="we become what we be hold"></a>      
+            <a href="games/PapasPizzera.html" data-category="cooking,flash"><img src="images/PapasPizzera.jpg" alt="Papas Pizzera"></a>
+            <a href="games/PapasBurgeria.html" data-category="cooking,flash"><img src="images/PapasBurgeria.jpg" alt="Papas Burgeria"></a>
+            <a href="games/PapasTacomia.html" data-category="cooking,flash"><img src="images/papas taco.png" alt="Papas Tacomia"></a>
+            <a href="games/PapasFreezeria.html" data-category="cooking,flash"><img src="images/PapasFreezeria.png" alt="Papas Freezeria"></a>
+            <a href="games/PapasPancakeria.html" data-category="cooking,flash"><img src="images/PapasPancakeria.png" alt="papas pancakeria"></a>
+            <a href="games/papaswingeria.html" data-category="cooking,flash"><img src="images/PapasWingeria.png" alt="papas wingeria"></a>
+            <a href="games/PapasHotDoggeria.html" data-category="cooking,flash"><img src="images/PapasHotDoggeria.png" alt="Papas Hot Doggeria"></a>
+            <a href="games/papacupcake.html" data-category="cooking,flash"><img src="images/papacupcake.png" alt="Papas Cupcakeria"></a>
+            <a href="games/PapasPastaria.html" data-category="cooking,flash"><img src="images/New Project.png" alt="Papas Pastaria"></a>
+            <a href="games/PapasDonuteria.html" data-category="cooking,flash"><img src="images/PapasDonuteria.png" alt="Papas Donuteria"></a>
+            <a href="games/papacheese.html" data-category="cooking,flash"><img src="images/PapasCheeseria.jpg" alt="papas Cheeseria"></a>
+            <a href="games/PapasBakeria.html" data-category="cooking,flash"><img src="images/papasbackeria.png" alt="papas bakeria"></a>
+            <a href="games/papas-sushiria.html" data-category="cooking,flash"><img src="images/papas-sushiria.png" alt="papas sushiria"></a>
+            <a href="games/PapasScooperia.html" data-category="cooking,flash"><img src="images/PapasScooperia.png" alt="Papas Scooperia"></a>
+            <a href="games/Papa-louie-2.html" data-category="cooking"><img src="images/Papa-louie-2.png" alt="Papa louie 2"></a>
+            <a href="games/Papa-louie-3.html" data-category="cooking"><img src="images/papa-louie-3.webp" alt="Papa louie 3"></a>
+            <a href="games/jacksmith.html" data-category="flash"><img src="images/jacksmith.jpg" alt="jacksmith"></a>
+            <a href="games/1v1lol.html" data-category="shooter"><img src="images/1v1lol.png" alt="1v1 lol"></a>
+            <a href="games/dinogame.html" data-category="mobile"><img src="images/dinosaur-game.png" alt="dinosaur game"></a>
+            <a href="games/moto-x3m.html" data-category="racing"><img src="images/moto-x3m.jpg" alt="moto X3M"></a>
+            <a href="games/MotoX3MPoolParty.html" data-category="racing"><img src="images/poolparty.png" alt="Moto X3M Pool Party"></a>
+            <a href="games/MotoX3MSpooky.html" data-category="racing"><img src="images/MotoX3MSpooky.avif" alt="MotoX3MSpooky"></a>
+            <a href="games/MotoX3MWinter.html" data-category="racing"><img src="images/MotoX3MWinter.avif" alt="Moto X3M Winter"></a>
+            <a href="games/fruitninja.html" data-category="mobile"><img src="images/fruitninja.png" alt="fruit ninja"></a>
+            <a href="games/learntofly.html" data-category="flash"><img src="images/learentofly.png" alt="Learn To Fly"></a>
+            <a href="games/minecraft.html" data-category="strategy"><img src="images/Minecraft_Bedrock_icon.webp" alt="minecraft"></a>
+            <a href="games/TunnelRush.html" data-category="strategy"><img src="images/TunnelRush.jpg" alt="TunnelRush"></a>
+            <a href="games/FancyPants.html" data-category="flash"><img src="images/FancyPants.jpg" alt="Fancy Pants"></a>
+            <a href="games/kingdom-rush.html" data-category="strategy,mobile,flash,shooter"><img src="images/kingdomrush.png" alt="kingdom rush"></a>
+            <a href="games/idle-dice.html" data-category="strategy"><img src="images/idle-dice.webp" alt="idle dice"></a>
+            <a href="games/BaconMayDie.html" data-category="shooter"><img src="images/BaconMayDie.webp" alt="Bacon May Die"></a>
+            <a href="games/Bloons-tower-denfense-5.html" data-category="flash,mobile,shooter"><img src="images/Bloons-tower-denfense-5.png" alt="Bloons tower denfense"></a>
+            <a href="games/gswitch4.html" data-category="racing"><img src="images/gswitch.webp" alt="gswitch"></a>
+            <a href="games/stickman climb.html" data-category="puzzle"><img src="images/stickman-climb-2.avif" alt="stickman climb"></a>
+            <a href="games/idlelummber.html" data-category="strategy"><img src="images/idlelumber.jpg" alt="idle lumber"></a>
+            <a href="games/blumgi-ball.html" data-category="sports"><img src="images/blumgi-ball.avif" alt="blumgi ball"></a> 
+            <a href="games/smashkarts.html" data-category="mobile"><img src="images/smashkarts.png" alt="smash karts"></a>
+            <a href="games/ducklings.html" data-category="adventure"><img src="images/ducklings.jpg" alt="ducklings"></a>
+            <a href="games/basketandball.html" data-category="puzzle,sports"><img src="images/basket-and-ball.png" alt="basket and ball"></a>
+            <a href="games/jellytruck.html" data-category="racing"><img src="images/jellytruck.png" alt="jelly truck"></a>
+            <a href="games/theimpossablequiz.html" data-category="puzzle,2player"><img src="images/theimpossablequiz.avif" alt="the impossable quiz"></a>
+            <a href="games/happywheels.html" data-category="flash"><img src="images/happywheels.png" alt="happywheels"></a>
+            <a href="games/RooftopSnipers.html" data-category="2player,shooter"><img src="images/rooftopsniperes.avif" alt="Rooftop Snipers"></a>
+            <a href="games/adventure-capitalist.html" data-category="mobile"><img src="images/AdVenture_Capitalist.webp" alt="adventure capitalist"></a>
+            <a href="games/rougsouls.html" data-category="flash"><img src="images/rougsouls.jpg" alt="rougsouls"></a>
+            <a href="games/rougsouls-2.html" data-category="flash"><img src="images/rougsouls-2.jpg" alt="rougsouls 2"></a>
+            <a href="games/swords-of-souls.html" data-category="flash"><img src="images/swords-of-souls.webp" alt="swords of souls"></a>
+            <a href="games/TheEvolutiontest.html" data-category="puzzle"><img src="images/KlKsq30.png" alt="The Evolution of trust"></a>
+            <a href="games/Rocketpult.html" data-category="strategy"><img src="images/rocketpult.png" alt="rocketpult"></a>
+            <a href="games/kingsgame.html" data-category="strategy"><img src="images/icn_heroimage.jpg" alt="kingsgame"></a>
+            <a href="games/baldi's Basics.html" data-category="puzzle"><img src="images/unnamed.png" alt="baldis basics"></a>
+            <a href="games/madday.html" data-category="racing,shooter"><img src="images/com.aceviral.madday--39-icon.png" alt="mad day"></a>
+            <a href="games/henrystickman1.html" data-category="puzzle,flash"><img src="images/break into the bank.avif" alt="henry stickmin break-into-bank"></a>
+            <a href="games/henrystickmin2.html" data-category="puzzle,flash"><img src="images/stickmanprison.avif" alt="henry stickmin escaping-prison"></a>
+            <a href="games/henrystickmin3.html" data-category="puzzle,flash"><img src="images/df942cb27fd6d1be99cbc496550825cb50a0a4c057476ce5cc350141b0ac7ada.avif" alt="henry stickmin stealing the diamond"></a>
+            <a href="games/henrystickmin4.html" data-category="puzzle,flash"><img src="images/680d89360540e68fb8d45babd5441c7d95e4879a1e9cd7d28399ff1f52616481.avif" alt="henry stickmin infiltrating-the-airship"></a>
+            <a href="games/henrystickmin5.html" data-category="puzzle,flash"><img src="images/russianhenry.avif" alt="henry stickmin fleeing-the-complex"></a>
+            <a href="games/crazycattle3d.html" data-category="strategy"><img src="images/5c7b8bf6-7023-4b6f-8687-2e9d6117f4cc.png" alt="crazy-cattle-3d"></a>
+            <a href="games\drivemad\index.html" data-category="racing"><img src="https://play-lh.googleusercontent.com/7l3WAPbei9MXrxnCzImpXi2VxjEBtgDl0htwvTnA-YqpJAuQJPpSiby1oB8LZMgD0IAy=w240-h480-rw" alt="drive mad"></a>   
+            <a href="games/monstertracks.html" data-category="racing"><img src="images/41c7ae4db13e7d7596bb0528f40a4012.jpg" alt="monster tracks"></a>
+            <a href="games/dinobros.html" data-category="puzzle"><img src="images/dinobros.webp" alt="dino bros"></a>
+            <a href="games/Gobble.html" data-category="strategy"><img src="images/gooble.webp" alt="Gobble"></a>
+            <a href="games/recoil.html" data-category="strategy,shooter"><img src="images/recoil.avif" alt="recoil"></a>
+            <a href="games/roper.html" data-category="strategy"><img src="images/roper.png" alt="roper"></a>
+            <a href="games/Escaperoad.html" data-category="racing"><img src="images/512_x_512.png" alt="escape road"></a>
+            <a href="games/escaperoad2.html" data-category="racing"><img src="images/escape-road-2-game.png" alt="escape road 2"></a>
+            <a href="games/clusterrush.html" data-category="racing"><img src="images/cluster-rush.png" alt="cluster rush"></a>
+            <a href="games/rocketleague.html" data-category="racing"><img src="images/Rocket_League_logo.webp" alt="rocket league"></a>
+            <a href="games/uno.html" data-category="2player,strategy"><img src="images/uno.webp" alt="uno"></a>
+            <a href="games/driftdudes.html" data-category="racing"><img src="images/DriftDudesTeaser.jpg" alt="drift dudes"></a>
+            <a href="games\burritobison\index.html" data-category="strategy"><img src="images/burritobison.png" alt="burrito bison"></a>
+            <a href="games/pushyourluck.html" data-category="strategy"><img src="images/push-your-luck-game-icon.png " alt="push-your-luck"></a>
+            <a href="games/speedstars.html" data-category="sports"><img src="images/speedstars.png " alt="speed stars"></a>
+            <a href="games/fnaf.html" data-category="strategy"><img src="images/fnaf.webp " alt="five nights at freddy's"></a>
+            <a href="games/championisland.html" data-category="strategy"><img src="images/Site-logo.webp" alt="champion-island"></a>
+            <a href="games/doodlebaseball.html" data-category="sports"><img src="images/baseballgoogle.png" alt="doodle-baseball"></a>
+            <a href="games/doodlecricket.html" data-category="sports"><img src="images/cricket.webp" alt="doodle-cricket"></a>
+            <a href="games/snake.html" data-category="strategy"><img src="images/snake.png" alt="doodle-snake"></a>
+            <a href="games/johnnyupgrade.html" data-category="strategy,shooter"><img src="images/johnny-upgrade-game-icon.png" alt="johnny upgrade"></a>
+            <a href="games/ballblast.html" data-category="strategy,mobile,shooter"><img src="images/ballblast.webp" alt="ball blast"></a>
+            <a href="games/granny.html" data-category="strategy"><img src="images/granny.webp" alt="granny"></a>
+            <a href="games/onlyup.html" data-category="strategy"><img src="images/onlyup.png" alt="onlyup"></a>
+            <a href="games/br2.html" data-category="shooter"><img src="images/bank-robbery-2-cover.jpg" alt="bankrobery"></a>
+            <a href="games/polytrack.html" data-category="racing"><img src="images/polytrack.png" alt="polytrack"></a>
+            <a href="games/bottleflip.html" data-category="puzzle"><img src="images/bottleflip.png" alt="bottle-flip"></a>
             <a href="games/fbawg1.html" data-category="2player"><img src="images/icon.jpeg" alt="fire boy and water girl"></a>
             <a href="games/fbawg2.html" data-category="2player"><img src="images/fireboy-and-watergirl-2-light-temple.webp" alt="fire boy and water girl 2"></a>
             <a href="games/fbawg3.html" data-category="2player"><img src="images/fireboy-and-watergirl-3-light-temple.webp" alt="fire boy and water girl 3"></a>
             <a href="games/fbawg4.html" data-category="2player"><img src="images/fireandwater4.jpeg" alt="fire boy and water girl 4"></a>
             <a href="games/fbawg5.html" data-category="2player"><img src="images/fireandwater5.jpeg" alt="fire boy and water girl 5"></a>
             <a href="games/fbawg6.html" data-category="2player"><img src="images/fireandwater6.jpeg" alt="fire boy and water girl 6"></a>
-            <a href="games/cannonbasketball.html" data-category="action"><img src="images/cannon-basketball 1.png" alt="cannon basketball"></a>
-            <a href="games/cannonbasketball2.html" data-category="action"><img src="images/cannon-basketball-2.jpg" alt="cannon basketball 2"></a>
-            <a href="games/cannonbasketball3.html" data-category="action"><img src="images/cannon-basketball-3-game-icon.png" alt="cannon basketball 3"></a>
-            <a href="games/cannonbasketball4.html" data-category="action"><img src="images/cannon-basketball-4-game-icon.png" alt="cannon basketball 4"></a>
-            <a href="games/awesometanks.html" data-category="action"><img src="images/awesome-tanks-game-icon.png" alt="awesome tanks"></a>
-            <a href="games/awesometanks2.html" data-category="action"><img src="images/awesome-tanks-2-icon.png" alt="awesome tanks 2"></a>
-            <a href="games/watermelongame.html" data-category="action"><img src="images/watermelon.webp" alt="watermelon-game"></a>
-            <a href="games/racesurvival.html" data-category="action"><img src="images/racesurvial.webp" alt="racesurvial"></a>
-            <a href="games/wheely2.html" data-category="action"><img src="images/wheely2.jpg" alt="wheely 2"></a>
-            <a href="games/wheely3.html" data-category="action"><img src="images/Wheely-3.webp" alt="wheely 3"></a>
-            <a href="games/wheely4.html" data-category="action"><img src="images/Wheely-4.webp" alt="wheely 4"></a>
-            <a href="games/wheely5.html" data-category="action"><img src="images/Wheely-5.png" alt="wheely 5"></a>
-            <a href="games/wheely6.html" data-category="action"><img src="images/wheely6.jpg" alt="wheely 6"></a>
-            <a href="games/wheely7.html" data-category="action"><img src="images/wheely-7-1.webp" alt="wheely 7"></a>
-            <a href="games/wheely8.html" data-category="action"><img src="images/wheely8.webp" alt="wheely 8"></a>
-            <a href="games/btr4.html" data-category="action"><img src="images/bobtherobber4.png" alt="Bob the robber 4 japan"></a>
-            <a href="games/btr4j.html" data-category="action"><img src="images/bob-the-robber-4-japan.jpg" alt="Bob the robber 4"></a>
-            <a href="games/smallworldcup.html" data-category="action"><img src="images/smallworldcup.avif" alt="a small world cup"></a>
-            <a href="games/xx142-b2.exe.html" data-category="action"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJW63szsbFEP5dqXZtjpGkiJ95D_k4uI5myu1ZoX5JkLjWcw9I2Ml3e3r5NSXnHoO2tI&usqp=CAU" alt="xx142-b2"></a>
-
-
-
-            
-            
+            <a href="games/cannonbasketball.html" data-category="strategy,shooter"><img src="images/cannon-basketball 1.png" alt="cannon basketball"></a>
+            <a href="games/cannonbasketball2.html" data-category="strategy,shooter"><img src="images/cannon-basketball-2.jpg" alt="cannon basketball 2"></a>
+            <a href="games/cannonbasketball3.html" data-category="strategy,shooter"><img src="images/cannon-basketball-3-game-icon.png" alt="cannon basketball 3"></a>
+            <a href="games/cannonbasketball4.html" data-category="strategy,shooter"><img src="images/cannon-basketball-4-game-icon.png" alt="cannon basketball 4"></a>
+            <a href="games/awesometanks.html" data-category="strategy,shooter"><img src="images/awesome-tanks-game-icon.png" alt="awesome tanks"></a>
+            <a href="games/awesometanks2.html" data-category="strategy,shooter"><img src="images/awesome-tanks-2-icon.png" alt="awesome tanks 2"></a>
+            <a href="games/watermelongame.html" data-category="strategy"><img src="images/watermelon.webp" alt="watermelon-game"></a>
+            <a href="games/racesurvival.html" data-category="racing"><img src="images/racesurvial.webp" alt="racesurvial"></a>
+            <a href="games/wheely2.html" data-category="puzzle"><img src="images/wheely2.jpg" alt="wheely 2"></a>
+            <a href="games/wheely3.html" data-category="puzzle"><img src="images/Wheely-3.webp" alt="wheely 3"></a>
+            <a href="games/wheely4.html" data-category="puzzle"><img src="images/Wheely-4.webp" alt="wheely 4"></a>
+            <a href="games/wheely5.html" data-category="puzzle"><img src="images/Wheely-5.png" alt="wheely 5"></a>
+            <a href="games/wheely6.html" data-category="puzzle"><img src="images/wheely6.jpg" alt="wheely 6"></a>
+            <a href="games/wheely7.html" data-category="puzzle"><img src="images/wheely-7-1.webp" alt="wheely 7"></a>
+            <a href="games/wheely8.html" data-category="puzzle"><img src="images/wheely8.webp" alt="wheely 8"></a>
+            <a href="games/btr4.html" data-category="strategy"><img src="images/bobtherobber4.png" alt="Bob the robber 4 japan"></a>
+            <a href="games/btr4j.html" data-category="strategy"><img src="images/bob-the-robber-4-japan.jpg" alt="Bob the robber 4"></a>
+            <a href="games/smallworldcup.html" data-category="sports"><img src="images/smallworldcup.avif" alt="a small world cup"></a>
+            <a href="games/xx142-b2.exe.html" data-category="puzzle"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJW63szsbFEP5dqXZtjpGkiJ95D_k4uI5myu1ZoX5JkLjWcw9I2Ml3e3r5NSXnHoO2tI&usqp=CAU" alt="xx142-b2">
+                <a href="games/unblocker.html" data-category="strategy"><img src="images/dogecoin-doge-cryptocurrency-isolated-on-600nw-1907571817.webp" alt="unblocker"></a>
+                
+                
+                
+                
+                
             
 
 
