@@ -49,6 +49,16 @@ async function checkAccessCode(event) {
         // Save access status in sessionStorage
         sessionStorage.setItem('accessGranted', 'true');
         
+        // Save to localStorage if "Remember Me" is checked
+        const rememberMe = document.getElementById('rememberMe').checked;
+        if (rememberMe) {
+            const token = generateToken();
+            localStorage.setItem('rememberMeToken', token);
+        } else {
+            // Clear any existing token if "Remember Me" is not checked
+            localStorage.removeItem('rememberMeToken');
+        }
+        
         // Redirect after a short delay
         setTimeout(() => {
             window.location.href = 'home.html';
@@ -104,11 +114,67 @@ function togglePasswordVisibility() {
     }
 }
 
+// Function to check if we have saved credentials and auto-login if available
+async function checkSavedCredentials() {
+    const savedToken = localStorage.getItem('rememberMeToken');
+    if (savedToken) {
+        try {
+            const tokenData = JSON.parse(atob(savedToken.split('.')[1]));
+            if (tokenData && tokenData.exp > Date.now() / 1000) {
+                // Token is valid, grant access and redirect immediately
+                sessionStorage.setItem('accessGranted', 'true');
+                // Minimal delay before redirect
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 5);
+                return true;
+            } else {
+                // Token expired, clean it up
+                localStorage.removeItem('rememberMeToken');
+            }
+        } catch (e) {
+            console.error('Error parsing token:', e);
+            // Clear invalid token
+            localStorage.removeItem('rememberMeToken');
+        }
+    }
+    return false;
+}
+
+// Function to generate a simple token (in a real app, this would be done server-side)
+function generateToken() {
+    const header = {
+        alg: 'HS256',
+        typ: 'JWT'
+    };
+    
+    const payload = {
+        sub: 'user',
+        iat: Math.floor(Date.now() / 1000),
+        exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60) // 30 days from now
+    };
+    
+    // In a real app, you would sign this with a secret key
+    const token = [
+        btoa(JSON.stringify(header)),
+        btoa(JSON.stringify(payload)),
+        'signature' // This would be a real signature in production
+    ].join('.');
+    
+    return token;
+}
+
 // Initialize event listeners when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Check for saved credentials first
+    await checkSavedCredentials();
+    
     // Add event listener for form submission
     document.getElementById('accessForm').addEventListener('submit', checkAccessCode);
     
-    // Add event listener for password toggle
+    // Add event listener for password visibility toggle
     document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
+    
+    // Focus the password field
+    document.getElementById('accessCode').focus();
 });

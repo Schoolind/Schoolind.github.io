@@ -35,6 +35,62 @@
             /* Removed margin-right: 5px to eliminate the squeeze */
         }
         
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin: -17px 0 5px 5px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        
+        .remember-me:hover {
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+        }
+        
+        .remember-me input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #3d8df5;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            margin-right: 10px;
+            transition: all 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .remember-me input[type="checkbox"]:hover {
+            border-color: #66a6ff;
+            box-shadow: 0 0 8px rgba(61, 141, 245, 0.5);
+        }
+        
+        .remember-me input[type="checkbox"]:checked {
+            background-color: #3d8df5;
+            border-color: #3d8df5;
+        }
+        
+        .remember-me input[type="checkbox"]:checked::after {
+            content: "✓";
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .remember-me input[type="checkbox"]:focus {
+            box-shadow: 0 0 0 3px rgba(61, 141, 245, 0.3);
+        }
+        
         .eye-icon {
             width: 24px;
             height: 24px;
@@ -52,6 +108,10 @@
                     <button type="button" id="togglePassword">
                         <i class="fas fa-eye eye-icon"></i>
                     </button>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
                 </div>
                 <button type="submit">Play Now <i class="fas fa-arrow-right"></i></button>
             </form>

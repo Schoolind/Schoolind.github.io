@@ -24,9 +24,33 @@
     }
 })();
 function checkAccess() {
-    const accessGranted = sessionStorage.getItem('accessGranted');
-    console.log('Access check:', accessGranted); // Add logging to debug
-    if (!accessGranted || accessGranted !== 'true') {
+    const sessionAccess = sessionStorage.getItem('accessGranted');
+    const rememberMeToken = localStorage.getItem('rememberMeToken');
+    
+    // Check if either session is active or remember me token is valid
+    let accessGranted = sessionAccess === 'true';
+    
+    // If no active session but we have a remember me token, verify it
+    if (!accessGranted && rememberMeToken) {
+        try {
+            const tokenData = JSON.parse(atob(rememberMeToken.split('.')[1]));
+            if (tokenData && tokenData.exp > Date.now() / 1000) {
+                // Token is valid, restore session
+                sessionStorage.setItem('accessGranted', 'true');
+                accessGranted = true;
+            } else {
+                // Token expired, clean it up
+                localStorage.removeItem('rememberMeToken');
+            }
+        } catch (e) {
+            console.error('Error validating remember me token:', e);
+            localStorage.removeItem('rememberMeToken');
+        }
+    }
+    
+    console.log('Access check - Session:', sessionAccess, 'Remember Me Token:', !!rememberMeToken);
+    
+    if (!accessGranted) {
         console.log('Access denied, redirecting to index.html');
         // Get the current URL path
         const currentPath = window.location.pathname;
