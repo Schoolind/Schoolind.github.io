@@ -71,7 +71,7 @@ function setTabCloak(cloak) {
             break;
         default:
             title = 'SchoolUK';
-            icon = 'images/DALL·E 2025-03-20 18.25.01 - A modern and professional logo featuring the words \'School\' and \'UK\'. The design should be clean and sleek, incorporating elements such as a book, a g (2).ico';
+            icon = '../images/DALL·E 2025-03-20 18.25.01 - A modern and professional logo featuring the words \'School\' and \'UK\'. The design should be clean and sleek, incorporating elements such as a book, a g (2).ico';
     }
 
     // Remove existing favicon

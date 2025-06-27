@@ -4,32 +4,37 @@ if (!document.getElementById('tv-guide-styles')) {
   style.id = 'tv-guide-styles';
   style.textContent = `
     .card {
-      background-color: #222;
+      background-color: rgba(34, 34, 34, 0.9);
       padding: 0.4rem 0.6rem;
       border-radius: 6px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       color: white;
       font-family: 'Segoe UI', sans-serif;
-      margin-bottom: 0.5rem;
-      font-size: 0.65rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.62rem;
       line-height: 1.1;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(2px);
     }
     h2 {
-      margin: 0 0 0.2rem 0;
-      font-size: 0.72rem;
+      margin: 0 0 0.15rem 0;
+      font-size: 0.68rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .progress-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 0.6rem;
-      color: #aaa;
-      margin-top: 0.2rem;
+      font-size: 0.58rem;
+      color: #bbb;
+      margin-top: 0.15rem;
     }
     .progress-container {
-      background-color: #333;
-      height: 6px;
+      background-color: rgba(0,0,0,0.3);
+      height: 5px;
       border-radius: 3px;
-      margin-top: 4px;
+      margin-top: 3px;
       overflow: hidden;
       position: relative;
     }
@@ -38,14 +43,18 @@ if (!document.getElementById('tv-guide-styles')) {
       width: 0%;
       background: linear-gradient(to right, #4fd1c5, #38b2ac);
       transition: width linear;
+      box-shadow: 0 0 5px rgba(79, 209, 197, 0.5);
     }
     .up-next {
-      margin-top: 0.25rem;
-      font-size: 0.6rem;
-      color: #bbb;
+      margin-top: 0.2rem;
+      font-size: 0.58rem;
+      color: #ccc;
       font-weight: 500;
       user-select: none;
       text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   `;
   document.head.appendChild(style);

@@ -685,43 +685,61 @@
             { name: "TruTV", url: "https://kleanembed.online/embed/63809a66e263a940dfc7bc4f429907d6", type: "iframe" },
             { name: "USA", url: "https://kleanembed.online/embed/prObIniBoc7ltizEGEvUSpLstaClmlbr", type: "iframe" },
             { name: "Tenis channel", url: "https://kleanembed.online/embed/671644cddc7ee3158d3291c88ec8a1a1", type: "iframe" },
+            { name: "Unimas", url: "https://kleanembed.online/embed/0055b626ddebadc2e135ffcfe38ed441", type: "iframe" },
+            { name: "Univision", url: "https://kleanembed.online/embed/a652418e3b26f16de0c9e090b5cd3ec2", type: "iframe" },
             { 
                 name: "MLB TV", 
                 type: "dropdown",
                 options: [
-                    { name: "Stream 1", url: "https://streamscenter.online/embed/ch15.php", type: "iframe" },
-                    { name: "Stream 2", url: "https://streamscenter.online/embed/ch16.php", type: "iframe" },
-                    { name: "Stream 3", url: "https://streamscenter.online/embed/ch17.php", type: "iframe" },
-                    { name: "Stream 4", url: "https://streamscenter.online/embed/ch18.php", type: "iframe" },
-                    { name: "Stream 5", url: "https://streamscenter.online/embed/ch19.php", type: "iframe" },
-                    { name: "Stream 6", url: "https://streamscenter.online/embed/ch20.php", type: "iframe" },
-                    { name: "Stream 7", url: "https://streamscenter.online/embed/ch21.php", type: "iframe" },
-                    { name: "Stream 8", url: "https://streamscenter.online/embed/ch22.php", type: "iframe" },
-                    { name: "Stream 9", url: "https://streamscenter.online/embed/ch23.php", type: "iframe" },
-                    { name: "Stream 10", url: "https://streamscenter.online/embed/ch24.php", type: "iframe" },
-                    { name: "Stream 11", url: "https://streamscenter.online/embed/ch25.php", type: "iframe" },
-                    { name: "Stream 12", url: "https://streamscenter.online/embed/ch26.php", type: "iframe" },
-                    { name: "Stream 13", url: "https://streamscenter.online/embed/ch27.php", type: "iframe" },
-                    { name: "Stream 14", url: "https://streamscenter.online/embed/ch28.php", type: "iframe" },
-                    { name: "Stream 15", url: "https://streamscenter.online/embed/ch29.php", type: "iframe" }
-                ]
+                    { name: "Loading today's games...", url: "#", type: "iframe" }
+                ],
+                dynamic: true,
+                loadFunction: async function(callback) {
+                    try {
+                        const today = new Date().toISOString().split('T')[0];
+                        const response = await fetch(`https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date=${today}`);
+                        const data = await response.json();
+                        
+                        if (data.dates && data.dates.length > 0 && data.dates[0].games) {
+                            const games = data.dates[0].games;
+                            const gameOptions = games.map((game, index) => {
+                                const gameTime = new Date(game.gameDate);
+                                const timeString = gameTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                                const awayTeam = getTeamAbbreviation(game.teams.away.team.name);
+                                const homeTeam = getTeamAbbreviation(game.teams.home.team.name);
+                                const streamNumber = 15 + index;
+                                return {
+                                    name: `${timeString} - ${awayTeam} @ ${homeTeam}`,
+                                    url: `https://streamscenter.online/embed/ch${streamNumber}.php`,
+                                    type: "iframe"
+                                };
+                            });
+                            callback(gameOptions);
+                        } else {
+                            callback([{ name: "No games scheduled for today", url: "#", type: "iframe" }]);
+                        }
+                    } catch (error) {
+                        console.error('Error loading MLB schedule:', error);
+                        callback([{ name: "Error loading schedule", url: "#", type: "iframe" }]);
+                    }
+                }
             },
             { name: "MLB Network", url: "https://kleanembed.online/embed/dd2b541cd3c0f5e547f9a7cdd4c2cb06", type: "iframe" },
             { 
                 name: "DAZN", 
                 type: "dropdown",
                 options: [
-                    { name: "Dazn 1⭐", url: "https://antenaplanet.store/dazn1de.php", type: "iframe" },
-                    { name: "Dazn 2⭐", url: "https://antenaplanet.store/dazn2de.php", type: "iframe" },
-                    { name: "Dazn 1 spanish⭐", url: "https://thedaddy.to/embed/stream-445.php", type: "iframe" },
-                    { name: "Dazn 2 spanish⭐", url: "https://thedaddy.to/embed/stream-446.php", type: "iframe" },
-                    { name: "Dazn 3 spanish⭐", url: "https://thedaddy.to/embed/stream-447.php", type: "iframe" },
-                    { name: "Dazn 4 spanish⭐", url: "https://thedaddy.to/embed/stream-448.php", type: "iframe" },
-                    { name: "Dazn f1⭐", url: "https://thedaddy.to/embed/stream-537.php", type: "iframe" },
-                    { name: "Dazn laliga⭐", url: "https://thedaddy.to/embed/stream-538.php", type: "iframe" },
-                    { name: "Dazn laliga 2⭐", url: "https://thedaddy.to/embed/stream-43.php", type: "iframe" },
-                    { name: "Dazn Portugal⭐", url: "https://thedaddy.to/embed/stream-918.php", type: "iframe" },
-                    { name: "Dazn Portugal 2⭐", url: "https://antenaplanet.store/dazn4pt.php", type: "iframe" },
+                    { name: "Dazn 1", url: "https://antenaplanet.store/dazn1de.php", type: "iframe" },
+                    { name: "Dazn 2", url: "https://antenaplanet.store/dazn2de.php", type: "iframe" },
+                    { name: "Dazn 1 spanish", url: "https://kleanembed.online/embed/d7a18ae533fe625e19640aa611971871", type: "iframe" },
+                    { name: "Dazn 2 spanish", url: "https://thedaddy.to/embed/stream-446.php", type: "iframe" },
+                    { name: "Dazn 3 spanish", url: "https://thedaddy.to/embed/stream-447.php", type: "iframe" },
+                    { name: "Dazn 4 spanish", url: "https://thedaddy.to/embed/stream-448.php", type: "iframe" },
+                    { name: "Dazn f1", url: "https://thedaddy.to/embed/stream-537.php", type: "iframe" },
+                    { name: "Dazn laliga", url: "https://thedaddy.to/embed/stream-538.php", type: "iframe" },
+                    { name: "Dazn laliga 2", url: "https://thedaddy.to/embed/stream-43.php", type: "iframe" },
+                    { name: "Dazn Portugal", url: "https://thedaddy.to/embed/stream-918.php", type: "iframe" },
+                    { name: "Dazn Portugal 2", url: "https://antenaplanet.store/dazn4pt.php", type: "iframe" },
                     { name: "Dazn Portugal UK", url: "https://kleanembed.online/embed/29f80fe360ea09758cda99ec2eb61fd2", type: "iframe" },
                 ]
             },
@@ -730,9 +748,9 @@
                 name: "Fanduel sports", 
                 type: "dropdown",
                 options: [
-                    { name: "Fanduel 1⭐", url: "https://daddylive.dad/embed/stream-896.php", type: "iframe" },
-                    { name: "Fanduel 2⭐", url: "https://daddylive.dad/embed/stream-902.php", type: "iframe" },
-                    { name: "Fanduel 3⭐", url: "https://daddylive.dad/embed/stream-905.php", type: "iframe" },
+                    { name: "Fanduel 1", url: "https://daddylive.dad/embed/stream-896.php", type: "iframe" },
+                    { name: "Fanduel 2", url: "https://daddylive.dad/embed/stream-902.php", type: "iframe" },
+                    { name: "Fanduel 3", url: "https://daddylive.dad/embed/stream-905.php", type: "iframe" },
                 ]
             },
             { 
@@ -752,12 +770,12 @@
                 options: [
                     { name: "NBC", url: "https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8", type: "m3u8" },
                     { name: "NBC philadelphia", url: "https://kleanembed.online/embed/b46c64f505d77d9c3ba37c2f3037f0f3", type: "iframe" },
-                    { name: "NBC chicago⭐", url: "https://thedaddy.to/embed/stream-776.php", type: "iframe" },
-                    { name: "NBC california⭐", url: "https://thedaddy.to/embed/stream-755.php", type: "iframe" },
-                    { name: "NBC washington⭐", url: "https://thedaddy.to/embed/stream-778.php", type: "iframe" },
+                    { name: "NBC chicago", url: "https://thedaddy.to/embed/stream-776.php", type: "iframe" },
+                    { name: "NBC california", url: "https://thedaddy.to/embed/stream-755.php", type: "iframe" },
+                    { name: "NBC washington", url: "https://thedaddy.to/embed/stream-778.php", type: "iframe" },
                     { name: "NBC bayarea", url: "https://kleanembed.online/embed/5411235d278f9abfce9db28c140374d5", type: "iframe" },
-                    { name: "NBC boston⭐", url: "https://thedaddy.to/embed/stream-754.php", type: "iframe" },
-                    { name: "NBC golf⭐", url: "https://thedaddy.to/embed/stream-318.php", type: "iframe" },
+                    { name: "NBC boston", url: "https://thedaddy.to/embed/stream-754.php", type: "iframe" },
+                    { name: "NBC golf", url: "https://thedaddy.to/embed/stream-318.php", type: "iframe" },
                 ]
             },
             { 
@@ -807,6 +825,45 @@
         let focusedStream = 0;
         let currentLayout = 1;
 
+        // Team name to abbreviation mapping
+        const teamAbbreviations = {
+            'Arizona Diamondbacks': 'ARI',
+            'Atlanta Braves': 'ATL',
+            'Baltimore Orioles': 'BAL',
+            'Boston Red Sox': 'BOS',
+            'Chicago White Sox': 'CWS',
+            'Chicago Cubs': 'CHC',
+            'Cincinnati Reds': 'CIN',
+            'Cleveland Guardians': 'CLE',
+            'Colorado Rockies': 'COL',
+            'Detroit Tigers': 'DET',
+            'Houston Astros': 'HOU',
+            'Kansas City Royals': 'KC',
+            'Los Angeles Angels': 'LAA',
+            'Los Angeles Dodgers': 'LAD',
+            'Miami Marlins': 'MIA',
+            'Milwaukee Brewers': 'MIL',
+            'Minnesota Twins': 'MIN',
+            'New York Yankees': 'NYY',
+            'New York Mets': 'NYM',
+            'Oakland Athletics': 'OAK',
+            'Philadelphia Phillies': 'PHI',
+            'Pittsburgh Pirates': 'PIT',
+            'San Diego Padres': 'SD',
+            'San Francisco Giants': 'SF',
+            'Seattle Mariners': 'SEA',
+            'St. Louis Cardinals': 'STL',
+            'Tampa Bay Rays': 'TB',
+            'Texas Rangers': 'TEX',
+            'Toronto Blue Jays': 'TOR',
+            'Washington Nationals': 'WSH'
+        };
+
+        // Function to get team abbreviation
+        function getTeamAbbreviation(fullName) {
+            return teamAbbreviations[fullName] || fullName.split(' ').map(word => word[0]).join('').toUpperCase();
+        }
+
         // Initialize the application
         function init() {
             populateChannelList();
@@ -822,7 +879,7 @@
                 channelItem.className = 'channel-item';
                 
                 if (channel.type === 'dropdown') {
-                    // Create dropdown for MLB TV
+                    // Create dropdown for MLB TV or other dropdown channels
                     const wrapperId = `dropdown-${index}`;
                     channelItem.innerHTML = `
                         <div class="dropdown-wrapper" id="${wrapperId}">
@@ -830,7 +887,7 @@
                                 <span class="channel-name">${channel.name}</span>
                                 <span class="dropdown-arrow">▼</span>
                             </div>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" id="dropdown-content-${index}">
                                 ${channel.options.map((option, i) => `
                                     <div class="dropdown-item" data-channel='${JSON.stringify(option).replace(/'/g, '&#39;')}'>
                                         <span>${option.name}</span>
@@ -839,6 +896,30 @@
                             </div>
                         </div>
                     `;
+                    
+                    // If this is a dynamic dropdown (like MLB TV), load its content
+                    if (channel.dynamic && typeof channel.loadFunction === 'function') {
+                        const dropdownContent = channelItem.querySelector(`#dropdown-content-${index}`);
+                        dropdownContent.innerHTML = '<div class="dropdown-item">Loading...</div>';
+                        
+                        channel.loadFunction((options) => {
+                            dropdownContent.innerHTML = options.map(option => `
+                                <div class="dropdown-item" data-channel='${JSON.stringify(option).replace(/'/g, '&#39;')}'>
+                                    <span>${option.name}</span>
+                                </div>
+                            `).join('');
+                            
+                            // Re-attach click handlers for the new items
+                            dropdownContent.querySelectorAll('.dropdown-item').forEach(item => {
+                                item.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                    const channelData = JSON.parse(item.dataset.channel.replace(/&#39;/g, "'"));
+                                    addChannelToStream(channelData);
+                                    item.closest('.dropdown-wrapper').classList.remove('active');
+                                });
+                            });
+                        });
+                    }
                     
                     // Add click handler for dropdown header
                     const header = channelItem.querySelector('.dropdown-header');

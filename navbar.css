@@ -4,7 +4,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: auto;
-    height: 40px; /* Lower hover area */
+    height: 30px; /* Lower hover area */
     display: flex;
     justify-content: center;
     align-items: flex-end;
