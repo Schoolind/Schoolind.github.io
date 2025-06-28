@@ -188,8 +188,6 @@
         
         // Create options for each game
         games.forEach((game, index) => {
-          if (index >= 15) return; // Only show first 15 games (ch15-ch29)
-          
           const gameTime = new Date(game.gameDate);
           const options = {
             hour: 'numeric',
@@ -200,7 +198,7 @@
           const timeString = gameTime.toLocaleTimeString('en-US', options);
           const option = document.createElement('option');
           option.value = `ch${15 + index}`;
-          option.textContent = `${timeString} - ${teams[game.teams.away.team.id]} @ ${teams[game.teams.home.team.id]}`;
+          option.textContent = timeString;
           select.appendChild(option);
         });
         
