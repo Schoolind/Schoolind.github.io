@@ -13,92 +13,6 @@
     <div class="content">
 
 
-        <head>
-            <style>
-                .search {
-                    display: flex;
-                    justify-content: center;
-                    margin: 20px auto;
-                    max-width: 600px;
-                    position: relative;
-                }
-
-                .search input {
-                    width: 100%;
-                    padding: 15px 20px;
-                    border: 2px solid #4fc3f7;
-                    border-radius: 25px;
-                    font-size: 16px;
-                    background: rgba(30, 30, 30, 0.8);
-                    color: #fff;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 0 10px rgba(79, 195, 247, 0.1);
-                }
-
-                .search button {
-                    position: absolute;
-                    right: 15px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: none;
-                    border: none;
-                    padding: 10px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                }
-
-                .search button i {
-                    color: #4fc3f7;
-                    font-size: 20px;
-                    transition: all 0.3s ease;
-                }
-
-                .search input:focus {
-                    outline: none;
-                    border-color: #64d8ff;
-                    box-shadow: 0 0 15px rgba(79, 195, 247, 0.2);
-                    transform: translateY(-2px);
-                }
-
-                .search input:focus + button i,
-                .search button:hover i {
-                    color: #64d8ff;
-                    transform: scale(1.1);
-                }
-
-                .search input::placeholder {
-                    color: rgba(79, 195, 247, 0.6);
-                }
-
-                .search input:focus::placeholder {
-                    opacity: 0.7;
-                    transform: translateX(5px);
-                }
-            </style>
-        </head>
-
-        <div class="search">
-            <input type="text" id="searchInput" placeholder="Search apps..." oninput="searchGames()">
-            <button type="button"><i class="fas fa-search"></i></button>
-        </div>
-
-        <script>
-            function searchGames() {
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                const gameElements = document.querySelectorAll('#games a');
-                const gamesContainer = document.getElementById('games');
-                
-                gameElements.forEach(game => {
-                    const gameName = game.querySelector('img').getAttribute('alt').toLowerCase();
-                    if (gameName.includes(searchTerm)) {
-                        game.style.display = 'inline-block';
-                    } else {
-                        game.style.display = 'none';
-                    }
-                });
-            }
-        </script>
-
         <style>
             #games {
                 display: flex;
@@ -134,21 +48,7 @@
                 window.location.href = 'index.html';
             }
             
-            // Search functionality
-            function searchGames() {
-                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-                const gameElements = document.querySelectorAll('#games a');
-                
-                gameElements.forEach(game => {
-                    const gameName = game.getAttribute('alt') || game.querySelector('img').getAttribute('alt').toLowerCase();
-                    if (gameName.includes(searchTerm)) {
-                        game.style.display = 'block';
-                    } else {
-                        game.style.display = 'none';
-                    }
-                });
-            }
-            
+
             // Logout functionality
             document.getElementById('logout').addEventListener('click', function() {
                 sessionStorage.removeItem('accessGranted');
@@ -176,7 +76,7 @@
             <a href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/OceHg5bH7EsTRwl-lD7jjV9WM0mpj0oH4YfA-CSbjvfa7NCLQBu5-4cLwNlDvCUp5Q4=w240-h480-rw" alt="wolfram alpha"></a>
             <a href="https://www.3dtuning.com/en-US/" target="_blank" rel="noopener noreferrer"><img src="images/3dturning.webp" alt="3dtuning"></a>
             <a href="https://autodraw.com/" target="_blank" rel="noopener noreferrer"><img src="images/autodraw-logo-png_seeklogo-488434.png" alt="autodraw"></a>
-            <a href="games/unblocker.html" data-category="strategy"><img src="images/dogecoin-doge-cryptocurrency-isolated-on-600nw-1907571817.webp" alt="unblocker"></a>
+            <a href="games/unblocker.html"><img src="images/dogecoin-doge-cryptocurrency-isolated-on-600nw-1907571817.webp" alt="unblocker"></a>
             <a href="photos.html"><img src="images/Apple_Photos-512.webp" alt="photos"></a>
 
 

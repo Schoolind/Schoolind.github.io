@@ -4,13 +4,6 @@ const CHANNEL_ID_MAP = {
   'ABC.html': '399930',
   'cbs.html': '403849',
   'espn.html': '403793',
-  'nbc.html': [
-    { id: '429242', name: 'NBC 1' },
-    { id: '9025', name: 'NBC 2' },
-    { id: '403776', name: 'NBC 3' },
-    { id: '403887', name: 'NBC 4' },
-    { id: '403754', name: 'NBC 5' }
-  ],
   'cbssportsnetwork.html': '403807',
   'espn2.html': '403821',
   'espnu.html': '403486',

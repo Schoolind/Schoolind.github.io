@@ -213,7 +213,7 @@
             box-shadow: 0 6px 20px rgba(41, 98, 255, 0.3);
         }
         
-        .quick-link:hover {
+        .quick-link:hover { 
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
@@ -585,15 +585,24 @@
         </div>
 
         <!-- Mirror Links -->
-        <div style="text-align: center; margin: 20px 0 10px; color: #ff6b6b; font-size: 1.1em; font-weight: bold;">
-            <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i> Bookmark these links to access the page if the main site is blocked
-        </div>
-        <div class="quick-links" style="margin-bottom: 40px;">
-            <a href="https://schooluk.pages.dev/" class="quick-link mirror-link">
-                <i class="fas fa-link"></i> Mirror 1
-            </a>
-            <a href="https://schooluk.pages.dev/" class="quick-link mirror-link">
-                <i class="fas fa-link"></i> Mirror 2
-            </a>
+        <div style="max-width: 800px; margin: 40px auto; background: #1e1e2d; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.3); border: 1px solid #2d2d4d;">
+            <div style="padding: 15px 20px; background: linear-gradient(135deg, #2d2d3d, #1a1a2e); border-bottom: 1px solid #2d2d4d; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-shield-alt" style="color: #4fc3f7; margin-right: 10px; font-size: 1.2em;"></i>
+                <h3 style="margin: 0; color: #fff; font-size: 1.2em; font-weight: 600;">Alternative Access Links</h3>
+            </div>
+            <div style="padding: 20px; text-align: center;">
+                <p style="color: #ff6b6b; margin: 0 0 20px 0; font-size: 1.1em; font-weight: bold; line-height: 1.5;">
+                    <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>
+                    Bookmark these links to access the page if the main site is blocked
+                </p>
+                <div class="quick-links" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <a href="https://schooluk.pages.dev/" class="quick-link mirror-link" style="display: inline-flex; align-items: center; justify-content: center; min-width: 120px; background: linear-gradient(135deg, #2962ff, #2979ff); color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 8px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(41, 98, 255, 0.3);">
+                        <i class="fas fa-link" style="margin-right: 8px;"></i> Mirror 1
+                    </a>
+                    <a href="#" class="quick-link mirror-link" style="display: inline-flex; align-items: center; justify-content: center; min-width: 120px; background: #2d2d4d; color: #b0b0d0; text-decoration: none; padding: 12px 20px; border-radius: 8px; transition: all 0.3s ease; cursor: default; pointer-events: none; font-size: 0.9em; border: 1px solid #3d3d5d;">
+                        <i class="fas fa-clock" style="margin-right: 8px; color: #4fc3f7;"></i>Coming soon
+                    </a>
+                </div>
+            </div>
         </div>
 
