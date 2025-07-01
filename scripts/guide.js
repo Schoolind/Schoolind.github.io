@@ -32,11 +32,22 @@ if (!document.getElementById('tv-guide-styles')) {
     }
     .progress-container {
       background-color: rgba(0,0,0,0.3);
-      height: 5px;
-      border-radius: 3px;
-      margin-top: 3px;
+      height: 8px;
+      border-radius: 4px;
+      margin-top: 5px;
       overflow: hidden;
       position: relative;
+    }
+    
+    /* Taller progress bar for list view */
+    .link-container.horizontal-view .progress-container {
+      height: 18px; /* Increased from 12px to 18px (50% larger) */
+      border-radius: 9px; /* Increased proportionally */
+      margin-top: 10px; /* Slightly increased for better spacing */
+    }
+    
+    .link-container.horizontal-view .progress-bar {
+      border-radius: 9px; /* Match container's border radius */
     }
     .progress-bar {
       height: 100%;
@@ -44,6 +55,7 @@ if (!document.getElementById('tv-guide-styles')) {
       background: linear-gradient(to right, #4fd1c5, #38b2ac);
       transition: width linear;
       box-shadow: 0 0 5px rgba(79, 209, 197, 0.5);
+      border-radius: 4px;
     }
     .up-next {
       margin-top: 0.2rem;
@@ -194,6 +206,11 @@ function formatTime(date) {
 }
 
 function initAllTvGuideCards() {
+  // Only initialize if in grid view
+  if (!document.querySelector('.link-container').classList.contains('grid-view')) {
+    return;
+  }
+  
   const cards = document.querySelectorAll('.tv-guide-card[data-channel-id]');
   cards.forEach((el, i) => {
     if (!el.id) el.id = `tv-guide-card-${i + 1}`;
@@ -203,8 +220,13 @@ function initAllTvGuideCards() {
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initAllTvGuideCards);
-} else {
+// Initialize guide cards when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Initial check
   initAllTvGuideCards();
-}
+  
+  // Listen for view changes
+  document.addEventListener('viewChanged', function() {
+    initAllTvGuideCards();
+  });
+});

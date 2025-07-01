@@ -1,198 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Games</title>
+    <title>Schooluk - Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="auth-check.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles/apps.css">
+    <link rel="stylesheet" href="styles/apps2.css">
 </head>
 <body>
     <!-- Remove the nav bar from the top -->
     <div class="content">
 
 
-        <style>
-            #games {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 20px;
-                justify-content: center;
-                padding: 20px;
-            }
 
-            #games a {
-                flex: 0 0 auto;
-                width: 200px;
-                height: 200px;
-                display: inline-block;
-            }
-
-            #games img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            body {
-                background-attachment: fixed !important;
-                min-height: 100vh;
-            }
-        </style>
-
-        <script>
-            // Check if access is granted
-            if (!sessionStorage.getItem('accessGranted')) {
-                // Redirect to login page
-                window.location.href = 'index.html';
-            }
-            
-
-            // Logout functionality
-            document.getElementById('logout').addEventListener('click', function() {
-                sessionStorage.removeItem('accessGranted');
-                window.location.href = 'index.html';
-            });
-        </script>
 
         <div id="games">
-            <a href="https://chromewebstore.google.com/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=en" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA" alt="google translate"></a>
-            <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><img src="images/hf-logo.svg" alt="huggingface"></a>
-            <a href="https://aifaceswap.io/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/iB6PUkP6Cbo0D75sE3rrt0rO_RsaKzUWiP7PvejvfDZC2Bvj0GQHsNDfjMAGMQ5Jew=w240-h480-rw" alt="faceswap"></a>
-            <a href="https://gptzero.me/" target="_blank" rel="noopener noreferrer"><img src="https://images.seeklogo.com/logo-png/51/1/gptzero-logo-png_seeklogo-512553.png" alt="gptzero"></a>
-            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/lmG9HlI0awHie0cyBieWXeNjpyXvHPwDBb8MNOVIyp0P8VEh95AiBHtUZSDVR3HLe3A" alt="Chatgpt ai"></a>
-            <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer"><img src="https://custom.typingmind.com/assets/models/microsoft-copilot.png" alt="microsoft copilot ai"></a>
-            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/4S1nfdKsH_1tJodkHrBHimqlCTE6qx6z22zpMyPaMc_Rlr1EdSFDI1I6UEVMnokG5zI=w240-h480-rw" alt="claude ai"></a>
-            <a href="https://chat.qwen.ai/" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/141221163?s=200&v=4" alt="Qwen ai"></a>
-            <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/6STp0lYx2ctvQ-JZpXA1LeAAZIlq6qN9gpy7swLPlRhmp-hfvZePcBxqwVkqN2BH1g" alt="perplexity ai"></a>
-            <a href="https://www.turbolearn.ai/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/c678Vjj3oQ8UmrDCYzczS6JDcFor4XxHLnc2gAW9Wk_pbE3KEMw1WZk-rTPucPoV7Sg=w240-h480-rw" alt="turbo learn ai"></a>
-            <a href="https://firefly.adobe.com/?media=featured" target="_blank" rel="noopener noreferrer"><img src="images/adobe-firefly.webp" alt="adobe firefly ai"></a>
-            <a href="https://tvpass.org/channels" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/512/3845/3845752.png" alt="tvpass"></a>
-            <a href="https://home.by.me/en/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/EP6upfxog-LOcXgvU1lXFwYpIgCnuQIqrxt8jvMOKsfV6MhxFUO7w97n0zz8YkS0lp4" alt="Home by me"></a>
-            <a href="https://www.remove.bg" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/4kF2IUQxdLs86iAVsmnHA1B34uO-dvtszKM8qzscc1InZb-2_JI0WANyOiWiV3qyNg" alt="remove background"></a>
-            <a href="https://www.napkin.ai/" target="_blank" rel="noopener noreferrer"><img src="https://www.napkin.ai/apple-touch-icon.png" alt="napkin ai"></a>
-            <a href="https://chatedu.io/en" target="_blank" rel="noopener noreferrer"><img src="https://chatedu.io/_next/image?url=%2Flogo.png&w=256&q=75" alt="chatedu ai"></a>
-            <a href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer"><img src="https://play-lh.googleusercontent.com/OceHg5bH7EsTRwl-lD7jjV9WM0mpj0oH4YfA-CSbjvfa7NCLQBu5-4cLwNlDvCUp5Q4=w240-h480-rw" alt="wolfram alpha"></a>
-            <a href="https://www.3dtuning.com/en-US/" target="_blank" rel="noopener noreferrer"><img src="images/3dturning.webp" alt="3dtuning"></a>
-            <a href="https://autodraw.com/" target="_blank" rel="noopener noreferrer"><img src="images/autodraw-logo-png_seeklogo-488434.png" alt="autodraw"></a>
-            <a href="games/unblocker.html"><img src="images/dogecoin-doge-cryptocurrency-isolated-on-600nw-1907571817.webp" alt="unblocker"></a>
-            <a href="photos.html"><img src="images/Apple_Photos-512.webp" alt="photos"></a>
+            <div class="app-container">
+                <a href="https://chromewebstore.google.com/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=en" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/ZrNeuKthBirZN7rrXPN1JmUbaG8ICy3kZSHt-WgSnREsJzo2txzCzjIoChlevMIQEA" alt="Google Translate">
+                    <div class="app-label">Google Translate</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/hf-logo.svg" alt="Hugging Face">
+                    <div class="app-label">Hugging Face</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://aifaceswap.io/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/iB6PUkP6Cbo0D75sE3rrt0rO_RsaKzUWiP7PvejvfDZC2Bvj0GQHsNDfjMAGMQ5Jew=w240-h480-rw" alt="AI FaceSwap">
+                    <div class="app-label">AI FaceSwap</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://gptzero.me/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://images.seeklogo.com/logo-png/51/1/gptzero-logo-png_seeklogo-512553.png" alt="GPTZero">
+                    <div class="app-label">GPTZero</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/lmG9HlI0awHie0cyBieWXeNjpyXvHPwDBb8MNOVIyp0P8VEh95AiBHtUZSDVR3HLe3A" alt="ChatGPT">
+                    <div class="app-label">ChatGPT</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://custom.typingmind.com/assets/models/microsoft-copilot.png" alt="Microsoft Copilot">
+                    <div class="app-label">Microsoft Copilot</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/4S1nfdKsH_1tJodkHrBHimqlCTE6qx6z22zpMyPaMc_Rlr1EdSFDI1I6UEVMnokG5zI=w240-h480-rw" alt="Claude AI">
+                    <div class="app-label">Claude AI</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://chat.qwen.ai/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://avatars.githubusercontent.com/u/141221163?s=200&v=4" alt="Qwen AI">
+                    <div class="app-label">Qwen AI</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/6STp0lYx2ctvQ-JZpXA1LeAAZIlq6qN9gpy7swLPlRhmp-hfvZePcBxqwVkqN2BH1g" alt="Perplexity AI">
+                    <div class="app-label">Perplexity AI</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://www.turbolearn.ai/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/c678Vjj3oQ8UmrDCYzczS6JDcFor4XxHLnc2gAW9Wk_pbE3KEMw1WZk-rTPucPoV7Sg=w240-h480-rw" alt="TurboLearn AI">
+                    <div class="app-label">TurboLearn AI</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://firefly.adobe.com/?media=featured" target="_blank" rel="noopener noreferrer">
+                    <img src="images/adobe-firefly.webp" alt="Adobe Firefly">
+                    <div class="app-label">Adobe Firefly</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://tvpass.org/channels" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3845/3845752.png" alt="TV Pass">
+                    <div class="app-label">TV Pass</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://home.by.me/en/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/EP6upfxog-LOcXgvU1lXFwYpIgCnuQIqrxt8jvMOKsfV6MhxFUO7w97n0zz8YkS0lp4" alt="HomeByMe">
+                    <div class="app-label">HomeByMe</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://www.remove.bg" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/4kF2IUQxdLs86iAVsmnHA1B34uO-dvtszKM8qzscc1InZb-2_JI0WANyOiWiV3qyNg" alt="Remove.bg">
+                    <div class="app-label">Remove.bg</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://www.napkin.ai/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://www.napkin.ai/apple-touch-icon.png" alt="Napkin AI">
+                    <div class="app-label">Napkin AI</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://chatedu.io/en" target="_blank" rel="noopener noreferrer">
+                    <img src="https://chatedu.io/_next/image?url=%2Flogo.png&w=256&q=75" alt="ChatEDU">
+                    <div class="app-label">ChatEDU</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://play-lh.googleusercontent.com/OceHg5bH7EsTRwl-lD7jjV9WM0mpj0oH4YfA-CSbjvfa7NCLQBu5-4cLwNlDvCUp5Q4=w240-h480-rw" alt="Wolfram Alpha">
+                    <div class="app-label">Wolfram Alpha</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://www.3dtuning.com/en-US/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/3dturning.webp" alt="3D Tuning">
+                    <div class="app-label">3D Tuning</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="https://autodraw.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/autodraw-logo-png_seeklogo-488434.png" alt="AutoDraw">
+                    <div class="app-label">AutoDraw</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="games/unblocker.html">
+                    <img src="images/dogecoin-doge-cryptocurrency-isolated-on-600nw-1907571817.webp" alt="Unblocker">
+                    <div class="app-label">Unblocker</div>
+                </a>
+            </div>
+            <div class="app-container">
+                <a href="photos.html">
+                    <img src="images/Apple_Photos-512.webp" alt="Photos">
+                    <div class="app-label">Photos</div>
+                </a>
+            </div>
 
 
         </div>
-
-
-
-
-
-            
-
-
-
-
- 
     </div>
 
     <!-- Keep only this nav bar at the bottom -->
     <script src="navbar.js"></script>
     <script src="popup.js"></script>
-
-
-
-    <!-- Add panic button functionality -->
-    <script>
-        // Panic button functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const panicButton = document.getElementById('panicButton');
-            if (panicButton) {
-                panicButton.addEventListener('click', function() {
-                    const panicSettings = JSON.parse(localStorage.getItem('panicKey') || '{}');
-                    if (panicSettings.url) {
-                        window.location.href = panicSettings.url;
-                    } else {
-                        alert('Please set up a panic URL in settings first');
-                    }
-                });
-            }
-        });
-    </script>
-    <script src="tabCloak.js"></script>
-<style>
-    #games a {
-        display: inline-block;
-        position: relative;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-origin: center;
-    }
-
-    #games a:active {
-        transform: scale(0.92);
-        filter: brightness(0.8);
-    }
-
-    #games a::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-    }
-
-    #games a:active::after {
-        opacity: 1;
-        animation: ripple 0.4s ease-out;
-    }
-
-    @keyframes ripple {
-        0% {
-            transform: scale(1);
-            opacity: 0.5;
-        }
-        100% {
-            transform: scale(1.2);
-            opacity: 0;
-        }
-    }
-
-    #games img {
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    #games a:hover img {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
-</style>
-<script>
-    // Apply cloak on page load
-    window.addEventListener('load', function() {
-        const savedCloak = localStorage.getItem('tabCloak');
-        if (savedCloak) {
-            const cloak = JSON.parse(savedCloak);
-            const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) {
-                existingFavicon.remove();
-            }
-            const newFavicon = document.createElement('link');
-            newFavicon.rel = 'icon';
-            newFavicon.type = 'image/x-icon';
-            newFavicon.href = cloak.icon;
-            document.head.appendChild(newFavicon);
-            document.title = cloak.title;
-        }
-    });
-</script>
-<script src="panicKey.js"></script>
+        <script src="tabCloak.js"></script>
+        <script src="checkAccess.js"></script>
+    <script src="panicKey.js"></script>
 </body>
 </html>
 <script src="backgroundTheme.js"></script>
-</body>
-</html>

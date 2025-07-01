@@ -5,267 +5,12 @@
     <script src="auth-check.js"></script>
     <link rel="stylesheet" href="https://schooluk.github.io/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/live.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background-color: #1b1b1b;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
-        h1 {
-            font-size: 4rem;
-            text-align: center;
-            margin-top: 80px;
-            margin-bottom: 0;
-            color: #fff;
-        }
-        h2 {
-            text-align: center;
-            color: #fff;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-        }
-        .movie-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .date {
-            font-size: 1.5rem;
-            color: #fff;
-            margin: 8px 0 20px 0;
-            text-align: center;
-        }
-        .video-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 1600px;
-            margin-bottom: 30px;
-        }
-        .movie-frame {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background-color: #000;
-            border-radius: 12px;
-        }
-        .movie-frame iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 12px;
-        }
-        .button-group {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-        .select-btn {
-            width: 90px;
-            padding: 10px 0;
-            font-size: 1rem;
-            background-color: #333;
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-align: center;
-        }
-        .select-btn.active,
-        .select-btn:hover {
-            background-color: #4fc3f7;
-        }
-        #live-tv-search {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px 15px;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            border: none;
-            margin-bottom: 25px;
-            box-sizing: border-box;
-            background-color: #333;
-            color: #fff;
-        }
-        #live-tv-search::placeholder {
-            color: #bbb;
-        }
-        .link-container {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            padding: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        @media (max-width: 1200px) {
-            .link-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        @media (max-width: 900px) {
-            .link-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .link-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        .link-box {
-            position: relative;
-            background-color: #2d2d2d;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border: 1px solid #3d3d3d;
-        }
-        .link-box:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            border-color: #4fc3f7;
-        }
-        
-        .link-box:hover img {
-            transform: scale(1.05);
-        }
-        .link-box img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        .star-wrapper {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            cursor: default;
-            z-index: 2;
-        }
-        .star-wrapper .fa-star {
-            font-size: 24px;
-            color: gold;
-            background: transparent;
-            /* removed border and padding for no box */
-        }
-        .star-wrapper .tooltip-text {
-            visibility: hidden;
-            width: 220px;
-            background-color: rgba(0,0,0,0.85);
-            color: #fff;
-            text-align: center;
-            border-radius: 8px;
-            padding: 6px 10px;
-            position: absolute;
-            z-index: 1000;
-            top: 30px;
-            right: 50%;
-            transform: translateX(50%);
-            font-size: 0.85rem;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            box-shadow: 0 0 10px rgba(255,215,0,0.7);
-            user-select: none;
-        }
-        .star-wrapper:hover .tooltip-text,
-        .star-wrapper:focus .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-            pointer-events: auto;
-        }
-        
-        .multistream-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 15px 30px;
-            border-radius: 12px;
-            margin: 20px 0 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid #2a3a5e;
-            max-width: 320px;
-            margin-left: auto;
-            margin-right: auto;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .multistream-header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            border-color: #4facfe;
-        }
-        
-        .multistream-logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .multistream-logo {
-            position: relative;
-            width: auto;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .multistream-logo i {
-            font-size: 2.5rem;
-            color: #4facfe;
-            margin: 0 1px;
-            opacity: 1;
-        }
-        
-        .multistream-title {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            letter-spacing: 1px;
-        }
-    </style>
 </head>
 <body>
     <div class="content">
         <div class="movie-container">
-            
-           
-            
-            
             <a href="multistream.html" class="multistream-header">
                 <div class="multistream-logo">
                     <svg width="60" height="60" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -288,25 +33,31 @@
                 <h1 class="multistream-title">Multistream</h1>
             </a>
             
-            <input type="text" id="live-tv-search" placeholder="Search Live TV..." aria-label="Search Live TV">
-            
-            <div class="link-container" id="link-container">
+            <div class="view-controls">
+                <input type="text" id="live-tv-search" placeholder="Search channels...">
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" title="Grid View">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="horizontal" title="Horizontal View">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="link-container grid-view" id="link-container">
                 <a href="shows/ABC.html" class="link-box">
                   <img src="images/abc.webp" alt="ABC">
                 </a>
-                <a href="shows/nbc.html" class="link-box"><img src="https://brandlogos.net/wp-content/uploads/2022/09/nbc-logo_brandlogos.net_xxaj7.png" alt="NBC"></a>
+                <a href="shows/nbc.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/NBC_Peacock_1986.svg" alt="NBC"></a>
                 <a href="shows/cbs.html" class="link-box">
-                  <img src="images/CBS_logo.svg.png" alt="CBS">
+                  <img src="images/Cbs-logo-black-and-white-removebg-preview.png" alt="CBS">
                 </a>
                 <a href="shows/cbssportsnetwork.html" class="link-box"><img src="images/cbssports.png" alt="CBS Sports Network"></a>
-                <a href="shows/cbsgolazo.html" class="link-box"><img src="images/Golazo_Network_logo.webp" alt="CBS Golazo"></a>
+                <a href="shows/cbsgolazo.html" class="link-box"><img src="images/channels4_profile-removebg-preview (1).png" alt="CBS Golazo"></a>
                 
                 <a href="shows/espn.html" class="link-box">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/554px-ESPN_wordmark.svg.png" alt="ESPN">
                 </a>
-                <script src="guide.js"></script>
-                <script src="guide-hover.js"></script>
-                <script src="guide-auto.js"></script>
                 <a href="shows/espn2.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/ESPN2_logo.svg/512px-ESPN2_logo.svg.png?20160127215859" alt="ESPN 2"></a>
                 <a href="shows/espnu.html" class="link-box"><img src="images/ESPNU_(Horizontal).svg" alt="ESPNU"></a>
                 <a href="shows/espnnews.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/ESPNews.svg/2560px-ESPNews.svg.png" alt="ESPN News"></a>
@@ -359,94 +110,81 @@
                 <a href="shows/cartoonnetwork.html" class="link-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/1200px-Cartoon_Network_2010_logo.svg.png" alt="Cartoon Network"></a>
                 <a href="shows/dragonballz.html" class="link-box"><img src="images/Dragon_Ball_Z_Logo_A.png" alt="Dragon Ball Z"></a>
                 
+                </div>
             </div>
         </div>
     </div>
-
+    
     <link rel="stylesheet" href="navbar.css">
     <script src="navbar.js"></script>
     <script src="checkAccess.js"></script>
     <script src="tabCloak.js"></script>
-
-
+    <script src="scripts/livetv.js"></script>
+    <script src="scripts/guide.js"></script>
+    <script src="scripts/guide-hover.js"></script>
+    <script src="scripts/guide-auto.js"></script>
+    <script src="scripts/smoothscroll.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Remove video player related code since it's not used in this page
-            const buttons = document.querySelectorAll('.select-btn');
-            const iframe = document.getElementById('video-frame');
-            if (buttons.length > 0 && iframe) {
-                buttons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        buttons.forEach(btn => btn.classList.remove('active'));
-                        button.classList.add('active');
-                        iframe.src = button.getAttribute('data-src');
-                    });
-                });
-            }
-
-            // Search functionality
-            const searchInput = document.getElementById('live-tv-search');
+            const viewBtns = document.querySelectorAll('.view-btn');
             const linkContainer = document.getElementById('link-container');
             
-            if (searchInput && linkContainer) {
-                const links = linkContainer.querySelectorAll('.link-box');
-                
-                searchInput.addEventListener('input', (e) => {
-                    const filter = e.target.value.trim().toLowerCase();
-                    let hasVisibleItems = false;
+            // Check for saved view preference
+            const savedView = localStorage.getItem('tvViewMode') || 'grid';
+            
+            // Set initial view
+            setView(savedView);
+            
+            // Add click event listeners to view buttons
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const view = this.getAttribute('data-view');
+                    setView(view);
                     
-                    links.forEach(link => {
-                        const img = link.querySelector('img');
-                        if (img) {
-                            const altText = img.alt.toLowerCase();
-                            const isVisible = altText.includes(filter);
-                            link.style.display = isVisible ? '' : 'none';
-                            if (isVisible) hasVisibleItems = true;
-                        }
-                    });
-                    
-                    // Optional: Show a message when no results are found
-                    const noResultsMsg = document.getElementById('no-results-msg');
-                    if (filter && !hasVisibleItems) {
-                        if (!noResultsMsg) {
-                            const msg = document.createElement('div');
-                            msg.id = 'no-results-msg';
-                            msg.textContent = 'No matching channels found';
-                            msg.style.textAlign = 'center';
-                            msg.style.gridColumn = '1 / -1';
-                            msg.style.padding = '20px';
-                            msg.style.color = '#aaa';
-                            linkContainer.appendChild(msg);
-                        }
-                    } else if (noResultsMsg) {
-                        noResultsMsg.remove();
+                    // Save preference to localStorage
+                    localStorage.setItem('tvViewMode', view);
+                });
+            });
+            
+            // Function to set the view
+            function setView(view) {
+                // Update active button
+                viewBtns.forEach(btn => {
+                    if (btn.getAttribute('data-view') === view) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
                     }
                 });
                 
-                // Trigger search on page load if there's a search term in the URL
-                const urlParams = new URLSearchParams(window.location.search);
-                const searchTerm = urlParams.get('search');
-                if (searchTerm) {
-                    searchInput.value = searchTerm;
-                    searchInput.dispatchEvent(new Event('input'));
-                }
-            };
-        });
-
-        window.addEventListener('load', function () {
-            const savedCloak = localStorage.getItem('tabCloak');
-            if (savedCloak) {
-                const cloak = JSON.parse(savedCloak);
-                const existingFavicon = document.querySelector("link[rel*='icon']");
-                if (existingFavicon) {
-                    existingFavicon.remove();
-                }
-                const newFavicon = document.createElement('link');
-                newFavicon.rel = 'icon';
-                newFavicon.type = 'image/x-icon';
-                newFavicon.href = cloak.icon;
-                document.head.appendChild(newFavicon);
-                document.title = cloak.title;
+                // Update container class
+                linkContainer.className = 'link-container';
+                linkContainer.classList.add(`${view}-view`);
+                
+                // Dispatch custom event for view change
+                const event = new CustomEvent('viewChanged', { 
+                    detail: { view: view }
+                });
+                document.dispatchEvent(event);
+            }
+            
+            // Search functionality
+            const searchInput = document.getElementById('live-tv-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const boxes = linkContainer.querySelectorAll('.link-box');
+                    
+                    boxes.forEach(box => {
+                        const altText = box.querySelector('img').alt.toLowerCase();
+                        if (altText.includes(searchTerm)) {
+                            box.style.display = 'flex';
+                        } else {
+                            box.style.display = 'none';
+                        }
+                    });
+                });
             }
         });
     </script>

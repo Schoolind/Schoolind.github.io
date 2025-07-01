@@ -37,29 +37,8 @@
     src="https://burritobison.gitlab.io/file/">
   </iframe>
 <script src="/checkAccess.js"></script>
-<script>
-    // Apply cloak on page load
-    window.addEventListener('load', function() {
-        const savedCloak = localStorage.getItem('tabCloak');
-        if (savedCloak) {
-            const cloak = JSON.parse(savedCloak);
-            const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) {
-                existingFavicon.remove();
-            }
-            const newFavicon = document.createElement('link');
-            newFavicon.rel = 'icon';
-            newFavicon.type = 'image/x-icon';
-            newFavicon.href = cloak.icon;
-            document.head.appendChild(newFavicon);
-            document.title = cloak.title;
-        }
-    });
-</script>
 <link rel="stylesheet" href="../navbar.css">
 <script src="../navbar.js"></script>
-<script src="../panicKey.js"></script>
-<script src="../backgroundTheme.js"></script>
 </body>
 
 </body>

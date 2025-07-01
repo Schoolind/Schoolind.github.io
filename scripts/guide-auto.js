@@ -1,7 +1,7 @@
 // Channel ID mapping for EPG
 // For channels with multiple streams, use an array of [id, displayName] pairs
 const CHANNEL_ID_MAP = {
-  'ABC.html': '399930',
+  'ABC.html': '403805',
   'cbs.html': '403849',
   'espn.html': '403793',
   'cbssportsnetwork.html': '403807',

@@ -1,0 +1,58 @@
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-attachment: fixed !important;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#games {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+#games a {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+#games a:hover {
+    transform: translateY(-3px);
+}
+
+#games img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#games a:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.app-label {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 6px;
+    text-decoration: none;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    display: block;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    padding: 0 5px;
+}
