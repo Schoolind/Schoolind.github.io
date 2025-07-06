@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" style="--header-height: 0px;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TimStreams - CBS Style</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+      --bg-dark-primary: #0b0b0b;
+      --bg-dark-secondary: #026ce8;
+      --primary-red: #026ce8;
+      --text-primary: #ffffff;
+      --padding-bottom: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0b0b0b, #1a1a1a);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 60px;
+      background-color: var(--bg-dark-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid var(--primary-red);
+      flex-shrink: 0;
+    }
+
+    header img {
+      height: 70px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .video-wrapper {
+      width: 95%;
+      max-width: 95%;
+      height: calc(100vh - 100px); /* Account for header and some padding */
+      background-color: black;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #my-jwplayer {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="../images/channels4_profile-removebg-preview (1).png" alt="CBS Logo">
+  </header>
+
+  <main>
+    <div class="video-wrapper">
+      <div id="my-jwplayer"></div>
+    </div>
+  </main>
+
+  <script>
+    // Replace with your actual .m3u8 stream URL
+    const m3u8StreamUrl = "https://dai.google.com/linear/hls/event/GxrCGmwST0ixsrc_QgB6qw/master.m3u8";
+
+    jwplayer("my-jwplayer").setup({
+      file: m3u8StreamUrl,
+      width: "100%",
+      aspectratio: "16:9",
+      autostart: true,
+      controls: true,
+      mute: false,
+      stretching: "uniform",
+      skin: { name: "seven" },
+      primary: "html5"
+    });
+  </script>
+
+  <script src="/checkAccess.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+        const savedCloak = localStorage.getItem('tabCloak');
+        if (savedCloak) {
+            const cloak = JSON.parse(savedCloak);
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) existingFavicon.remove();
+
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = cloak.icon;
+            document.head.appendChild(newFavicon);
+
+            document.title = cloak.title;
+        }
+    });
+  </script>
+
+  <link rel="stylesheet" href="../navbar.css">
+  <script src="../navbar.js"></script>
+  <script src="../panicKey.js"></script>
+  <script src="../backgroundTheme.js"></script>
+
+</body>
+</html>
