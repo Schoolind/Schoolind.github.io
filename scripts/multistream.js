@@ -8,7 +8,7 @@
     { name: "CBS Sports", url: "https://fl3.moveonjoy.com/CBS_SPORTS_NETWORK/index.m3u8", type: "m3u8" },
     { name: "Channel 5 ", url: "https://daddylive.dad/embed/stream-355.php", type: "iframe" },
     { name: "Dragon Ball Z", url: "https://kleanembed.online/embed/pH1yC6tG9rU2pL5zQ0nH3sI8wB4tFi", type: "iframe" },
-    { name: "ESPN", url: "https://1rinij81ehes2uswech6drot7durixl2r0.rtgjmfvikmgtgrvkpbg.shop/tgcyutly3zujtd3bgef8nevyy5v5n301.m3u8", type: "iframe" },
+    { name: "ESPN", url: "https://1rinij81ehes2uswech6drot7durixl2r0.rtgjmfvikmgtgrvkpbg.shop/tgcyutly3zujtd3bgef8nevyy5v5n301.m3u8", type: "m3u8" },
     { name: "ESPN 2", url: "https://fl3.moveonjoy.com/ESPN_2/index.m3u8", type: "m3u8" },
     { name: "ESPN U", url: "https://fl3.moveonjoy.com/ESPN_U/index.m3u8", type: "m3u8" },
     { name: "ESPN Deportes ", url: "https://kleanembed.online/embed/45cb98f6ff304e742c65ec6a3b5d087f", type: "iframe" },
