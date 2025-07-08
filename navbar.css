@@ -202,6 +202,35 @@ html {
     min-width: 100%;
 }
 
+/* Beta text styles */
+.beta-text {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff00cc, #3333ff, #00ccff, #ff00cc);
+    background-size: 300% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size: 0.9em;
+    margin-left: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: gradient 3s linear infinite;
+    text-shadow: 0 0 8px rgba(0, 204, 255, 0.3);
+    position: relative;
+    top: -1px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.tooltip-container {
+    position: relative;
+}
+
 /* Ensure tooltips stay above other content */
 .tooltip {
     z-index: 1002;

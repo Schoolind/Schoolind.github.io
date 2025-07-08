@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>TV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="auth-check.js"></script>
     <link rel="stylesheet" href="https://schooluk.github.io/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -9,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <!-- Beta Version Notice -->
+    <div class="beta-notice">
+        <p>This is a beta version. Features may change or be updated.</p>
+    </div>
+    
     <div class="content">
         <div class="movie-container">
             <a href="multistream.html" class="multistream-header">
@@ -177,14 +183,16 @@
                     boxes.forEach(box => {
                         const altText = box.querySelector('img').alt.toLowerCase();
                         if (altText.includes(searchTerm)) {
-                            box.style.display = 'flex';
+                            box.classList.remove('hidden');
                         } else {
-                            box.style.display = 'none';
+                            box.classList.add('hidden');
                         }
                     });
                 });
             }
         });
     </script>
+    
+
 </body>
 </html>

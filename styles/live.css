@@ -3,6 +3,22 @@ body {
     margin: 0;
     padding: 0;
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.beta-notice {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.beta-notice p {
+    margin: 0;
+    padding: 0 20px;
 }
 h1 {
     font-size: 4rem;
