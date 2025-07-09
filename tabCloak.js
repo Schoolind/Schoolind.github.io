@@ -42,7 +42,7 @@ function setTabCloak(cloak) {
             icon = 'https://www.google.com/favicon.ico';
             break;
         case 'drive':
-            title = 'Google Drive';
+            title = 'My Drive - Google Drive';
             icon = 'https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png';
             break;
         case 'powerschool':

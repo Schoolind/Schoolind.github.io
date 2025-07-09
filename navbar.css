@@ -197,6 +197,195 @@ body {
 }
 
 /* Make sure tooltips can extend beyond viewport */
+
+/* Global Panic Button */
+#global-panic-button {
+    position: fixed;
+    z-index: 9999; /* Ensure it's above other elements */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none; /* Prevent text selection while dragging */
+    touch-action: none; /* Prevent scrolling on touch devices */
+    cursor: grab;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    pointer-events: auto;
+}
+
+/* Base panic button styles */
+.panic-button {
+    position: relative;
+    background: #333333; /* Solid dark gray color */
+    border: 1px solid #555555; /* Slightly lighter border */
+    padding: 0;
+    margin: 0;
+    cursor: inherit;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1; /* Ensure the button is above the drag area */
+}
+
+/* Invisible drag area around the panic button */
+.panic-button::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Behind the button */
+    opacity: 0; /* Invisible but still interactive */
+    cursor: move;
+    pointer-events: auto;
+}
+
+/* Size presets */
+.panic-size-small {
+    width: 40px;
+    height: 40px;
+}
+
+.panic-size-medium {
+    width: 50px;
+    height: 50px;
+}
+
+.panic-size-large {
+    width: 75px;
+    height: 75px;
+}
+
+.panic-size-xlarge {
+    width: 100px;
+    height: 100px;
+}
+
+/* Adjust icon sizes based on button size */
+.panic-size-small svg {
+    width: 16px;
+    height: 16px;
+}
+
+.panic-size-medium svg {
+    width: 20px;
+    height: 20px;
+}
+
+.panic-size-large svg {
+    width: 26px;
+    height: 26px;
+}
+
+/* Panic button icon container */
+.panic-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Panic button SVG icon */
+.panic-button .panic-svg-icon {
+    width: 60%;
+    height: 60%;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Adjust stroke width based on button size */
+.panic-button .panic-circle,
+.panic-button .panic-line {
+    stroke: currentColor;
+    stroke-width: 2.5px;
+    vector-effect: non-scaling-stroke;
+}
+
+.panic-size-large .panic-circle,
+.panic-size-large .panic-line {
+    stroke-width: 3px;
+}
+
+.panic-size-xlarge .panic-circle,
+.panic-size-xlarge .panic-line {
+    stroke-width: 3.5px;
+}
+
+.panic-button:hover {
+    background: #444444; /* Slightly lighter than normal state */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: #ff6b6b;
+}
+
+.panic-button:hover .panic-svg-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    color: #ff6b6b;
+}
+
+.panic-text {
+    display: none; /* Hide text, only show icon */
+}
+
+/* Dragging state */
+#global-panic-button.dragging {
+    z-index: 10000; /* Ensure it's above everything while dragging */
+    opacity: 1; /* Keep it fully opaque */
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+#global-panic-button.dragging .panic-button {
+    cursor: grabbing;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    transform: scale(1.05);
+    background: #333333; /* Ensure solid background during drag */
+    border: 1px solid #ff6b6b; /* Highlight border during drag */
+}
+
+/* Ensure the drag area is active when hovering near the button */
+#global-panic-button {
+    padding: 25px; /* Creates space for the drag area */
+    margin: -25px; /* Compensate for the padding to maintain position */
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+#global-panic-button:not(.dragging):hover .panic-button {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+.panic-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure the panic button is visible on mobile */
+@media (max-width: 768px) {
+    .panic-button-container {
+        top: -55px;
+        right: 10px;
+    }
+    
+    .panic-button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .panic-button svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
 html {
     overflow-x: visible;
     min-width: 100%;

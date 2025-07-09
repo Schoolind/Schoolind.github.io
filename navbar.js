@@ -74,16 +74,6 @@ function createNavBar(pathPrefix = '') {
                 <span class="tooltip">Settings</span>
             </div>
             <div class="tooltip-container">
-                <button class="nav-button panic-button" onclick="activatePanic()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
-                </button>
-                <span class="tooltip">Panic Button</span>
-            </div>
-            <div class="tooltip-container">
                 <button class="nav-button logout" onclick="window.location.href='index.html'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -110,7 +100,63 @@ window.activatePanic = function() {
     }
 };
 
+// Panic button functions
+function savePanicSettings() {
+    const panicUrl = document.getElementById('panicUrl').value;
+    const panicButtonStyle = document.getElementById('panicButtonStyle').checked ? 'always-visible' : 'navbar';
+    
+    // Save settings to localStorage
+    localStorage.setItem('panicUrl', panicUrl);
+    localStorage.setItem('panicButtonStyle', panicButtonStyle);
+    
+    // Show confirmation
+    alert('Panic button settings saved!');
+    
+    // Apply the new settings
+    applyPanicButtonStyle(panicButtonStyle);
+}
+
+function loadPanicSettings() {
+    // Load settings from localStorage
+    const panicUrl = localStorage.getItem('panicUrl') || 'https://google.com';
+    const panicButtonStyle = localStorage.getItem('panicButtonStyle') || 'navbar';
+    
+    // Update UI
+    document.getElementById('panicUrl').value = panicUrl;
+    document.getElementById('panicButtonStyle').checked = panicButtonStyle === 'always-visible';
+    
+    // Apply the loaded style
+    applyPanicButtonStyle(panicButtonStyle);
+    
+    return { panicUrl, panicButtonStyle };
+}
+
+function togglePanicButtonStyle() {
+    const style = document.getElementById('panicButtonStyle').checked ? 'always-visible' : 'navbar';
+    applyPanicButtonStyle(style);
+}
+
+function applyPanicButtonStyle(style) {
+    const alwaysVisibleBtn = document.querySelector('.panic-button-container');
+    const navPanicBtn = document.querySelector('.nav-panic-button');
+    
+    if (style === 'always-visible') {
+        if (alwaysVisibleBtn) alwaysVisibleBtn.style.display = 'block';
+        if (navPanicBtn) navPanicBtn.style.display = 'none';
+    } else {
+        if (alwaysVisibleBtn) alwaysVisibleBtn.style.display = 'none';
+        if (navPanicBtn) navPanicBtn.style.display = 'flex';
+    }
+}
+
 // Call createNavBar when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
     createNavBar();
+    loadPanicSettings();
 });
+
+// Global function to activate panic
+function activatePanic() {
+    const panicUrl = localStorage.getItem('panicUrl') || 'https://google.com';
+    window.location.href = panicUrl;
+}

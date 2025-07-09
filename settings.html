@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles/setting.css">
 </head>
@@ -64,15 +65,43 @@
                 Panic Button
             </div>
             <div class="setting-content" style="display: block;">
-                <div style="margin-bottom: 15px;">
-                    <input type="url" id="panicUrl" placeholder="Enter URL (e.g., https://google.com)" 
-                           style="width: 100%; padding: 10px; background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); 
-                                  border-radius: 8px; color: white; margin-bottom: 10px;">
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <button onclick="savePanicUrl()" style="width: auto; padding: 10px 20px;">
-                            Save
-                        </button>
+                <!-- URL Input and Save Button Row -->
+                <div style="margin-bottom: 15px; display: flex; gap: 8px;">
+                    <input type="url" id="panicUrl" placeholder="google.com" 
+                           oninput="showSaveButton()"
+                           style="flex: 1; min-width: 0; padding: 10px 12px; background: rgba(30, 30, 30, 0.6); 
+                                  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; 
+                                  color: white; font-family: 'Montserrat', sans-serif; font-size: 14px;">
+                    <button id="saveSettingsBtn" class="save-settings-button" style="margin: 0; min-width: 44px; padding: 0 12px; display: none;">
+                        <span class="button-text">
+                            <i class="fas fa-save"></i>
+                        </span>
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Toggle Switch Row -->
+                <div class="setting-option" style="margin-bottom: 15px; margin-top: 10px;">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="panicButtonStyle" onchange="togglePanicButtonStyle()">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-label">Panic Button</span>
+                </div>
+
+                    <div class="setting-option" style="margin-bottom: 20px; flex-direction: column; align-items: flex-start;">
+                        <div style="margin-bottom: 10px; color: #4fc3f7; font-weight: 500;">Button Size:</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="size-preset" data-size="small" onclick="setPanicButtonSize('small')" title="Small">S</button>
+                            <button class="size-preset" data-size="medium" onclick="setPanicButtonSize('medium')" title="Medium" style="background: #4fc3f7; color: white;">M</button>
+                            <button class="size-preset" data-size="large" onclick="setPanicButtonSize('large')" title="Large">L</button>
+                            <button class="size-preset" data-size="xlarge" onclick="setPanicButtonSize('xlarge')" title="X-Large">XL</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -87,6 +116,4 @@
 <!-- Keep only this nav bar at the bottom -->
 <script src="navbar.js"></script>
 <script src="scripts/key.js"></script>
-
-    <!-- Add panic button functionality 
-    
+<script src="scripts/panic-button.js"></script>

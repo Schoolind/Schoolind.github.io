@@ -53,6 +53,161 @@ button:hover {
     transform: translateY(-5px) scale(1.05);
 }
 
+/* Save Settings Button */
+.save-settings-button {
+    background: linear-gradient(135deg, #4fc3f7, #3a8dff);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+    position: relative;
+    overflow: hidden;
+    min-width: 150px;
+    height: 44px;
+}
+
+.save-settings-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 195, 247, 0.4);
+}
+
+.save-settings-button:active {
+    transform: translateY(0);
+}
+
+.save-settings-button i {
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+/* Success state */
+.save-settings-button.success {
+    background: linear-gradient(135deg, #4caf50, #43a047);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.save-settings-button.success:hover {
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Checkmark animation */
+.checkmark {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 3;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.save-settings-button.success .checkmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.save-settings-button.success .button-text {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #fff;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+.button-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+/* Size Preset Buttons */
+.size-preset {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #ddd;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 0;
+    text-align: center;
+}
+
+.size-preset:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.size-preset[data-size="small"],
+.size-preset[data-size="medium"],
+.size-preset[data-size="large"],
+.size-preset[data-size="xlarge"] {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+}
+
+.size-preset[data-size="medium"].active,
+.size-preset[data-size="medium"]:not([data-size]):not([class*="active"]) {
+    background: #4fc3f7;
+    color: white;
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
+}
+
+.size-preset[data-size="medium"]:hover:not(.active) {
+    background: #3ab4f0;
+}
+
 .setting-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -157,7 +312,7 @@ button:hover .default-icon {
     box-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
 }
 input[type="text"], input[type="url"] {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     letter-spacing: 0.5px;
     padding: 15px;
@@ -190,4 +345,71 @@ input[type="text"]:hover, input[type="url"]:hover {
     border-color: #64d8ff;
     box-shadow: 0 0 15px rgba(79, 195, 247, 0.15),
                 inset 0 0 15px rgba(79, 195, 247, 0.08);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-flex;
+    width: 50px;
+    height: 24px;
+    margin-right: 10px;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .toggle-slider {
+    background-color: #4fc3f7;
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px) translateY(-50%);
+}
+
+.toggle-label {
+    vertical-align: middle;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.setting-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
 }

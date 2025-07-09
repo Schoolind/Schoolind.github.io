@@ -17,6 +17,12 @@ CHANNELS = {
         url='https://kleanembed.online/embed/tgcyutly3zujtd3bgef8nevyy5v5n301',
         id='tgcyutly3zujtd3bgef8nevyy5v5n301',
         html_file='shows/espn.html'
+    ),
+    'fs1': Channel(
+        name='FS1',
+        url='https://kleanembed.online/embed/j7xysrst3ytbc4h50of84mmbyrn4ba9v',
+        id='j7xysrst3ytbc4h50of84mmbyrn4ba9v',
+        html_file='shows/fs1.html'
     )
 }
 
@@ -85,12 +91,33 @@ def update_channel_html(channel, m3u8_url):
         with open(html_path, 'r', encoding='utf-8') as file:
             content = file.read()
         
-        # Find and replace the m3u8 URL in the JavaScript code
-        updated_html = re.sub(
-            r'(const\s+m3u8StreamUrl\s*=\s*")([^"]*)(";)',
-            f'\\1{m3u8_url}\\2\\3',
-            content
-        )
+        # Handle both comment patterns that might be before the m3u8 URL
+        patterns = [
+            # Pattern for commented line before the URL
+            r'(//.*?\n\s*const\s+m3u8StreamUrl\s*=\s*")([^"]*)(";)',
+            # Pattern for just the URL line
+            r'(const\s+m3u8StreamUrl\s*=\s*")([^"]*)(";)'
+        ]
+        
+        updated_html = content
+        for pattern in patterns:
+            # First clean up any duplicate URLs
+            cleaned_content = re.sub(
+                pattern,
+                r'\1\2\3',
+                updated_html
+            )
+            
+            # Then update with the new URL
+            updated_html = re.sub(
+                pattern,
+                f'\\1{m3u8_url}\\3',
+                cleaned_content
+            )
+            
+            # If we made changes, no need to try other patterns
+            if cleaned_content != updated_html:
+                break
         
         with open(html_path, 'w', encoding='utf-8') as file:
             file.write(updated_html)
@@ -103,9 +130,14 @@ def update_channel_html(channel, m3u8_url):
             with open(multistream_js_path, 'r', encoding='utf-8') as file:
                 js_content = file.read()
             
-            # Find and replace the ESPN URL in the channels array
+            # Find and replace the channel URL in the channels array
+            if channel.name == 'ESPN':
+                pattern = r'(\{ name: "ESPN", url: \")([^\"]*)(\", type: \"m3u8\" \})'
+            elif channel.name == 'FS1':
+                pattern = r'(\{ name: "FS1", url: \")([^\"]*)(\", type: \"m3u8\" \})'
+            
             updated_js = re.sub(
-                r'(\{ name: "ESPN", url: \")([^\"]*)(\", type: \"iframe\" \})',
+                pattern,
                 f'\\1{m3u8_url}\\3',
                 js_content
             )
@@ -136,18 +168,18 @@ def main():
         m3u8_url = get_m3u8_url(channel)
         
         if m3u8_url and m3u8_url.startswith('http'):
-            print(f"\n✅ Found m3u8 URL:")
+            print("\nFound m3u8 URL:")
             print(m3u8_url)
             
             # Update the HTML file if it exists
             if channel.html_file:
                 print(f"\nUpdating {channel.html_file}...")
                 if update_channel_html(channel, m3u8_url):
-                    print(f"✅ Successfully updated {channel.html_file}")
+                    print(f"Successfully updated {channel.html_file}")
                 else:
-                    print(f"❌ Failed to update {channel.html_file}")
+                    print(f"Failed to update {channel.html_file}")
             else:
-                print(f"ℹ️ No HTML file specified for {channel.name}, skipping update")
+                print(f"No HTML file specified for {channel.name}, skipping update")
         else:
             print("\n❌ Failed to find a valid m3u8 URL")
 
