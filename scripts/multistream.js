@@ -6,7 +6,6 @@
     { name: "CBS", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/v3weufn13faamb6eqbgd8myxv7zqe314.m3u8", type: "m3u8" },
     { name: "CBS Golazo", url: "https://dai.google.com/linear/hls/event/GxrCGmwST0ixsrc_QgB6qw/master.m3u8", type: "m3u8" },
     { name: "CBS Sports", url: "https://fl3.moveonjoy.com/CBS_SPORTS_NETWORK/index.m3u8", type: "m3u8" },
-    { name: "CBS Sports HQ", url: "https://dai.google.com/linear/hls/pa/event/9Lq0ERvoSR-z9AwvFS-xYA/stream/8f4f0329-e89d-4a0f-bd44-9b3a5485313b:MRN2/master.m3u8", type: "m3u8" },
     { name: "ESPN", url: "https://1rinij81ehes2uswech6drot7durixl2r0.rtgjmfvikmgtgrvkpbg.shop/tgcyutly3zujtd3bgef8nevyy5v5n301.m3u8", type: "m3u8" },
     { name: "ESPN 2", url: "https://fl3.moveonjoy.com/ESPN_2/index.m3u8", type: "m3u8" },
     { name: "ESPN U", url: "https://fl3.moveonjoy.com/ESPN_U/index.m3u8", type: "m3u8" },
@@ -30,7 +29,7 @@
     { name: "NFL Redzone", url: "https://fl3.moveonjoy.com/NFL_RedZone/index.m3u8", type: "m3u8" },
     { name: "NHL Network", url: "https://fl3.moveonjoy.com/NHL_NETWORK/index.m3u8", type: "m3u8" },
     { name: "Nicktoons", url: "https://fl1.moveonjoy.com/NICKTOONS/tracks-v1a1/mono.m3u8", type: "m3u8" },
-    { name: "Premier Sports 1", url: "https://topembed.pw/channel/PremierSports1[UK]", type: "iframe" },
+    { name: "Premier Sports 1", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/aE5dT9yH2uJ8gP1zWn7fK4oL6mV3cB.m3u8", type: "m3u8" },
     { name: "Premier Sports 2", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/sY1bX6cA8rM3wQ7iN9jV2pE5hU0lGf.m3u8", type: "m3u8" },
     { name: "TBS", url: "https://kleanembed.online/embed/prLbr6tHLvozlcehLbrIb5crU2awoklC", type: "iframe" },
     { name: "TNT", url: "https://kleanembed.online/embed/940ecd921be2f888c443b67d0b40598b", type: "iframe" },
@@ -50,8 +49,9 @@
         name: "DAZN", 
         type: "dropdown",
         options: [
-            { name: "Dazn 1 germany", url: "https://antenaplanet.store/dazn1de.php", type: "iframe" },
+            { name: "Dazn 1 germany", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/d7a18ae533fe625e19640aa611971871.m3u8", type: "m3u8" },
             { name: "Dazn 2 germany", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/118501150AB9F93A3BA16A017C2D7030.m3u8", type: "m3u8" },
+            { name: "Dazn UK", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/29f80fe360ea09758cda99ec2eb61fd2.m3u8", type: "m3u8" },
             { name: "Dazn 1 spanish", url: "https://thedaddy.to/embed/stream-445.php", type: "iframe" },
             { name: "Dazn 2 spanish", url: "https://thedaddy.to/embed/stream-446.php", type: "iframe" },
             { name: "Dazn 3 spanish", url: "https://thedaddy.to/embed/stream-447.php", type: "iframe" },
@@ -61,7 +61,6 @@
             { name: "Dazn laliga 2", url: "https://thedaddy.to/embed/stream-43.php", type: "iframe" },
             { name: "Dazn Portugal", url: "https://thedaddy.to/embed/stream-918.php", type: "iframe" },
             { name: "Dazn Portugal 2", url: "https://antenaplanet.store/dazn4pt.php", type: "iframe" },
-            { name: "Dazn UK", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/29f80fe360ea09758cda99ec2eb61fd2.m3u8", type: "m3u8" },
         ]
     },
      
@@ -90,7 +89,7 @@
         type: "dropdown",
         options: [
             { name: "NBC", url: "https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8", type: "m3u8" },
-            { name: "NBC philadelphia", url: "https://kleanembed.online/embed/b46c64f505d77d9c3ba37c2f3037f0f3", type: "iframe" },
+            { name: "NBC philadelphia", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/b46c64f505d77d9c3ba37c2f3037f0f3.m3u8", type: "m3u8" },
             { name: "NBC chicago", url: "https://thedaddy.to/embed/stream-776.php", type: "iframe" },
             { name: "NBC california", url: "https://thedaddy.to/embed/stream-755.php", type: "iframe" },
             { name: "NBC washington", url: "https://thedaddy.to/embed/stream-778.php", type: "iframe" },
