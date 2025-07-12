@@ -110,9 +110,13 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/FanDuel_Sports_Network_logo.svg/2560px-FanDuel_Sports_Network_logo.svg.png" alt="TNT Sports Logo">
     <select class="server-select" id="serverSelect" onchange="changeServer()">
       <option value="">Select Server</option>
-      <option value="server1">Server 1</option>
-      <option value="server2">Server 2</option>
-      <option value="server3">Server 3</option>
+      <option value="server1">Ohio</option>
+      <option value="server2">Florida</option>
+      <option value="server3">Detroit</option>
+      <option value="server4">Kansas City</option>
+      <option value="server5">Midwest</option>
+      <option value="server6">Wisconsin</option>
+      <option value="server7">Southeast</option>
     </select>
   </header>
 
@@ -123,7 +127,7 @@
         allowfullscreen
         scrolling="no"
         title="FanDuel"
-        src="https://daddylive.dad/embed/stream-895.php">
+        src="https://topembed.pw/channel/FanDuelSportsOhio[USA]">
       </iframe>
     </div>
   </main>
@@ -135,9 +139,13 @@
       const selectedServer = select.value;
       
       const servers = {
-        'server1': 'https://daddylive.dad/embed/stream-896.php',
-        'server2': 'https://daddylive.dad/embed/stream-902.php',
-        'server3': 'https://daddylive.dad/embed/stream-905.php',
+        'server1': 'https://topembed.pw/channel/FanDuelSportsOhio[USA]',
+        'server2': 'https://topembed.pw/channel/FanDuelSportsFlorida[USA]',
+        'server3': 'https://topembed.pw/channel/FanDuelSportsDetroit[USA]',
+        'server4': 'https://topembed.pw/channel/FanDuelSportKansasCity[USA]',
+        'server5': 'https://topembed.pw/channel/FanDuelSportsMidwest[USA]',
+        'server6': 'https://topembed.pw/channel/FanDuelSportsWisconsin[USA]',
+        'server7': 'https://topembed.pw/channel/FanDuelSportsSoutheast[USA]',
       };
       
       if (selectedServer && servers[selectedServer]) {
