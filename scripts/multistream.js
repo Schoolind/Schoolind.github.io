@@ -1,7 +1,7 @@
  // Sample channel data
  const channels = [
-    { name: "ABC", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/wffwehg9yklo7k3dmabqxi70sbws5w4q.m3u8", type: "m3u8" },
-    { name: "Bein Sports", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/afdb73c451239369681c5e34207bf17a.m3u8", type: "m3u8" },
+    { name: "ABC", url: "https://fl3.moveonjoy.com/ABC_EAST/index.m3u8", type: "m3u8" },
+    { name: "Bein Sports", url: "https://fl3.moveonjoy.com/BEIN_SPORTS/index.m3u8", type: "m3u8" },
     { name: "Cartoon Network", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/j7frlCr9theTHiPhistuSPInuchosawE.m3u8", type: "m3u8" },
     { name: "CBS", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/v3weufn13faamb6eqbgd8myxv7zqe314.m3u8", type: "m3u8" },
     { name: "CBS Golazo", url: "https://dai.google.com/linear/hls/event/GxrCGmwST0ixsrc_QgB6qw/master.m3u8", type: "m3u8" },
@@ -24,19 +24,20 @@
     { name: "ION", url: "https://fl3.moveonjoy.com/ION_TV/index.m3u8", type: "m3u8" },
     { name: "HGTV", url: "https://fl3.moveonjoy.com/HGTV/index.m3u8", type: "m3u8" },
     { name: "laligatv", url: "https://kleanembed.online/embed/pajip6maru1rlcoz1qizebitocof4aP7", type: "iframe" },
+    { name: "NBC", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/maqOnut62tRoHESac2r8ca9ay9b72hAw.m3u8", type: "m3u8" },
     { name: "NBA TV", url: "https://fl3.moveonjoy.com/NBA_TV/index.m3u8", type: "m3u8" },
     { name: "NFL Network", url: "https://fl3.moveonjoy.com/NFL_NETWORK/index.m3u8", type: "m3u8" },
     { name: "NFL Redzone", url: "https://fl3.moveonjoy.com/NFL_RedZone/index.m3u8", type: "m3u8" },
     { name: "NHL Network", url: "https://fl3.moveonjoy.com/NHL_NETWORK/index.m3u8", type: "m3u8" },
-    { name: "Nicktoons", url: "https://fl1.moveonjoy.com/NICKTOONS/tracks-v1a1/mono.m3u8", type: "m3u8" },
     { name: "Premier Sports 1", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/aE5dT9yH2uJ8gP1zWn7fK4oL6mV3cB.m3u8", type: "m3u8" },
     { name: "Premier Sports 2", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/sY1bX6cA8rM3wQ7iN9jV2pE5hU0lGf.m3u8", type: "m3u8" },
     { name: "TBS", url: "https://fl3.moveonjoy.com/TBS/index.m3u8", type: "m3u8" },
     { name: "TNT", url: "https://fl3.moveonjoy.com/TNT/index.m3u8", type: "m3u8" },
     { name: "Tudn", url: "https://dvrfl03.bozztv.com/hondu-canal12/index.m3u8", type: "m3u8" },
-    { name: "TruTV", url: "https://turnerlive.warnermediacdn.com/hls/live/2023176/trueast/slate/VIDEO_4_1064000.m3u8", type: "iframe" },
-    { name: "USA", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/prObIniBoc7ltizEGEvUSpLstaClmlbr.m3u8", type: "iframe" },
-    { name: "Tenis channel", url: "https://kleanembed.online/embed/671644cddc7ee3158d3291c88ec8a1a1", type: "iframe" },
+    { name: "TruTV", url: "https://fl3.moveonjoy.com/TRU_TV/index.m3u8", type: "m3u8" },
+    { name: "USA", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/prObIniBoc7ltizEGEvUSpLstaClmlbr.m3u8", type: "m3u8" },
+    { name: "Tenis channel", url: "https://fl4.moveonjoy.com/TENIS_CHANNEL/index.m3u8", type: "m3u8" },
+    { name: "YES Network", url: "https://fl3.moveonjoy.com/YES_NETWORK/index.m3u8", type: "m3u8" },
     { 
         name: "MLB TV", 
         type: "dropdown",
@@ -94,17 +95,15 @@
         ]
     },
     { 
-        name: "NBC", 
+        name: "NBC Sports", 
         type: "dropdown",
         options: [
-            { name: "NBC", url: "https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8", type: "m3u8" },
+            { name: "NBC", url: "https://xumo-xumoent-vc-122-sjv70.fast.nbcuni.com/live/master.m3u8", type: "m3u8" },
             { name: "NBC philadelphia", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/b46c64f505d77d9c3ba37c2f3037f0f3.m3u8", type: "m3u8" },
-            { name: "NBC chicago", url: "https://thedaddy.to/embed/stream-776.php", type: "iframe" },
-            { name: "NBC california", url: "https://thedaddy.to/embed/stream-755.php", type: "iframe" },
-            { name: "NBC washington", url: "https://thedaddy.to/embed/stream-778.php", type: "iframe" },
-            { name: "NBC bayarea", url: "https://kleanembed.online/embed/5411235d278f9abfce9db28c140374d5", type: "iframe" },
-            { name: "NBC boston", url: "https://thedaddy.to/embed/stream-754.php", type: "iframe" },
-            { name: "NBC golf", url: "https://thedaddy.to/embed/stream-318.php", type: "iframe" },
+            { name: "NBC california👑", url: "https://thedaddy.to/embed/stream-755.php", type: "iframe" },
+            { name: "NBC bayarea", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/5411235d278f9abfce9db28c140374d5.m3u8", type: "m3u8" },
+            { name: "NBC boston👑", url: "https://thedaddy.to/embed/stream-754.php", type: "iframe" },
+            { name: "NBC golf", url: "https://popcdn.day/cue.php?stream=GOLFChannel", type: "iframe" },
         ]
     },
     { 
@@ -150,6 +149,28 @@
             { name: "skysports racing", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/x5Dodrl6Ro21RUprudEQAFRUTEfLPhec.m3u8", type: "m3u8" },
             { name: "skysports tenis", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/pA5reZusPAvispo16hUb2e5pahlthLB2.m3u8", type: "m3u8" },
         
+        ]
+    },
+    { 
+        name: "Nickelodeon", 
+        type: "dropdown",
+        options: [
+            { name: "Nickelodeon", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/e07a573f0a6ea861a83fc63aa1fdf2cb.m3u8", type: "m3u8" },
+            { name: "Nick jr", url: "https://fl3.moveonjoy.com/NICK_JR/index.m3u8", type: "m3u8" },
+            { name: "Nicktoons", url: "https://fl3.moveonjoy.com/NICKTOONS/index.m3u8", type: "m3u8" },
+            { name: "Nick teen", url: "https://fl3.moveonjoy.com/Teen_Nick/index.m3u8", type: "m3u8" },
+            { name: "Nick music", url: "https://fl3.moveonjoy.com/NICK_MUSIC/index.m3u8", type: "m3u8" },
+        ]
+    },
+    { 
+        name: "HBO", 
+        type: "dropdown",
+        options: [
+            { name: "HBO", url: "https://fl3.moveonjoy.com/HBO/index.m3u8", type: "m3u8" },
+            { name: "HBO 2", url: "https://fl3.moveonjoy.com/HBO_2/index.m3u8", type: "m3u8" },
+            { name: "HBO Comedy", url: "https://fl3.moveonjoy.com/HBO_COMEDY/index.m3u8", type: "m3u8" },
+            { name: "HBO Family", url: "https://fl3.moveonjoy.com/HBO_FAMILY/index.m3u8", type: "m3u8" },
+            { name: "HBO Zone", url: "https://fl3.moveonjoy.com/HBO_ZONE/index.m3u8", type: "m3u8" },
         ]
     },
 ];

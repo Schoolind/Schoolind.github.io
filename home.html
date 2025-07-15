@@ -55,7 +55,7 @@
                 <span style="background: linear-gradient(90deg, #4fc3f7, #64b5f6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">What Can You Do?</span>
                 <span style="display: block; width: 60px; height: 3px; background: linear-gradient(90deg, #4fc3f7, #64b5f6); margin: 15px auto 0;"></span>
             </h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 30px;">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 30px;">
                 <!-- Games Card -->
                 <div style="background: #1e1e2d; border-radius: 12px; overflow: hidden; border: 1px solid #2d2d4d; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div style="height: 180px; background: linear-gradient(45deg, #2d2d4d, #1a1a2e); display: flex; align-items: center; justify-content: center; font-size: 3em; color: #4fc3f7;">
@@ -63,10 +63,10 @@
                     </div>
                     <div style="padding: 20px;">
                         <h3 style="color: #ffffff; margin-top: 0; margin-bottom: 15px;">Games</h3>
-                        <p style="color: #b0b0d0; font-size: 0.95em; margin-bottom: 25px; min-height: 60px; line-height: 1.6;">Play exciting browser games in various genres. Challenge yourself and have fun!</p>
-                        <div style="display: flex; justify-content: center; margin-top: auto; padding-top: 10px;">
-                            <a href="games.html" class="quick-link" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-size: 0.95em; background: linear-gradient(135deg, #4fc3f7, #64b5f6); border-radius: 6px; text-decoration: none; min-width: 160px;">
-                                <i class="fas fa-gamepad" style="margin-right: 8px; font-size: 0.9em;"></i> Play Now
+                        <p style="color: #b0b0d0; font-size: 0.95em; margin-bottom: 25px; line-height: 1.6;">Play exciting browser games in various genres.</p>
+                        <div style="display: flex; justify-content: center; margin-top: 0; padding-top: 0;">
+                            <a href="games.html" class="quick-link" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-size: 0.95em; background: linear-gradient(135deg, #4fc3f7, #64b5f6); border-radius: 6px; text-decoration: none; min-width: 160px; color: white;">
+                                <i class="fas fa-gamepad" style="margin-right: 8px; font-size: 0.9em; color: white;"></i> Play Now
                             </a>
                         </div>
                     </div>
@@ -79,10 +79,32 @@
                     </div>
                     <div style="padding: 20px;">
                         <h3 style="color: #ffffff; margin-top: 0; margin-bottom: 15px;">Watch Telly & Films</h3>
-                        <p style="color: #b0b0d0; font-size: 0.95em; margin-bottom: 25px; min-height: 60px; line-height: 1.6;">Stream brilliant films and telly shows in top quality. Thousands of titles ready for your viewing pleasure. Proper entertainment!</p>
+                        <p style="color: #b0b0d0; font-size: 0.95em; margin-bottom: 25px; line-height: 1.6;">Stream films and shows in top quality.</p>
                         <div style="display: flex; justify-content: center;">
-                            <a href="tv.html" class="quick-link" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-size: 0.95em; background: linear-gradient(135deg, #4fc3f7, #64b5f6); border-radius: 6px; text-decoration: none; min-width: 160px;">
-                                <i class="fas fa-film" style="margin-right: 8px;"></i> Browse Library
+                            <a href="tv.html" class="quick-link" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-size: 0.95em; background: linear-gradient(135deg, #4fc3f7, #64b5f6); border-radius: 6px; text-decoration: none; min-width: 160px; color: white;">
+                                <i class="fas fa-film" style="margin-right: 8px; color: white;"></i> Browse Library
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live TV Card -->
+                <div style="background: #1e1e2d; border-radius: 12px; overflow: hidden; border: 1px solid #2d2d4d; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div style="height: 180px; background: linear-gradient(45deg, #2d2d4d, #1a1a2e); display: flex; align-items: center; justify-content: center; font-size: 3em; color: #4fc3f7;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                            <polyline points="17 2 12 7 7 2"></polyline>
+                        </svg>
+                    </div>
+                    <div style="padding: 20px;">
+                        <h3 style="color: #ffffff; margin-top: 0; margin-bottom: 15px;">Live TV</h3>
+                        <p style="color: #b0b0d0; font-size: 0.95em; margin-bottom: 25px; line-height: 1.6;">Watch live channels and broadcasts.</p>
+                        <div style="display: flex; justify-content: center;">
+                            <a href="livetv.html" class="quick-link" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-size: 0.95em; background: linear-gradient(135deg, #4fc3f7, #64b5f6); border-radius: 6px; text-decoration: none; min-width: 160px; color: white;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                                    <polyline points="17 2 12 7 7 2"></polyline>
+                                </svg> Watch Live
                             </a>
                         </div>
                     </div>
@@ -91,14 +113,18 @@
                 <!-- Chat Card -->
                 <div style="background: #1e1e2d; border-radius: 12px; overflow: hidden; border: 1px solid #2d2d4d; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                     <div style="height: 180px; background: linear-gradient(45deg, #2d2d4d, #1a1a2e); display: flex; align-items: center; justify-content: center; font-size: 3em; color: #4fc3f7;">
-                        <i class="fas fa-comments"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
                     </div>
                     <div style="padding: 20px;">
                         <h3 style="color: #ffffff; margin-top: 0; margin-bottom: 15px;">Chat with Mates</h3>
-                        <p style="color: #b0b0d0; font-size: 0.95em; margin-bottom: 25px; min-height: 60px; line-height: 1.6;">Have a proper chinwag with your mates in real-time. Share messages, photos, and stay connected wherever you are. Brilliant!</p>
+                        <p style="color: #b0b0d0; font-size: 0.95em; margin-bottom: 25px; line-height: 1.6;">Chat and share messages with mates in real-time.</p>
                         <div style="display: flex; justify-content: center;">
-                            <a href="Chat.html" class="quick-link" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-size: 0.95em; background: linear-gradient(135deg, #4fc3f7, #64b5f6); border-radius: 6px; text-decoration: none; min-width: 160px;">
-                                <i class="fas fa-comment" style="margin-right: 8px;"></i> Start Chatting
+                            <a href="Chat.html" class="quick-link" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 25px; font-size: 0.95em; background: linear-gradient(135deg, #4fc3f7, #64b5f6); border-radius: 6px; text-decoration: none; min-width: 160px; color: white;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg> Start Chatting
                             </a>
                         </div>
                     </div>
@@ -120,7 +146,7 @@
                 <div style="display: flex; align-items: center;">
                     <i class="fas fa-star" style="font-size: 1.8em; margin-right: 15px; color: #4fc3f7;"></i>
                     <div>
-                        <div style="font-size: 1.8em; font-weight: bold; line-height: 1.2; background: linear-gradient(90deg, #4fc3f7, #64b5f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Version 2.46</div>
+                        <div style="font-size: 1.8em; font-weight: bold; line-height: 1.2; background: linear-gradient(90deg, #4fc3f7, #64b5f6); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Version 2.47</div>
                         <div style="opacity: 0.8; font-size: 0.9em; color: #a0a0c0;">Latest Update</div>
                     </div>
                 </div>
@@ -133,8 +159,9 @@
                     <i class="fas fa-clipboard-list" style="margin-right: 10px; color: #4fc3f7;"></i>What's New
                 </div>
                 <ul style="margin: 0; padding-left: 25px; color: #b0b0d0; line-height: 1.8;">
+                    <li>New channels</li>
                     <li>Updated live tv app</li>
-                    <li>New panic button</li>
+                    <li>bug fixes</li>
                 </ul>
                 
                 <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #2d2d4d; color: #7a7a9e; font-size: 0.9em;">
@@ -157,8 +184,6 @@
     <script src="scripts/home.js"></script>
     <script src="checkAccess.js"></script>
     <script src="tabCloak.js"></script>
-    <script src="panic-button.js"></script>
-
 
         <!-- Survey Link Bottom -->
         <div style="margin-bottom: 30px;">
@@ -169,13 +194,12 @@
                     <p style="color: #b0b0d0; margin: 0 0 25px 0; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; font-size: 1.1em;">
                         Share your thoughts with us! Your feedback helps us improve your experience. We appreciate your time and suggestions.
                     </p>
-                    <a href="games/survey.html" class="quick-link survey-link" style="display: inline-flex; align-items: center; margin: 0 auto; padding: 12px 30px; font-size: 1.1em; border-radius: 8px; text-decoration: none; background: linear-gradient(135deg, #4fc3f7, #64b5f6);">
-                        <i class="fas fa-clipboard-list" style="margin-right: 10px;"></i> Take Our Survey
+                    <a href="games/survey.html" class="quick-link survey-link" style="display: inline-flex; align-items: center; margin: 0 auto; padding: 12px 30px; font-size: 1.1em; border-radius: 8px; text-decoration: none; background: linear-gradient(135deg, #4fc3f7, #64b5f6); color: white;">
+                        <i class="fas fa-clipboard-list" style="margin-right: 10px; color: white;"></i> Take Our Survey
                     </a>
                 </div>
             </div>
         </div>
-
         <!-- Mirror Links -->
         <div style="max-width: 800px; margin: 40px auto; background: #1e1e2d; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.3); border: 1px solid #2d2d4d;">
             <div style="padding: 15px 20px; background: linear-gradient(135deg, #2d2d3d, #1a1a2e); border-bottom: 1px solid #2d2d4d; display: flex; align-items: center; justify-content: center;">
@@ -197,5 +221,6 @@
                 </div>
             </div>
         </div>
-        <script src="scripts/panic-button.js"></script>
-
+    <script src="panic-button.js"></script>
+</body>
+</html>

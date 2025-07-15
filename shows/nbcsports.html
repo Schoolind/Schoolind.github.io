@@ -48,13 +48,59 @@
       background-color: var(--bg-dark-secondary);
       display: flex;
       align-items: center;
-      justify-content: center;
-      border-bottom: 2px solid var(--primary-red);
+      justify-content: space-between;
       flex-shrink: 0;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-image: var(--primary-red);
     }
 
     header img {
       height: 45px;
+    }
+
+    .server-select {
+      background-color: var(--bg-dark-primary);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      outline: none;
+      background-clip: padding-box;
+      position: relative;
+      z-index: 1;
+    }
+
+    .server-select::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      border-radius: 6px;
+      background: var(--primary-red);
+    }
+
+    .server-select:hover {
+      background-color: var(--bg-dark-secondary);
+    }
+
+    .server-select option {
+      background-color: var(--bg-dark-primary);
+      color: var(--text-primary);
     }
 
     main {
@@ -66,53 +112,69 @@
     }
 
     .video-wrapper {
-      width: 95%;
-      max-width: 95%;
-      height: calc(100vh - 100px); /* Account for header and some padding */
+      width: 100%;
+      max-width: calc(100vw - 40px);
+      max-height: calc(100vh - 80px);
+      aspect-ratio: 16 / 9;
       background-color: black;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    #my-jwplayer {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: contain;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/NBC_Peacock_1986.svg/800px-NBC_Peacock_1986.svg.png" alt="TNT Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/NBC_Sports_stacked_logo_%282012-present%29.svg" alt="NBC Sports Logo">
+    <select class="server-select" id="serverSelect" onchange="changeServer()">
+      <option value="">Select Server</option>
+      <option value="server1">Normal</option>
+      <option value="server2">philadelphia</option>
+      <option value="server3">california👑</option>
+      <option value="server4">bayarea</option>
+      <option value="server5">boston👑</option>
+      <option value="server6">golf</option>
+    </select>
   </header>
 
   <main>
     <div class="video-wrapper">
-      <div id="my-jwplayer"></div>
+      <iframe
+        id="streamFrame"
+        allowfullscreen
+        scrolling="no"
+        title="TNT Sports Stream"
+        src="../shows/nbc/sports.html">
+      </iframe>
     </div>
   </main>
 
   <script>
-    // Replace with your actual .m3u8 stream URL
-    const m3u8StreamUrl = "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/maqOnut62tRoHESac2r8ca9ay9b72hAw.m3u8";
+    function changeServer() {
+      const select = document.getElementById('serverSelect');
+      const iframe = document.getElementById('streamFrame');
+      const selectedServer = select.value;
 
-    jwplayer("my-jwplayer").setup({
-      file: m3u8StreamUrl,
-      width: "100%",
-      aspectratio: "16:9",
-      autostart: true,
-      controls: true,
-      mute: false,
-      stretching: "uniform",
-      skin: { name: "seven" },
-      primary: "html5"
-    });
+      const servers = {
+        'server1': '../shows/nbc/sports.html',
+        'server2': 'https://kleanembed.online/embed/b46c64f505d77d9c3ba37c2f3037f0f3',
+        'server3': 'https://thedaddy.to/embed/stream-755.php',
+        'server4': 'https://kleanembed.online/embed/5411235d278f9abfce9db28c140374d5',
+        'server5': 'https://thedaddy.to/embed/stream-754.php',
+        'server6': 'https://popcdn.day/cue.php?stream=GOLFChannel',
+      };
+
+      if (selectedServer && servers[selectedServer]) {
+        iframe.src = servers[selectedServer];
+      }
+    }
   </script>
 
   <script src="/checkAccess.js"></script>
@@ -122,19 +184,18 @@
         if (savedCloak) {
             const cloak = JSON.parse(savedCloak);
             const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) existingFavicon.remove();
-
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
             const newFavicon = document.createElement('link');
             newFavicon.rel = 'icon';
             newFavicon.type = 'image/x-icon';
             newFavicon.href = cloak.icon;
             document.head.appendChild(newFavicon);
-
             document.title = cloak.title;
         }
     });
   </script>
-
   <link rel="stylesheet" href="../navbar.css">
   <script src="../navbar.js"></script>
   <script src="../panicKey.js"></script>

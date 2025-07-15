@@ -36,7 +36,8 @@ const CHANNEL_ID_MAP = {
   'nicktoons.html': '403847',
   'cartoonnetwork.html': '403461',
   'Unimas.html': '403565',
-  'Univision.html': '403875'
+  'Univision.html': '403875',
+  'nbc.html': '403619'
 };
 
 // Track active stream index and cycling state for each channel
