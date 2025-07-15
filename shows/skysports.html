@@ -27,6 +27,7 @@
       --padding-bottom: 20px;
     }
 
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -90,11 +91,20 @@
       width: 100%;
       max-width: calc(100vw - 40px);
       max-height: calc(100vh - 80px);
-      aspect-ratio: 16 / 9;
       background-color: black;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     iframe {
@@ -109,59 +119,86 @@
   <header>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sky_Sport_-_Logo_2020.svg/1200px-Sky_Sport_-_Logo_2020.svg.png" alt="TNT Sports Logo">
     <select class="server-select" id="serverSelect" onchange="changeServer()">
-      <option value="">Select Server</option>
       <option value="server1">skysportsplus</option>
       <option value="server2">skysportsaction</option>
-      <option value="server3">skysportbundesliga</option>
-      <option value="server4">skysportscricket</option>
-      <option value="server5">skysportsfootball</option>
-      <option value="server6">skysportsf1</option>
-      <option value="server7">skysportsgolf</option>
-      <option value="server8">skysportsmainevent</option>
-      <option value="server9">skysportsmix</option>
-      <option value="server10">skysportmotogp</option>
-      <option value="server11">skysportsnews</option>
-      <option value="server12">skysportspremierleague</option>
-      <option value="server13">skysportsracing</option>
+      <option value="server3">skysportscricket</option>
+      <option value="server4">skysportsfootball</option>
+      <option value="server5">skysportsf1</option>
+      <option value="server6">skysportsgolf</option>
+      <option value="server7">skysportsmainevent</option>
+      <option value="server8">skysportsmix</option>
+      <option value="server9">skysportmotogp</option>
+      <option value="server10">skysportsnews</option>
+      <option value="server11">skysportspremierleague</option>
+      <option value="server12">skysportsracing</option>
+      <option value="server13">skysportstennis</option>
     </select>
   </header>
 
   <main>
-    <div class="video-wrapper">
-      <iframe
-        id="streamFrame"
-        allowfullscreen
-        scrolling="no"
-        title="TNT Sports Stream"
-        src="https://kleanembed.online/embed/kl11IkOsWATR8duxiWrOyiprERl2hLx4">
-      </iframe>
+    <div class="video-wrapper" id="playerContainer">
+      <!-- Player will be inserted here -->
     </div>
   </main>
 
   <script>
+    // Automatically select and load first server on page load
+    window.addEventListener('load', function() {
+      const select = document.getElementById('serverSelect');
+      // Select the first server option
+      select.value = 'server1';
+      // Trigger change event to load the stream
+      select.dispatchEvent(new Event('change'));
+    });
+
     function changeServer() {
       const select = document.getElementById('serverSelect');
-      const iframe = document.getElementById('streamFrame');
+      const container = document.getElementById('playerContainer');
       const selectedServer = select.value;
-      
       const servers = {
-        'server1': 'https://kleanembed.online/embed/kl11IkOsWATR8duxiWrOyiprERl2hLx4',
-        'server2': 'https://kleanembed.online/embed/wra2wlraTrewrAwohlsiCr0kUpHlswuc',
-        'server3': 'https://kleanembed.online/embed/wramespicr0swivlb9hAserldOthofas',
-        'server4': 'https://kleanembed.online/embed/j5ru6icHofROsespidec64w0s7lgo8ot',
-        'server5': 'https://kleanembed.online/embed/zuw3aYlboraPaStUP4o5ropHlbrospev',
-        'server6': 'https://kleanembed.online/embed/888520f36cd94c5da4c71fddc1a5fc9b',
-        'server7': 'https://kleanembed.online/embed/juDiYAyaWljAtH55usw2sWogINI49kIY',
-        'server8': 'https://kleanembed.online/embed/4reStAcaHuraStIc3o7rOdRAprEy2glB',
-        'server9': 'https://kleanembed.online/embed/phAjl4we7iw0agitOpro8Rlcrotrufre',
-        'server10': 'https://kleanembed.online/embed/1c6f53f565af34b3099d28adba983591',
-        'server11': 'https://kleanembed.online/embed/ZiProtriRlspiriBrI2oProjohAfretA',
-        'server12': 'https://kleanembed.online/embed/swapr5jlpHidrlfR65ofRi8a0itHI6oc',
-        'server13': 'https://kleanembed.online/embed/x5Dodrl6Ro21RUprudEQAFRUTEfLPhec',
+        'server1': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/kl11IkOsWATR8duxiWrOyiprERl2hLx4.m3u8',
+        'server2': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/wra2wlraTrewrAwohlsiCr0kUpHlswuc.m3u8',
+        'server3': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8',
+        'server4': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/zuw3aYlboraPaStUP4o5ropHlbrospev.m3u8',
+        'server5': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/888520f36cd94c5da4c71fddc1a5fc9b.m3u8',
+        'server6': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/juDiYAyaWljAtH55usw2sWogINI49kIY.m3u8',
+        'server7': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/4reStAcaHuraStIc3o7rOdRAprEy2glB.m3u8',
+        'server8': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/phAjl4we7iw0agitOpro8Rlcrotrufre.m3u8',
+        'server9': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/1c6f53f565af34b3099d28adba983591.m3u8',
+        'server10': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/ZiProtriRlspiriBrI2oProjohAfretA.m3u8',
+        'server11': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/swapr5jlpHidrlfR65ofRi8a0itHI6oc.m3u8',
+        'server12': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/x5Dodrl6Ro21RUprudEQAFRUTEfLPhec.m3u8',
+        'server13': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/pA5reZusPAvispo16hUb2e5pahlthLB2.m3u8',
       };
-
+      
       if (selectedServer && servers[selectedServer]) {
-        iframe.src = servers[selectedServer];
+        const url = servers[selectedServer];
+        
+        // Clear existing player
+        container.innerHTML = '';
+        
+        // Check if URL is m3u8
+        if (url.toLowerCase().endsWith('.m3u8')) {
+          // Create JW Player
+          const player = jwplayer(container);
+          player.setup({
+            file: url,
+            width: '90%',
+            height: '90%',
+            primary: 'html5',
+            autostart: true
+          });
+        } else {
+          // Create iframe
+          const iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.allowfullscreen = true;
+          iframe.scrolling = 'no';
+          iframe.title = 'TNT Sports Stream';
+          container.appendChild(iframe);
+        }
       }
     }
   </script>
