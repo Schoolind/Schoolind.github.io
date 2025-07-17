@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" style="--header-height: 0px;">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D1D7WGSDYH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D1D7WGSDYH');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TimStreams - ESPN Style</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+      --bg-dark-primary: #0b0b0b;
+      --bg-dark-secondary: #1a1a1a;
+      --primary-red: #ca0202;
+      --text-primary: #ffffff;
+      --padding-bottom: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0b0b0b, #1a1a1a);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 60px;
+      background-color: var(--bg-dark-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--primary-red);
+      flex-shrink: 0;
+      padding: 0 20px;
+    }
+
+    header img {
+      height: 35px;
+    }
+
+    .server-select {
+      background-color: var(--bg-dark-primary);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border: 1px solid var(--primary-red);
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .server-select:hover {
+      background-color: var(--bg-dark-secondary);
+    }
+
+    .server-select option {
+      background-color: var(--bg-dark-primary);
+      color: var(--text-primary);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      max-width: calc(100vw - 40px);
+      max-height: calc(100vh - 80px);
+      background-color: black;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="../images/tnt.webp" alt="TNT Sports Logo">
+    <select class="server-select" id="serverSelect" onchange="changeServer()">
+      <option value="">Select Server</option>
+      <option value="server1">Server 1</option>
+      <option value="server2">Server 2</option>
+      <option value="server3">Server 3</option>
+      <option value="server4">Server 4</option>
+    </select>
+  </header>
+
+  <main>
+    <div class="video-wrapper" id="playerContainer">
+      <!-- Player will be inserted here -->
+    </div>
+  </main>
+
+  <script>
+    // Automatically select and load first server on page load
+    window.addEventListener('load', function() {
+      const select = document.getElementById('serverSelect');
+      // Select the first server option
+      select.value = 'server1';
+      // Trigger change event to load the stream
+      select.dispatchEvent(new Event('change'));
+    });
+
+    function changeServer() {
+      const select = document.getElementById('serverSelect');
+      const container = document.getElementById('playerContainer');
+      const selectedServer = select.value;
+      
+      const servers = {
+        'server1': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/FrofUdRljoCLdruGUdR295IfisTlsW1w.m3u8',
+        'server2': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/c5phutHUkothlwRudRO8rosaS3B64ini.m3u8',
+        'server3': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/SodrItO5WeQeFraDRoQa900eSw68I9LG.m3u8',
+        'server4': 'https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/8esiM7BRatIQ3cAdaxes34tesIbrOpOp.m3u8',
+      };
+      
+      if (selectedServer && servers[selectedServer]) {
+        const url = servers[selectedServer];
+        
+        // Clear existing player
+        container.innerHTML = '';
+        
+        // Check if URL is m3u8
+        if (url.toLowerCase().endsWith('.m3u8')) {
+          // Create JW Player
+          const player = jwplayer(container);
+          player.setup({
+            file: url,
+            width: '90%',
+            height: '90%',
+            primary: 'html5',
+            autostart: true
+          });
+        } else {
+          // Create iframe
+          const iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.allowfullscreen = true;
+          iframe.scrolling = 'no';
+          iframe.title = 'TNT Sports Stream';
+          container.appendChild(iframe);
+        }
+      }
+    }
+  </script>
+
+  <script src="/checkAccess.js"></script>
+  <script>
+    // Apply cloak on page load
+    window.addEventListener('load', function() {
+        const savedCloak = localStorage.getItem('tabCloak');
+        if (savedCloak) {
+            const cloak = JSON.parse(savedCloak);
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = cloak.icon;
+            document.head.appendChild(newFavicon);
+            document.title = cloak.title;
+        }
+    });
+  </script>
+  <link rel="stylesheet" href="../navbar.css">
+  <script src="../navbar.js"></script>
+  <script src="../panicKey.js"></script>
+  <script src="../backgroundTheme.js"></script>
+    <script src="../../scripts/panic-button.js"></script>
+
+
+</body>
+</html>
