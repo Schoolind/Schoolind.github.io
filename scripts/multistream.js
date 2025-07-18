@@ -39,6 +39,7 @@
     { name: "TruTV", url: "https://fl3.moveonjoy.com/TRU_TV/index.m3u8", type: "m3u8" },
     { name: "USA", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/prObIniBoc7ltizEGEvUSpLstaClmlbr.m3u8", type: "m3u8" },
     { name: "Tenis channel", url: "https://fl4.moveonjoy.com/TENIS_CHANNEL/index.m3u8", type: "m3u8" },
+    { name: "SNY", url: "https://fl3.moveonjoy.com/SNY/index.m3u8", type: "m3u8" },
     { name: "YES Network", url: "https://fl3.moveonjoy.com/YES_NETWORK/index.m3u8", type: "m3u8" },
     { 
         name: "MLB TV", 
