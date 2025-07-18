@@ -102,9 +102,9 @@
         options: [
             { name: "NBC", url: "https://xumo-xumoent-vc-122-sjv70.fast.nbcuni.com/live/master.m3u8", type: "m3u8" },
             { name: "NBC philadelphia", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/b46c64f505d77d9c3ba37c2f3037f0f3.m3u8", type: "m3u8" },
-            { name: "NBC california👑", url: "https://thedaddy.to/embed/stream-755.php", type: "iframe" },
+            { name: "NBC california👑", url: "https://topembed.pw/channel/NBCSCalifornia[USA]", type: "iframe" },
             { name: "NBC bayarea", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/5411235d278f9abfce9db28c140374d5.m3u8", type: "m3u8" },
-            { name: "NBC boston👑", url: "https://thedaddy.to/embed/stream-754.php", type: "iframe" },
+            { name: "NBC boston👑", url: "https://topembed.pw/channel/NBCSBoston[USA]", type: "iframe" },
             { name: "NBC golf", url: "https://popcdn.day/cue.php?stream=GOLFChannel", type: "iframe" },
         ]
     },
