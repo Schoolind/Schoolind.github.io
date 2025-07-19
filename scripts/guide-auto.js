@@ -9,7 +9,7 @@ const CHANNEL_ID_MAP = {
   'espnu.html': '403486',
   'espnnews.html': '417108',
   'espndeportes.html': '403708',
-  'fox.html': '403788',
+  'fox.html': '403858',
   'fs1.html': '403908',
   'fs2.html': '403457',
   'foxsportssoccer.html': '430102',
