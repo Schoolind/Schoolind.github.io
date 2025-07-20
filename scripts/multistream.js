@@ -78,13 +78,16 @@
         name: "Fanduel sports", 
         type: "dropdown",
         options: [
-            { name: "Fanduel 1 👑", url: "https://topembed.pw/channel/FanDuelSportsOhio[USA]", type: "iframe" },
-            { name: "Fanduel 2 👑", url: "https://topembed.pw/channel/FanDuelSportsFlorida[USA]", type: "iframe" },
-            { name: "Fanduel 3 👑", url: "https://topembed.pw/channel/FanDuelSportsDetroit[USA]", type: "iframe" },
-            { name: "Fanduel 4 👑", url: "https://topembed.pw/channel/FanDuelSportKansasCity[USA]", type: "iframe" },
-            { name: "Fanduel 5 👑", url: "https://topembed.pw/channel/FanDuelSportsMidwest[USA]", type: "iframe" },
-            { name: "Fanduel 6 👑", url: "https://topembed.pw/channel/FanDuelSportsWisconsin[USA]", type: "iframe" },
-            { name: "Fanduel 7 👑", url: "https://topembed.pw/channel/FanDuelSportsSoutheast[USA]", type: "iframe" },
+            { name: "Ohio 👑", url: "https://topembed.pw/channel/FanDuelSportsOhio[USA]", type: "iframe" },
+            { name: "Florida 👑", url: "https://topembed.pw/channel/FanDuelSportsFlorida[USA]", type: "iframe" },
+            { name: "Detroit 👑", url: "https://topembed.pw/channel/FanDuelSportsDetroit[USA]", type: "iframe" },
+            { name: "Kansas 👑", url: "https://thedaddy.click/embed/stream-895.php", type: "iframe" },
+            { name: "Midwest 👑", url: "https://topembed.pw/channel/BallySportsMidwest[USA]", type: "iframe" },
+            { name: "Wisconsin 👑", url: "https://thedaddy.click/embed/stream-907.php", type: "iframe" },
+            { name: "Southeast 👑", url: "https://topembed.pw/channel/FanDuelSportsSoutheast[USA]", type: "iframe" },
+            { name: "North 👑", url: "https://topembed.pw/channel/BallySportsNorth[USA]", type: "iframe" },
+            { name: "Oklahoma 👑", url: "https://thedaddy.click/embed/stream-900.php", type: "iframe" },
+            { name: "West 👑", url: "https://topembed.pw/channel/FanDuelSportsWest[USA]", type: "iframe" },
 
         ]
     },
@@ -435,13 +438,103 @@ function addChannelToStream(channel) {
         }
     } else if (channel.type === 'iframe') {
         const iframe = document.createElement('iframe');
-        iframe.src = channel.url;
+        // Add allow attributes for autoplay and fullscreen
+        iframe.setAttribute('allow', 'autoplay; fullscreen');
+        
+        // For DAZN and similar services, we'll handle muting through CSS and postMessage
+        const isDazn = channel.url.includes('dazn');
+        
+        // Store the original URL and mute state
+        const originalUrl = channel.url;
+        const shouldMute = focusedStream !== targetSlot;
+        iframe.dataset.originalSrc = originalUrl;
+        iframe.dataset.isMuted = shouldMute.toString();
+        
+        // Set up the iframe source
+        const url = new URL(originalUrl);
+        if (!isDazn) {
+            // For non-DAZN iframes, we can try URL parameters
+            url.searchParams.set('autoplay', '1');
+            if (shouldMute) {
+                url.searchParams.set('muted', '1');
+                url.searchParams.set('mute', '1');
+            } else {
+                url.searchParams.delete('muted');
+                url.searchParams.delete('mute');
+            }
+        }
+        
+        iframe.src = url.toString();
         iframe.allowFullscreen = true;
+        iframe.allow = 'autoplay; fullscreen';
+        iframe.referrerPolicy = 'no-referrer-when-downgrade';
         iframe.style.width = '100%';
         iframe.style.height = '100%';
         
+        if (shouldMute) {
+            iframe.classList.add('muted-iframe');
+        } else {
+            iframe.classList.remove('muted-iframe');
+        }
+        
         iframe.onload = () => {
             container.classList.remove('loading');
+            
+            // For DAZN, we need to wait a bit longer for the player to initialize
+            const delay = isDazn ? 3000 : 1000;
+            
+            setTimeout(() => {
+                try {
+                    if (focusedStream === targetSlot) {
+                        // Try to unmute
+                        if (isDazn) {
+                            // Special handling for DAZN
+                            if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                                iframe.contentWindow.postMessage({ 
+                                    type: 'setMute', 
+                                    value: false 
+                                }, '*');
+                                iframe.contentWindow.postMessage({ 
+                                    type: 'setVolume', 
+                                    value: 1 
+                                }, '*');
+                            }
+                        } else if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                            // Standard postMessage for other iframes
+                            iframe.contentWindow.postMessage({ 
+                                type: 'SET_VOLUME', 
+                                volume: 1 
+                            }, '*');
+                            iframe.contentWindow.postMessage({ 
+                                type: 'setMuted', 
+                                muted: false 
+                            }, '*');
+                        }
+                    } else {
+                        // Mute the iframe
+                        if (isDazn) {
+                            if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                                iframe.contentWindow.postMessage({ 
+                                    type: 'setMute', 
+                                    value: true 
+                                }, '*');
+                            }
+                        } else if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                            iframe.contentWindow.postMessage({ 
+                                type: 'SET_VOLUME', 
+                                volume: 0 
+                            }, '*');
+                            iframe.contentWindow.postMessage({ 
+                                type: 'setMuted', 
+                                muted: true 
+                            }, '*');
+                        }
+                        iframe.classList.add('muted-iframe');
+                    }
+                } catch (e) {
+                    console.log('Error controlling iframe:', e);
+                }
+            }, delay);
         };
         
         container.insertBefore(iframe, container.querySelector('.video-overlay'));
@@ -484,9 +577,59 @@ function removeStream(index) {
 }
 
 function focusStream(index) {
-    // Mute all videos first
+    // First, mute all videos
     document.querySelectorAll('video').forEach(video => {
         video.muted = true;
+    });
+    
+    // Mute all iframes
+    document.querySelectorAll('iframe').forEach(iframe => {
+        const isDazn = iframe.src.includes('dazn');
+        iframe.classList.add('muted-iframe');
+        iframe.dataset.isMuted = 'true';
+        
+        try {
+            if (isDazn) {
+                // Special handling for DAZN
+                if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                    iframe.contentWindow.postMessage({ 
+                        type: 'setMute', 
+                        value: true 
+                    }, '*');
+                    iframe.contentWindow.postMessage({ 
+                        type: 'setVolume', 
+                        value: 0 
+                    }, '*');
+                }
+            } else {
+                // Standard handling for other iframes
+                if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                    iframe.contentWindow.postMessage({ 
+                        type: 'SET_VOLUME', 
+                        volume: 0 
+                    }, '*');
+                    iframe.contentWindow.postMessage({ 
+                        type: 'setMuted', 
+                        muted: true 
+                    }, '*');
+                }
+                
+                // Update URL parameters to mute
+                const url = new URL(iframe.dataset.originalSrc || iframe.src);
+                if (url.hostname !== 'www.dazn.com') {
+                    url.searchParams.set('muted', '1');
+                    url.searchParams.set('mute', '1');
+                    url.searchParams.delete('autoplay');
+                    
+                    // Only update if needed to avoid unnecessary reloads
+                    if (iframe.src !== url.toString()) {
+                        iframe.src = url.toString();
+                    }
+                }
+            }
+        } catch (e) {
+            console.log('Could not mute iframe:', e);
+        }
     });
     
     // Remove focus from all streams
@@ -503,10 +646,83 @@ function focusStream(index) {
     const targetContainer = document.getElementById(`stream-${index}`);
     if (targetContainer && !targetContainer.classList.contains('empty')) {
         targetContainer.classList.add('focused');
+        
+        // Handle video elements
         const video = targetContainer.querySelector('video');
         if (video) {
             video.muted = false;
         }
+        
+        // Handle iframe elements
+        const iframe = targetContainer.querySelector('iframe');
+        if (iframe) {
+            const isDazn = iframe.src.includes('dazn');
+            iframe.classList.remove('muted-iframe');
+            iframe.dataset.isMuted = 'false';
+            
+            try {
+                // For all iframes, use the original source and update URL parameters
+                const originalUrl = iframe.dataset.originalSrc || iframe.src;
+                const url = new URL(originalUrl);
+                
+                if (!isDazn) {
+                    // For non-DAZN iframes, update URL parameters
+                    url.searchParams.delete('muted');
+                    url.searchParams.delete('mute');
+                    url.searchParams.set('autoplay', '1');
+                }
+                
+                // Only update if needed to avoid unnecessary reloads
+                if (iframe.src !== url.toString()) {
+                    // Store scroll position
+                    const scrollX = window.scrollX;
+                    const scrollY = window.scrollY;
+                    
+                    // Update the iframe source
+                    iframe.src = url.toString();
+                    
+                    // Restore scroll position after a short delay
+                    setTimeout(() => {
+                        window.scrollTo(scrollX, scrollY);
+                    }, 100);
+                }
+                
+                // Try to unmute using postMessage
+                setTimeout(() => {
+                    try {
+                        if (isDazn) {
+                            // Special handling for DAZN
+                            if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                                iframe.contentWindow.postMessage({ 
+                                    type: 'setMute', 
+                                    value: false 
+                                }, '*');
+                                iframe.contentWindow.postMessage({ 
+                                    type: 'setVolume', 
+                                    value: 1 
+                                }, '*');
+                            }
+                        } else if (iframe.contentWindow && iframe.contentWindow.postMessage) {
+                            // Standard postMessage for other iframes
+                            iframe.contentWindow.postMessage({ 
+                                type: 'SET_VOLUME', 
+                                volume: 1 
+                            }, '*');
+                            iframe.contentWindow.postMessage({ 
+                                type: 'setMuted', 
+                                muted: false 
+                            }, '*');
+                        }
+                    } catch (e) {
+                        console.log('Error unmuting iframe:', e);
+                    }
+                }, isDazn ? 1000 : 500);
+                // Remove muted parameter from URL if present (duplicate code, removed)
+            } catch (e) {
+                console.log('Could not unmute iframe:', e);
+            }
+        }
+        
         targetContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     
