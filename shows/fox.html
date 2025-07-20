@@ -27,6 +27,7 @@
       --padding-bottom: 20px;
     }
 
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -48,13 +49,34 @@
       background-color: var(--bg-dark-secondary);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       border-bottom: 2px solid var(--primary-red);
       flex-shrink: 0;
+      padding: 0 20px;
     }
 
     header img {
       height: 35px;
+    }
+
+    .server-select {
+      background-color: var(--bg-dark-primary);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border: 1px solid var(--primary-red);
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .server-select:hover {
+      background-color: var(--bg-dark-secondary);
+    }
+
+    .server-select option {
+      background-color: var(--bg-dark-primary);
+      color: var(--text-primary);
     }
 
     main {
@@ -68,12 +90,21 @@
     .video-wrapper {
       width: 100%;
       max-width: calc(100vw - 40px);
-      max-height: calc(100vh - 80px); /* 60px header + 20px bottom padding */
-      aspect-ratio: 16 / 9;
+      max-height: calc(100vh - 80px);
       background-color: black;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     iframe {
@@ -86,21 +117,80 @@
 <body>
 
   <header>
-    <img src="../images/fox.png.png" alt="FS2 Logo">
+    <img src="../images/fox.png.png" alt="TNT Sports Logo">
+    <select class="server-select" id="serverSelect" onchange="changeServer()">
+      <option value="server1">North</option>
+      <option value="server2">Midwest</option>
+      <option value="server3">South</option>
+      <option value="server4">Central</option>
+      <option value="server5">West</option>
+      <option value="server6">Pacific</option>
+    </select>
   </header>
 
   <main>
-    <div class="video-wrapper">
-      <iframe
-        allowfullscreen
-        scrolling="no"
-        title="Cartoon Network Stream"
-        src="https://kleanembed.online/embed/o282ztvzyz2nv82nowu477d4zriul8ji">
-      </iframe>
+    <div class="video-wrapper" id="playerContainer">
+      <!-- Player will be inserted here -->
     </div>
   </main>
+
+  <script>
+    // Automatically select and load first server on page load
+    window.addEventListener('load', function() {
+      const select = document.getElementById('serverSelect');
+      // Select the first server option
+      select.value = 'server1';
+      // Trigger change event to load the stream
+      select.dispatchEvent(new Event('change'));
+    });
+
+    function changeServer() {
+      const select = document.getElementById('serverSelect');
+      const container = document.getElementById('playerContainer');
+      const selectedServer = select.value;
+      const servers = {
+        'server1': 'https://apollo.production-public.tubi.io/live/ac-wnyw.m3u8',
+        'server2': 'https://apollo.production-public.tubi.io/live/ac-wfld.m3u8',
+        'server3': 'https://apollo.production-public.tubi.io/live/ac-waga.m3u8',
+        'server4': 'https://apollo.production-public.tubi.io/live/ac-kdfw.m3u8',
+        'server5': 'https://apollo.production-public.tubi.io/live/ac-kttv.m3u8',
+        'server6': 'https://apollo.production-public.tubi.io/live/ac-kcpq.m3u8',
+      };
+      
+      if (selectedServer && servers[selectedServer]) {
+        const url = servers[selectedServer];
+        
+        // Clear existing player
+        container.innerHTML = '';
+        
+        // Check if URL is m3u8
+        if (url.toLowerCase().endsWith('.m3u8')) {
+          // Create JW Player
+          const player = jwplayer(container);
+          player.setup({
+            file: url,
+            width: '90%',
+            height: '90%',
+            primary: 'html5',
+            autostart: true
+          });
+        } else {
+          // Create iframe
+          const iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.allowfullscreen = true;
+          iframe.scrolling = 'no';
+          iframe.title = 'TNT Sports Stream';
+          container.appendChild(iframe);
+        }
+      }
+    }
+  </script>
+
   <script src="/checkAccess.js"></script>
-<script>
+  <script>
     // Apply cloak on page load
     window.addEventListener('load', function() {
         const savedCloak = localStorage.getItem('tabCloak');
@@ -118,11 +208,11 @@
             document.title = cloak.title;
         }
     });
-</script>
-<link rel="stylesheet" href="../navbar.css">
-<script src="../navbar.js"></script>
-<script src="../panicKey.js"></script>
-<script src="../backgroundTheme.js"></script>
+  </script>
+  <link rel="stylesheet" href="../navbar.css">
+  <script src="../navbar.js"></script>
+  <script src="../panicKey.js"></script>
+  <script src="../backgroundTheme.js"></script>
     <script src="../../scripts/panic-button.js"></script>
 
 

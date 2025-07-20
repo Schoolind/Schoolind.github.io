@@ -12,6 +12,7 @@
     { name: "ESPN News", url: "https://fl3.moveonjoy.com/ESPN_NEWS/index.m3u8", type: "m3u8" },
     { name: "ESPN Deportes ", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/45cb98f6ff304e742c65ec6a3b5d087f.m3u8", type: "m3u8" },
     { name: "ACCN", url: "https://fl3.moveonjoy.com/ACC_NETWORK/index.m3u8", type: "m3u8" },
+    { name: "ACCDN", url: "https://aegis-cloudfront-1.tubi.video/ce6650c2-26ea-4433-9276-8a5ebf3992cc/playlist.m3u8", type: "m3u8" },
     { name: "Big 10", url: "https://fl3.moveonjoy.com/BIG_TEN_NETWORK/tracks-v1a1/mono.ts.m3u8", type: "m3u8" },
     { name: "SECN", url: "https://fl3.moveonjoy.com/SEC_NETWORK/index.m3u8", type: "m3u8" },
     { name: "Fanduel TV", url: "https://fl3.moveonjoy.com/PAC_12/index.m3u8", type: "m3u8" },
@@ -175,6 +176,18 @@
             { name: "HBO Comedy", url: "https://fl3.moveonjoy.com/HBO_COMEDY/index.m3u8", type: "m3u8" },
             { name: "HBO Family", url: "https://fl3.moveonjoy.com/HBO_FAMILY/index.m3u8", type: "m3u8" },
             { name: "HBO Zone", url: "https://fl3.moveonjoy.com/HBO_ZONE/index.m3u8", type: "m3u8" },
+        ]
+    },
+    { 
+        name: "FOX", 
+        type: "dropdown",
+        options: [
+            { name: "North", url: "https://apollo.production-public.tubi.io/live/ac-wnyw.m3u8", type: "m3u8" },
+            { name: "Midwest", url: "https://apollo.production-public.tubi.io/live/ac-wfld.m3u8", type: "m3u8" },
+            { name: "South", url: "https://apollo.production-public.tubi.io/live/ac-waga.m3u8", type: "m3u8" },
+            { name: "Central", url: "https://apollo.production-public.tubi.io/live/ac-kdfw.m3u8", type: "m3u8" },
+            { name: "West", url: "https://apollo.production-public.tubi.io/live/ac-kttv.m3u8", type: "m3u8" },
+            { name: "Pacific", url: "https://apollo.production-public.tubi.io/live/ac-kcpq.m3u8", type: "m3u8" },
         ]
     },
 ];
