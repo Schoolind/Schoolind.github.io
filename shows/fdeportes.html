@@ -21,8 +21,8 @@
 
     :root {
       --bg-dark-primary: #0b0b0b;
-      --bg-dark-secondary: #1a1a1a;
-      --primary-red: #00276e;
+      --bg-dark-secondary: #082c58;
+      --primary-red: #003169;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
     }
@@ -54,7 +54,7 @@
     }
 
     header img {
-      height: 35px;
+      height: 36.5px;
     }
 
     main {
@@ -66,23 +66,20 @@
     }
 
     .video-wrapper {
-      width: 95%;
-      max-width: 95%;
-      height: calc(100vh - 100px); /* Account for header and some padding */
+      width: 100%;
+      max-width: calc(100vw - 40px);
+      max-height: calc(100vh - 80px); /* 60px header + 20px bottom padding */
+      aspect-ratio: 16 / 9;
       background-color: black;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    #my-jwplayer {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: contain;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
@@ -94,51 +91,38 @@
 
   <main>
     <div class="video-wrapper">
-      <div id="my-jwplayer"></div>
+      <iframe
+        allowfullscreen
+        scrolling="no"
+        title="Cartoon Network Stream"
+        src="https://kleanembed.online/embed/26f350e4a688a9a15a10f1c76712551f">
+      </iframe>
     </div>
   </main>
-
-  <script>
-    // Replace with your actual .m3u8 stream URL
-    const m3u8StreamUrl = "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/26f350e4a688a9a15a10f1c76712551f.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IjI2ZjM1MGU0YTY4OGE5YTE1YTEwZjFjNzY3MTI1NTFmIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODE2N30.S0xFQU5FTUJFRA";
-
-    jwplayer("my-jwplayer").setup({
-      file: m3u8StreamUrl,
-      width: "100%",
-      aspectratio: "16:9",
-      autostart: true,
-      controls: true,
-      mute: false,
-      stretching: "uniform",
-      skin: { name: "seven" },
-      primary: "html5"
-    });
-  </script>
-
   <script src="/checkAccess.js"></script>
-  <script>
+<script>
+    // Apply cloak on page load
     window.addEventListener('load', function() {
         const savedCloak = localStorage.getItem('tabCloak');
         if (savedCloak) {
             const cloak = JSON.parse(savedCloak);
             const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) existingFavicon.remove();
-
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
             const newFavicon = document.createElement('link');
             newFavicon.rel = 'icon';
             newFavicon.type = 'image/x-icon';
             newFavicon.href = cloak.icon;
             document.head.appendChild(newFavicon);
-
             document.title = cloak.title;
         }
     });
-  </script>
-
-  <link rel="stylesheet" href="../navbar.css">
-  <script src="../navbar.js"></script>
-  <script src="../panicKey.js"></script>
-  <script src="../backgroundTheme.js"></script>
+</script>
+<link rel="stylesheet" href="../navbar.css">
+<script src="../navbar.js"></script>
+<script src="../panicKey.js"></script>
+<script src="../backgroundTheme.js"></script>
     <script src="../../scripts/panic-button.js"></script>
 
 

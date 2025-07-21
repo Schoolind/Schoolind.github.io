@@ -6,39 +6,39 @@
     { name: "CBS", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/v3weufn13faamb6eqbgd8myxv7zqe314.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InYzd2V1Zm4xM2ZhYW1iNmVxYmdkOG15eHY3enFlMzE0IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODEyMn0.S0xFQU5FTUJFRA", type: "m3u8" },
     { name: "CBS Golazo", url: "https://dai.google.com/linear/hls/event/GxrCGmwST0ixsrc_QgB6qw/master.m3u8", type: "m3u8" },
     { name: "CBS Sports", url: "https://fl3.moveonjoy.com/CBS_SPORTS_NETWORK/index.m3u8", type: "m3u8" },
-    { name: "ESPN", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/tgcyutly3zujtd3bgef8nevyy5v5n301.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InRnY3l1dGx5M3p1anRkM2JnZWY4bmV2eXk1djVuMzAxIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2NTA4MH0.S0xFQU5FTUJFRA", type: "m3u8" },
+    { name: "ESPN", url: "https://kleanembed.online/embed/tgcyutly3zujtd3bgef8nevyy5v5n301", type: "iframe" },
     { name: "ESPN 2", url: "https://fl3.moveonjoy.com/ESPN_2/index.m3u8", type: "m3u8" },
     { name: "ESPN U", url: "https://fl3.moveonjoy.com/ESPN_U/index.m3u8", type: "m3u8" },
     { name: "ESPN News", url: "https://fl3.moveonjoy.com/ESPN_NEWS/index.m3u8", type: "m3u8" },
-    { name: "ESPN Deportes ", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/45cb98f6ff304e742c65ec6a3b5d087f.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IjQ1Y2I5OGY2ZmYzMDRlNzQyYzY1ZWM2YTNiNWQwODdmIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODE0NX0.S0xFQU5FTUJFRA", type: "m3u8" },
+    { name: "ESPN Deportes ", url: "https://kleanembed.online/embed/45cb98f6ff304e742c65ec6a3b5d087f", type: "iframe" },
     { name: "ACCN", url: "https://fl3.moveonjoy.com/ACC_NETWORK/index.m3u8", type: "m3u8" },
     { name: "ACCDN", url: "https://aegis-cloudfront-1.tubi.video/ce6650c2-26ea-4433-9276-8a5ebf3992cc/playlist.m3u8", type: "m3u8" },
     { name: "Big 10", url: "https://fl3.moveonjoy.com/BIG_TEN_NETWORK/tracks-v1a1/mono.ts.m3u8", type: "m3u8" },
     { name: "SECN", url: "https://fl3.moveonjoy.com/SEC_NETWORK/index.m3u8", type: "m3u8" },
     { name: "Fanduel TV", url: "https://fl3.moveonjoy.com/PAC_12/index.m3u8", type: "m3u8" },
     { name: "Food Network", url: "https://fl3.moveonjoy.com/FOOD_NETWORK/index.m3u8", type: "m3u8" },
-    { name: "Fox Deportes ", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/26f350e4a688a9a15a10f1c76712551f.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IjI2ZjM1MGU0YTY4OGE5YTE1YTEwZjFjNzY3MTI1NTFmIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODE2N30.S0xFQU5FTUJFRA", type: "m3u8" },
-    { name: "Fox Soccer plus ", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/trAbIqUqIYicRlcHuri1LwenehacrowU.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InRyQWJJcVVxSVlpY1JsY0h1cmkxTHdlbmVoYWNyb3dVIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODIyM30.S0xFQU5FTUJFRA", type: "m3u8" },
-    { name: "FS1", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j7xysrst3ytbc4h50of84mmbyrn4ba9v.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Imo3eHlzcnN0M3l0YmM0aDUwb2Y4NG1tYnlybjRiYTl2IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2Nzk2OX0.S0xFQU5FTUJFRA", type: "m3u8" },
-    { name: "FS2", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/9bfdo7kxd45sst08hbuh6rwhkykmitwb.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IjliZmRvN2t4ZDQ1c3N0MDhoYnVoNnJ3aGt5a21pdHdiIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2Nzk5OH0.S0xFQU5FTUJFRA", type: "m3u8" },
+    { name: "Fox Deportes ", url: "https://kleanembed.online/embed/26f350e4a688a9a15a10f1c76712551f", type: "iframe" },
+    { name: "Fox Soccer plus ", url: "https://kleanembed.online/embed/trAbIqUqIYicRlcHuri1LwenehacrowU", type: "iframe" },
+    { name: "FS1", url: "https://kleanembed.online/embed/j7xysrst3ytbc4h50of84mmbyrn4ba9v", type: "iframe" },
+    { name: "FS2", url: "https://kleanembed.online/embed/9bfdo7kxd45sst08hbuh6rwhkykmitwb", type: "iframe" },
     { name: "fuboTV", url: "https://apollo.production-public.tubi.io/live/ac-fubo.m3u8", type: "m3u8" },
     { name: "ION", url: "https://fl3.moveonjoy.com/ION_TV/index.m3u8", type: "m3u8" },
     { name: "HGTV", url: "https://fl3.moveonjoy.com/HGTV/index.m3u8", type: "m3u8" },
     { name: "laligatv", url: "https://kleanembed.online/embed/pajip6maru1rlcoz1qizebitocof4aP7", type: "iframe" },
-    { name: "NBC", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/maqOnut62tRoHESac2r8ca9ay9b72hAw.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Im1hcU9udXQ2MnRSb0hFU2FjMnI4Y2E5YXk5YjcyaEF3IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODMyM30.S0xFQU5FTUJFRA", type: "m3u8" },
+    { name: "NBC", url: "https://kleanembed.online/embed/maqOnut62tRoHESac2r8ca9ay9b72hAw", type: "iframe" },
     { name: "NBA TV", url: "https://fl3.moveonjoy.com/NBA_TV/index.m3u8", type: "m3u8" },
     { name: "NFL Network", url: "https://fl3.moveonjoy.com/NFL_NETWORK/index.m3u8", type: "m3u8" },
     { name: "NFL Redzone", url: "https://fl3.moveonjoy.com/NFL_RedZone/index.m3u8", type: "m3u8" },
     { name: "NHL Network", url: "https://fl3.moveonjoy.com/NHL_NETWORK/index.m3u8", type: "m3u8" },
-    { name: "Premier Sports 1", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/aE5dT9yH2uJ8gP1zWn7fK4oL6mV3cB.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6ImFFNWRUOXlIMnVKOGdQMXpXbjdmSzRvTDZtVjNjQiIsInR5cGUiOiJwbGF5bGlzdF9hY2Nlc3MiLCJleHAiOjE3NTMwNjgzNTV9.S0xFQU5FTUJFRA", type: "m3u8" },
-    { name: "Premier Sports 2", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/sY1bX6cA8rM3wQ7iN9jV2pE5hU0lGf.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InNZMWJYNmNBOHJNM3dRN2lOOWpWMnBFNWhVMGxHZiIsInR5cGUiOiJwbGF5bGlzdF9hY2Nlc3MiLCJleHAiOjE3NTMwNjgzNzN9.S0xFQU5FTUJFRA", type: "m3u8" },
+    { name: "Premier Sports 1", url: "https://kleanembed.online/embed/aE5dT9yH2uJ8gP1zWn7fK4oL6mV3cB", type: "iframe" },
+    { name: "Premier Sports 2", url: "https://kleanembed.online/embed/sY1bX6cA8rM3wQ7iN9jV2pE5hU0lGf", type: "iframe" },
     { name: "TBS", url: "https://fl3.moveonjoy.com/TBS/index.m3u8", type: "m3u8" },
     { name: "TNT", url: "https://fl3.moveonjoy.com/TNT/index.m3u8", type: "m3u8" },
     { name: "Tudn", url: "https://streaming-live-fcdn.api.prd.univisionnow.com/tudn/tudn.isml/hls/tudn.m3u8", type: "m3u8" },
     { name: "Univision", url: "https://streaming-live-fcdn.api.prd.univisionnow.com/kmex/kmex.isml/hls/kmex.m3u8", type: "m3u8" },
     { name: "Unimas", url: "https://streaming-live-fcdn.api.prd.univisionnow.com/kftr/kftr.isml/hls/kftr.m3u8", type: "m3u8" },
     { name: "TruTV", url: "https://fl3.moveonjoy.com/TRU_TV/index.m3u8", type: "m3u8" },
-    { name: "USA", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/prObIniBoc7ltizEGEvUSpLstaClmlbr.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InByT2JJbmlCb2M3bHRpekVHRXZVU3BMc3RhQ2xtbGJyIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODQ0Mn0.S0xFQU5FTUJFRA", type: "m3u8" },
+    { name: "USA", url: "https://kleanembed.online/embed/prObIniBoc7ltizEGEvUSpLstaClmlbr", type: "iframe" },
     { name: "Tenis channel", url: "https://fl4.moveonjoy.com/TENIS_CHANNEL/index.m3u8", type: "m3u8" },
     { name: "SNY", url: "https://fl3.moveonjoy.com/SNY/index.m3u8", type: "m3u8" },
     { name: "Marquee Sports", url: "https://fl3.moveonjoy.com/MARQUEE_SPORTS_NETWORK/index.m3u8", type: "m3u8" },
@@ -107,10 +107,10 @@
         type: "dropdown",
         options: [
             { name: "NBC", url: "https://xumo-xumoent-vc-122-sjv70.fast.nbcuni.com/live/master.m3u8", type: "m3u8" },
-            { name: "NBC philadelphia", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/b46c64f505d77d9c3ba37c2f3037f0f3.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6ImI0NmM2NGY1MDVkNzdkOWMzYmEzN2MyZjMwMzdmMGYzIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODc2M30.S0xFQU5FTUJFRA", type: "m3u8" },
+            { name: "NBC philadelphia", url: "https://kleanembed.online/embed/b46c64f505d77d9c3ba37c2f3037f0f3", type: "iframe" },
             { name: "NBC california👑", url: "https://topembed.pw/channel/NBCSCalifornia[USA]", type: "iframe" },
-            { name: "NBC bayarea", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/5411235d278f9abfce9db28c140374d5.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IjU0MTEyMzVkMjc4ZjlhYmZjZTlkYjI4YzE0MDM3NGQ1IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODc0MH0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "NBC boston", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/DF01290A3852048FA5C6688724BCE1FA.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IkRGMDEyOTBBMzg1MjA0OEZBNUM2Njg4NzI0QkNFMUZBIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODcxMn0.S0xFQU5FTUJFRA", type: "m3u8" },
+            { name: "NBC bayarea", url: "https://kleanembed.online/embed/5411235d278f9abfce9db28c140374d5", type: "iframe" },
+            { name: "NBC boston", url: "https://kleanembed.online/embed/DF01290A3852048FA5C6688724BCE1FA", type: "iframe" },
             { name: "NBC golf", url: "https://popcdn.day/cue.php?stream=GOLFChannel", type: "iframe" },
         ]
     },
@@ -118,10 +118,10 @@
         name: "TNT SPORTS", 
         type: "dropdown",
         options: [
-            { name: "Server 1", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/FrofUdRljoCLdruGUdR295IfisTlsW1w.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IkZyb2ZVZFJsam9DTGRydUdVZFIyOTVJZmlzVGxzVzF3IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODU2NX0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "Server 2", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/c5phutHUkothlwRudRO8rosaS3B64ini.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6ImM1cGh1dEhVa290aGx3UnVkUk84cm9zYVMzQjY0aW5pIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODU4M30.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "Server 3", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/SodrItO5WeQeFraDRoQa900eSw68I9LG.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IlNvZHJJdE81V2VRZUZyYURSb1FhOTAwZVN3NjhJOUxHIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODU5OX0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "Server 4", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/8esiM7BRatIQ3cAdaxes34tesIbrOpOp.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Ijhlc2lNN0JSYXRJUTNjQWRheGVzMzR0ZXNJYnJPcE9wIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODYyMH0.S0xFQU5FTUJFRA", type: "m3u8" },
+            { name: "Server 1", url: "https://kleanembed.online/embed/FrofUdRljoCLdruGUdR295IfisTlsW1w", type: "iframe" },
+            { name: "Server 2", url: "https://kleanembed.online/embed/c5phutHUkothlwRudRO8rosaS3B64ini", type: "iframe" },
+            { name: "Server 3", url: "https://kleanembed.online/embed/SodrItO5WeQeFraDRoQa900eSw68I9LG", type: "iframe" },
+            { name: "Server 4", url: "https://kleanembed.online/embed/8esiM7BRatIQ3cAdaxes34tesIbrOpOp", type: "iframe" },
             { name: "Server 5 👑", url: "https://topembed.pw/channel/TNTSports5[UK]", type: "iframe" },
             { name: "Server 6 👑", url: "https://topembed.pw/channel/TNTSports6[UK]", type: "iframe" },
             { name: "Server 7 👑", url: "https://topembed.pw/channel/TNTSports7[UK]", type: "iframe" },
@@ -143,19 +143,19 @@
         name: "Sky sports", 
         type: "dropdown",
         options: [
-            { name: "skysports", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/kl11IkOsWATR8duxiWrOyiprERl2hLx4.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6ImtsMTFJa09zV0FUUjhkdXhpV3JPeWlwckVSbDJoTHg0IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTQ2Mn0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports action", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/wra2wlraTrewrAwohlsiCr0kUpHlswuc.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IndyYTJ3bHJhVHJld3JBd29obHNpQ3Iwa1VwSGxzd3VjIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTQ4Mn0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports cricket", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Imo1cnU2aWNIb2ZST3Nlc3BpZGVjNjR3MHM3bGdvOG90IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTUwM30.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports football", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/zuw3aYlboraPaStUP4o5ropHlbrospev.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Inp1dzNhWWxib3JhUGFTdFVQNG81cm9wSGxicm9zcGV2IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTUyMX0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports f1", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/888520f36cd94c5da4c71fddc1a5fc9b.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Ijg4ODUyMGYzNmNkOTRjNWRhNGM3MWZkZGMxYTVmYzliIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTU4OX0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports golf", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/juDiYAyaWljAtH55usw2sWogINI49kIY.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Imp1RGlZQXlhV2xqQXRINTV1c3cyc1dvZ0lOSTQ5a0lZIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTYxOX0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports main event", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/4reStAcaHuraStIc3o7rOdRAprEy2glB.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IjRyZVN0QWNhSHVyYVN0SWMzbzdyT2RSQXByRXkyZ2xCIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTYzN30.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports mix", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/phAjl4we7iw0agitOpro8Rlcrotrufre.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InBoQWpsNHdlN2l3MGFnaXRPcHJvOFJsY3JvdHJ1ZnJlIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTY1NX0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports motogp", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/1c6f53f565af34b3099d28adba983591.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IjFjNmY1M2Y1NjVhZjM0YjMwOTlkMjhhZGJhOTgzNTkxIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTczMn0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports news", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/ZiProtriRlspiriBrI2oProjohAfretA.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6IlppUHJvdHJpUmxzcGlyaUJySTJvUHJvam9oQWZyZXRBIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTY3MH0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports premier league", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/swapr5jlpHidrlfR65ofRi8a0itHI6oc.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InN3YXByNWpscEhpZHJsZlI2NW9mUmk4YTBpdEhJNm9jIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTc2N30.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports racing", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/x5Dodrl6Ro21RUprudEQAFRUTEfLPhec.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Ing1RG9kcmw2Um8yMVJVcHJ1ZEVRQUZSVVRFZkxQaGVjIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTc4OX0.S0xFQU5FTUJFRA", type: "m3u8" },
-            { name: "skysports tenis", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/pA5reZusPAvispo16hUb2e5pahlthLB2.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InBBNXJlWnVzUEF2aXNwbzE2aFViMmU1cGFobHRoTEIyIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA3MTgwM30.S0xFQU5FTUJFRA", type: "m3u8" },
+            { name: "skysports", url: "https://kleanembed.online/embed/kl11IkOsWATR8duxiWrOyiprERl2hLx4", type: "iframe" },
+            { name: "skysports action", url: "https://kleanembed.online/embed/wra2wlraTrewrAwohlsiCr0kUpHlswuc", type: "iframe" },
+            { name: "skysports cricket", url: "https://kleanembed.online/embed/j5ru6icHofROsespidec64w0s7lgo8ot", type: "iframe" },
+            { name: "skysports football", url: "https://kleanembed.online/embed/zuw3aYlboraPaStUP4o5ropHlbrospev", type: "iframe" },
+            { name: "skysports f1", url: "https://kleanembed.online/embed/888520f36cd94c5da4c71fddc1a5fc9b", type: "iframe" },
+            { name: "skysports golf", url: "https://kleanembed.online/embed/juDiYAyaWljAtH55usw2sWogINI49kIY", type: "iframe" },
+            { name: "skysports main event", url: "https://kleanembed.online/embed/4reStAcaHuraStIc3o7rOdRAprEy2glB", type: "iframe" },
+            { name: "skysports mix", url: "https://kleanembed.online/embed/phAjl4we7iw0agitOpro8Rlcrotrufre", type: "iframe" },
+            { name: "skysports motogp", url: "https://kleanembed.online/embed/1c6f53f565af34b3099d28adba983591", type: "iframe" },
+            { name: "skysports news", url: "https://kleanembed.online/embed/ZiProtriRlspiriBrI2oProjohAfretA", type: "iframe" },
+            { name: "skysports premier league", url: "https://kleanembed.online/embed/swapr5jlpHidrlfR65ofRi8a0itHI6oc", type: "iframe" },
+            { name: "skysports racing", url: "https://kleanembed.online/embed/x5Dodrl6Ro21RUprudEQAFRUTEfLPhec", type: "iframe" },
+            { name: "skysports tenis", url: "https://kleanembed.online/embed/pA5reZusPAvispo16hUb2e5pahlthLB2", type: "iframe" },
         
         ]
     },
@@ -577,61 +577,6 @@ function removeStream(index) {
 }
 
 function focusStream(index) {
-    // First, mute all videos
-    document.querySelectorAll('video').forEach(video => {
-        video.muted = true;
-    });
-    
-    // Mute all iframes
-    document.querySelectorAll('iframe').forEach(iframe => {
-        const isDazn = iframe.src.includes('dazn');
-        iframe.classList.add('muted-iframe');
-        iframe.dataset.isMuted = 'true';
-        
-        try {
-            if (isDazn) {
-                // Special handling for DAZN
-                if (iframe.contentWindow && iframe.contentWindow.postMessage) {
-                    iframe.contentWindow.postMessage({ 
-                        type: 'setMute', 
-                        value: true 
-                    }, '*');
-                    iframe.contentWindow.postMessage({ 
-                        type: 'setVolume', 
-                        value: 0 
-                    }, '*');
-                }
-            } else {
-                // Standard handling for other iframes
-                if (iframe.contentWindow && iframe.contentWindow.postMessage) {
-                    iframe.contentWindow.postMessage({ 
-                        type: 'SET_VOLUME', 
-                        volume: 0 
-                    }, '*');
-                    iframe.contentWindow.postMessage({ 
-                        type: 'setMuted', 
-                        muted: true 
-                    }, '*');
-                }
-                
-                // Update URL parameters to mute
-                const url = new URL(iframe.dataset.originalSrc || iframe.src);
-                if (url.hostname !== 'www.dazn.com') {
-                    url.searchParams.set('muted', '1');
-                    url.searchParams.set('mute', '1');
-                    url.searchParams.delete('autoplay');
-                    
-                    // Only update if needed to avoid unnecessary reloads
-                    if (iframe.src !== url.toString()) {
-                        iframe.src = url.toString();
-                    }
-                }
-            }
-        } catch (e) {
-            console.log('Could not mute iframe:', e);
-        }
-    });
-    
     // Remove focus from all streams
     document.querySelectorAll('.video-container').forEach(container => {
         container.classList.remove('focused');
@@ -642,87 +587,10 @@ function focusStream(index) {
         btn.classList.toggle('active', i === index);
     });
     
-    // Focus and unmute the selected stream
+    // Focus the selected stream
     const targetContainer = document.getElementById(`stream-${index}`);
     if (targetContainer && !targetContainer.classList.contains('empty')) {
         targetContainer.classList.add('focused');
-        
-        // Handle video elements
-        const video = targetContainer.querySelector('video');
-        if (video) {
-            video.muted = false;
-        }
-        
-        // Handle iframe elements
-        const iframe = targetContainer.querySelector('iframe');
-        if (iframe) {
-            const isDazn = iframe.src.includes('dazn');
-            iframe.classList.remove('muted-iframe');
-            iframe.dataset.isMuted = 'false';
-            
-            try {
-                // For all iframes, use the original source and update URL parameters
-                const originalUrl = iframe.dataset.originalSrc || iframe.src;
-                const url = new URL(originalUrl);
-                
-                if (!isDazn) {
-                    // For non-DAZN iframes, update URL parameters
-                    url.searchParams.delete('muted');
-                    url.searchParams.delete('mute');
-                    url.searchParams.set('autoplay', '1');
-                }
-                
-                // Only update if needed to avoid unnecessary reloads
-                if (iframe.src !== url.toString()) {
-                    // Store scroll position
-                    const scrollX = window.scrollX;
-                    const scrollY = window.scrollY;
-                    
-                    // Update the iframe source
-                    iframe.src = url.toString();
-                    
-                    // Restore scroll position after a short delay
-                    setTimeout(() => {
-                        window.scrollTo(scrollX, scrollY);
-                    }, 100);
-                }
-                
-                // Try to unmute using postMessage
-                setTimeout(() => {
-                    try {
-                        if (isDazn) {
-                            // Special handling for DAZN
-                            if (iframe.contentWindow && iframe.contentWindow.postMessage) {
-                                iframe.contentWindow.postMessage({ 
-                                    type: 'setMute', 
-                                    value: false 
-                                }, '*');
-                                iframe.contentWindow.postMessage({ 
-                                    type: 'setVolume', 
-                                    value: 1 
-                                }, '*');
-                            }
-                        } else if (iframe.contentWindow && iframe.contentWindow.postMessage) {
-                            // Standard postMessage for other iframes
-                            iframe.contentWindow.postMessage({ 
-                                type: 'SET_VOLUME', 
-                                volume: 1 
-                            }, '*');
-                            iframe.contentWindow.postMessage({ 
-                                type: 'setMuted', 
-                                muted: false 
-                            }, '*');
-                        }
-                    } catch (e) {
-                        console.log('Error unmuting iframe:', e);
-                    }
-                }, isDazn ? 1000 : 500);
-                // Remove muted parameter from URL if present (duplicate code, removed)
-            } catch (e) {
-                console.log('Could not unmute iframe:', e);
-            }
-        }
-        
         targetContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     
@@ -802,6 +670,22 @@ function clearAllStreams() {
 }
 
 let isFocusMode = false;
+
+function unfocusAllStreams() {
+    // Remove focus from all streams
+    document.querySelectorAll('.video-container').forEach(container => {
+        container.classList.remove('focused');
+    });
+    
+    // Update stream button states
+    document.querySelectorAll('.stream-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    focusedStream = -1;
+    isFocusMode = false;
+    console.log('All streams unfocused');
+}
 
 // Add event listener for the exit focus button
 document.addEventListener('DOMContentLoaded', () => {
