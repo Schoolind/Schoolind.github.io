@@ -15,6 +15,7 @@
     { name: "ACCDN", url: "https://aegis-cloudfront-1.tubi.video/ce6650c2-26ea-4433-9276-8a5ebf3992cc/playlist.m3u8", type: "m3u8" },
     { name: "Big 10", url: "https://fl3.moveonjoy.com/BIG_TEN_NETWORK/tracks-v1a1/mono.ts.m3u8", type: "m3u8" },
     { name: "SECN", url: "https://fl3.moveonjoy.com/SEC_NETWORK/index.m3u8", type: "m3u8" },
+    { name: "Big 12", url: "https://aegis-cloudfront-1.tubi.video/d61265ac-4c98-4243-8e23-31fff4d399e1/playlist.m3u8", type: "m3u8" },
     { name: "Fanduel TV", url: "https://fl3.moveonjoy.com/PAC_12/index.m3u8", type: "m3u8" },
     { name: "Food Network", url: "https://fl3.moveonjoy.com/FOOD_NETWORK/index.m3u8", type: "m3u8" },
     { name: "Fox Deportes ", url: "https://kleanembed.online/embed/26f350e4a688a9a15a10f1c76712551f", type: "iframe" },
@@ -36,7 +37,7 @@
     { name: "TNT", url: "https://fl3.moveonjoy.com/TNT/index.m3u8", type: "m3u8" },
     { name: "Tudn", url: "https://streaming-live-fcdn.api.prd.univisionnow.com/tudn/tudn.isml/hls/tudn.m3u8", type: "m3u8" },
     { name: "Univision", url: "https://streaming-live-fcdn.api.prd.univisionnow.com/kmex/kmex.isml/hls/kmex.m3u8", type: "m3u8" },
-    { name: "Unimas", url: "https://streaming-live-fcdn.api.prd.univisionnow.com/kftr/kftr.isml/hls/kftr.m3u8", type: "m3u8" },
+    { name: "Unimas", url: "https://kleanembed.online/embed/0055b626ddebadc2e135ffcfe38ed441", type: "iframe" },
     { name: "TruTV", url: "https://fl3.moveonjoy.com/TRU_TV/index.m3u8", type: "m3u8" },
     { name: "USA", url: "https://kleanembed.online/embed/prObIniBoc7ltizEGEvUSpLstaClmlbr", type: "iframe" },
     { name: "Tenis channel", url: "https://fl4.moveonjoy.com/TENIS_CHANNEL/index.m3u8", type: "m3u8" },
@@ -137,6 +138,16 @@
             { name: "tsn3", url: "https://fl5.moveonjoy.com/TSN_3/index.m3u8", type: "m3u8" },
             { name: "tsn4", url: "https://fl5.moveonjoy.com/TSN_4/index.m3u8", type: "m3u8" },
             { name: "tsn5", url: "https://fl5.moveonjoy.com/TSN_5/index.m3u8", type: "m3u8" },
+        ]
+    },
+    { 
+        name: "ITV", 
+        type: "dropdown",
+        options: [
+            { name: "itv1", url: "https://popcdn.day/go.php?stream=ITV1", type: "m3u8" },
+            { name: "itv2", url: "https://popcdn.day/go.php?stream=ITV2", type: "m3u8" },
+            { name: "itv3", url: "https://popcdn.day/go.php?stream=ITV3", type: "m3u8" },
+            { name: "itv4", url: "https://popcdn.day/go.php?stream=ITV4", type: "m3u8" },
         ]
     },
     { 

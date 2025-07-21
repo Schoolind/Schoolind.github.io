@@ -21,8 +21,8 @@
 
     :root {
       --bg-dark-primary: #0b0b0b;
-      --bg-dark-secondary: #727272;
-      --primary-red: #ca0202;
+      --bg-dark-secondary: #242424;
+      --primary-red: #02b3ca;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
     }
@@ -114,21 +114,12 @@
 <body>
 
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sky_Sport_-_Logo_2020.svg/1200px-Sky_Sport_-_Logo_2020.svg.png" alt="TNT Sports Logo">
+    <img src="https://murdermysteryevents.com/wp-content/uploads/2022/06/26-269638_white-itv-logo-png-transparent-png.png" alt="TNT Sports Logo">
     <select class="server-select" id="serverSelect" onchange="changeServer()">
-      <option value="server1">skysportsplus</option>
-      <option value="server2">skysportsaction</option>
-      <option value="server3">skysportscricket</option>
-      <option value="server4">skysportsfootball</option>
-      <option value="server5">skysportsf1</option>
-      <option value="server6">skysportsgolf</option>
-      <option value="server7">skysportsmainevent</option>
-      <option value="server8">skysportsmix</option>
-      <option value="server9">skysportmotogp</option>
-      <option value="server10">skysportsnews</option>
-      <option value="server11">skysportspremierleague</option>
-      <option value="server12">skysportsracing</option>
-      <option value="server13">skysportstennis</option>
+      <option value="server1">itv1</option>
+      <option value="server2">itv2</option>
+      <option value="server3">itv3</option>
+      <option value="server4">itv4</option>
     </select>
   </header>
 
@@ -153,19 +144,10 @@
       const container = document.getElementById('playerContainer');
       const selectedServer = select.value;
       const servers = {
-        'server1': 'https://kleanembed.online/embed/kl11IkOsWATR8duxiWrOyiprERl2hLx4',
-        'server2': 'https://kleanembed.online/embed/wra2wlraTrewrAwohlsiCr0kUpHlswuc',
-        'server3': 'https://kleanembed.online/embed/j5ru6icHofROsespidec64w0s7lgo8ot',
-        'server4': 'https://kleanembed.online/embed/zuw3aYlboraPaStUP4o5ropHlbrospev',
-        'server5': 'https://kleanembed.online/embed/888520f36cd94c5da4c71fddc1a5fc9b',
-        'server6': 'https://kleanembed.online/embed/juDiYAyaWljAtH55usw2sWogINI49kIY',
-        'server7': 'https://kleanembed.online/embed/4reStAcaHuraStIc3o7rOdRAprEy2glB',
-        'server8': 'https://kleanembed.online/embed/phAjl4we7iw0agitOpro8Rlcrotrufre',
-        'server9': 'https://kleanembed.online/embed/1c6f53f565af34b3099d28adba983591',
-        'server10': 'https://kleanembed.online/embed/ZiProtriRlspiriBrI2oProjohAfretA',
-        'server11': 'https://kleanembed.online/embed/swapr5jlpHidrlfR65ofRi8a0itHI6oc',
-        'server12': 'https://kleanembed.online/embed/x5Dodrl6Ro21RUprudEQAFRUTEfLPhec',
-        'server13': 'https://kleanembed.online/embed/pA5reZusPAvispo16hUb2e5pahlthLB2',
+        'server1': 'https://popcdn.day/go.php?stream=ITV1',
+        'server2': 'https://popcdn.day/go.php?stream=ITV2',
+        'server3': 'https://popcdn.day/go.php?stream=ITV3',
+        'server4': 'https://popcdn.day/go.php?stream=ITV4',
       };
       
       if (selectedServer && servers[selectedServer]) {
