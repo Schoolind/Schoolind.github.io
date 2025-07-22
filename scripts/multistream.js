@@ -2,8 +2,8 @@
  const channels = [
     { name: "ABC", url: "https://fl3.moveonjoy.com/ABC_EAST/index.m3u8", type: "m3u8" },
     { name: "Bein Sports", url: "https://fl3.moveonjoy.com/BEIN_SPORTS/index.m3u8", type: "m3u8" },
-    { name: "Cartoon Network", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j7frlCr9theTHiPhistuSPInuchosawE.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Imo3ZnJsQ3I5dGhlVEhpUGhpc3R1U1BJbnVjaG9zYXdFIiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODA1OX0.S0xFQU5FTUJFRA", type: "m3u8" },
-    { name: "CBS", url: "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/v3weufn13faamb6eqbgd8myxv7zqe314.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6InYzd2V1Zm4xM2ZhYW1iNmVxYmdkOG15eHY3enFlMzE0IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzA2ODEyMn0.S0xFQU5FTUJFRA", type: "m3u8" },
+    { name: "Cartoon Network", url: "https://kleanembed.online/embed/j7frlCr9theTHiPhistuSPInuchosawE", type: "iframe" },
+    { name: "CBS", url: "https://kleanembed.online/embed/v3weufn13faamb6eqbgd8myxv7zqe314", type: "iframe" },
     { name: "CBS Golazo", url: "https://dai.google.com/linear/hls/event/GxrCGmwST0ixsrc_QgB6qw/master.m3u8", type: "m3u8" },
     { name: "CBS Sports", url: "https://fl3.moveonjoy.com/CBS_SPORTS_NETWORK/index.m3u8", type: "m3u8" },
     { name: "ESPN", url: "https://kleanembed.online/embed/tgcyutly3zujtd3bgef8nevyy5v5n301", type: "iframe" },
@@ -109,7 +109,7 @@
         options: [
             { name: "NBC", url: "https://xumo-xumoent-vc-122-sjv70.fast.nbcuni.com/live/master.m3u8", type: "m3u8" },
             { name: "NBC philadelphia", url: "https://kleanembed.online/embed/b46c64f505d77d9c3ba37c2f3037f0f3", type: "iframe" },
-            { name: "NBC california👑", url: "https://topembed.pw/channel/NBCSCalifornia[USA]", type: "iframe" },
+            { name: "NBC california", url: "https://kleanembed.online/embed/db42b951b60b85a60a3511ac0afcd382", type: "iframe" },
             { name: "NBC bayarea", url: "https://kleanembed.online/embed/5411235d278f9abfce9db28c140374d5", type: "iframe" },
             { name: "NBC boston", url: "https://kleanembed.online/embed/DF01290A3852048FA5C6688724BCE1FA", type: "iframe" },
             { name: "NBC golf", url: "https://popcdn.day/cue.php?stream=GOLFChannel", type: "iframe" },
