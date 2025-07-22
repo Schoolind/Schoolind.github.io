@@ -39,6 +39,8 @@
     { name: "Univision", url: "https://streaming-live-fcdn.api.prd.univisionnow.com/kmex/kmex.isml/hls/kmex.m3u8", type: "m3u8" },
     { name: "Unimas", url: "https://kleanembed.online/embed/0055b626ddebadc2e135ffcfe38ed441", type: "iframe" },
     { name: "TruTV", url: "https://fl3.moveonjoy.com/TRU_TV/index.m3u8", type: "m3u8" },
+    { name: "Game show network", url: "https://kleanembed.online/embed/3599b87a6e70682b24184a3040a13fe8", type: "iframe" },
+    { name: "Comedy Central", url: "https://fl3.moveonjoy.com/Comedy_Central/index.m3u8", type: "m3u8" },
     { name: "USA", url: "https://kleanembed.online/embed/prObIniBoc7ltizEGEvUSpLstaClmlbr", type: "iframe" },
     { name: "Tenis channel", url: "https://fl4.moveonjoy.com/TENIS_CHANNEL/index.m3u8", type: "m3u8" },
     { name: "SNY", url: "https://fl3.moveonjoy.com/SNY/index.m3u8", type: "m3u8" },
