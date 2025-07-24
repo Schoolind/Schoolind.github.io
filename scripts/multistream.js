@@ -18,6 +18,7 @@
     { name: "Big 12", url: "https://aegis-cloudfront-1.tubi.video/d61265ac-4c98-4243-8e23-31fff4d399e1/playlist.m3u8", type: "m3u8" },
     { name: "Fanduel TV", url: "https://fl3.moveonjoy.com/PAC_12/index.m3u8", type: "m3u8" },
     { name: "Food Network", url: "https://fl3.moveonjoy.com/FOOD_NETWORK/index.m3u8", type: "m3u8" },
+    { name: "Fox", url: "https://kleanembed.online/embed/o282ztvzyz2nv82nowu477d4zriul8ji", type: "iframe" },
     { name: "Fox Deportes ", url: "https://kleanembed.online/embed/26f350e4a688a9a15a10f1c76712551f", type: "iframe" },
     { name: "Fox Soccer plus ", url: "https://kleanembed.online/embed/trAbIqUqIYicRlcHuri1LwenehacrowU", type: "iframe" },
     { name: "FS1", url: "https://kleanembed.online/embed/j7xysrst3ytbc4h50of84mmbyrn4ba9v", type: "iframe" },
@@ -65,15 +66,18 @@
             { name: "Dazn 2 spanish", url: "https://popcdn.day/go.php?stream=DAZN2ES", type: "iframe" },
             { name: "Dazn 3 spanish", url: "https://popcdn.day/go.php?stream=DAZN3ES", type: "iframe" },
             { name: "Dazn 4 spanish", url: "https://popcdn.day/go.php?stream=DAZN4ES", type: "iframe" },
-            { name: "Dazn f1", url: "https://popcdn.day/go.php?stream=DAZNf1ES", type: "iframe" },
             { name: "Dazn laliga", url: "https://popcdn.day/go.php?stream=DAZNLaLiga", type: "iframe" },
-            { name: "Dazn laliga 2", url: "https://popcdn.day/go.php?stream=DAZNLaLiga2", type: "iframe" },
+            { name: "Dazn laliga 2 👑", url: "https://popcdn.day/go.php?stream=DAZNLaLiga2", type: "iframe" },
             { name: "Dazn Portugal", url: "https://popcdn.day/go.php?stream=ELEVEN1", type: "iframe" },
             { name: "Dazn Portugal 2", url: "https://popcdn.day/go.php?stream=ELEVEN2", type: "iframe" },
             { name: "Dazn Portugal 3", url: "https://popcdn.day/go.php?stream=ELEVEN3", type: "iframe" },
             { name: "Dazn Portugal 4", url: "https://popcdn.day/go.php?stream=ELEVEN4", type: "iframe" },
             { name: "Dazn Portugal 5", url: "https://popcdn.day/go.php?stream=ELEVEN5", type: "iframe" },
             { name: "Dazn Portugal 6", url: "https://popcdn.day/go.php?stream=ELEVEN6", type: "iframe" },
+            { name: "Dazn France 1", url: "https://popcdn.day/go.php?stream=DAZN1FR", type: "iframe" },
+            { name: "Dazn Italy 1 👑", url: "https://topembed.pw/channel/DAZN1[Italy]", type: "iframe" },
+            { name: "Dazn Italy 2 👑", url: "https://topembed.pw/channel/DAZN2[Italy]", type: "iframe" },
+
         ]
     },
      
@@ -91,6 +95,8 @@
             { name: "North 👑", url: "https://topembed.pw/channel/BallySportsNorth[USA]", type: "iframe" },
             { name: "Oklahoma 👑", url: "https://thedaddy.click/embed/stream-900.php", type: "iframe" },
             { name: "West 👑", url: "https://topembed.pw/channel/FanDuelSportsWest[USA]", type: "iframe" },
+            { name: "South 👑", url: "https://dlhd.click/embed/stream-903.php", type: "iframe" },
+            { name: "South Carolina 👑", url: "https://dlhd.click/embed/stream-902.php", type: "iframe" },
 
         ]
     },
@@ -192,18 +198,6 @@
             { name: "HBO Comedy", url: "https://fl3.moveonjoy.com/HBO_COMEDY/index.m3u8", type: "m3u8" },
             { name: "HBO Family", url: "https://fl3.moveonjoy.com/HBO_FAMILY/index.m3u8", type: "m3u8" },
             { name: "HBO Zone", url: "https://fl3.moveonjoy.com/HBO_ZONE/index.m3u8", type: "m3u8" },
-        ]
-    },
-    { 
-        name: "FOX", 
-        type: "dropdown",
-        options: [
-            { name: "North", url: "https://apollo.production-public.tubi.io/live/ac-wnyw.m3u8", type: "m3u8" },
-            { name: "Midwest", url: "https://apollo.production-public.tubi.io/live/ac-wfld.m3u8", type: "m3u8" },
-            { name: "South", url: "https://apollo.production-public.tubi.io/live/ac-waga.m3u8", type: "m3u8" },
-            { name: "Central", url: "https://apollo.production-public.tubi.io/live/ac-kdfw.m3u8", type: "m3u8" },
-            { name: "West", url: "https://apollo.production-public.tubi.io/live/ac-kttv.m3u8", type: "m3u8" },
-            { name: "Pacific", url: "https://apollo.production-public.tubi.io/live/ac-kcpq.m3u8", type: "m3u8" },
         ]
     },
 ];
