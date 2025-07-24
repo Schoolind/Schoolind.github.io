@@ -67,7 +67,7 @@
             { name: "Dazn 3 spanish", url: "https://popcdn.day/go.php?stream=DAZN3ES", type: "iframe" },
             { name: "Dazn 4 spanish", url: "https://popcdn.day/go.php?stream=DAZN4ES", type: "iframe" },
             { name: "Dazn laliga", url: "https://popcdn.day/go.php?stream=DAZNLaLiga", type: "iframe" },
-            { name: "Dazn laliga 2 👑", url: "https://popcdn.day/go.php?stream=DAZNLaLiga2", type: "iframe" },
+            { name: "Dazn laliga 2 👑", url: "https://topembed.pw/channel/DAZNLaLiga2[Spain]", type: "iframe" },
             { name: "Dazn Portugal", url: "https://popcdn.day/go.php?stream=ELEVEN1", type: "iframe" },
             { name: "Dazn Portugal 2", url: "https://popcdn.day/go.php?stream=ELEVEN2", type: "iframe" },
             { name: "Dazn Portugal 3", url: "https://popcdn.day/go.php?stream=ELEVEN3", type: "iframe" },
