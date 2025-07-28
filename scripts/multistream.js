@@ -21,7 +21,7 @@
     { name: "Fox", url: "https://kleanplay.shop/embed/o282ztvzyz2nv82nowu477d4zriul8ji", type: "iframe" },
     { name: "Fox Deportes ", url: "https://kleanplay.shop/embed/26f350e4a688a9a15a10f1c76712551f", type: "iframe" },
     { name: "Fox Soccer plus ", url: "https://kleanplay.shop/embed/trAbIqUqIYicRlcHuri1LwenehacrowU", type: "iframe" },
-    { name: "FS1", url: "https://kleanplay.shop/embed/j7xysrst3ytbc4h50of84mmbyrn4ba9v", type: "iframe" },
+    { name: "FS1", url: "https://fl3.moveonjoy.com/FOX_Sports_1/index.m3u8", type: "m3u8" },
     { name: "FS2", url: "https://kleanplay.shop/embed/9bfdo7kxd45sst08hbuh6rwhkykmitwb", type: "iframe" },
     { name: "fuboTV", url: "https://apollo.production-public.tubi.io/live/ac-fubo.m3u8", type: "m3u8" },
     { name: "ION", url: "https://fl3.moveonjoy.com/ION_TV/index.m3u8", type: "m3u8" },
@@ -198,6 +198,22 @@
             { name: "HBO Comedy", url: "https://fl3.moveonjoy.com/HBO_COMEDY/index.m3u8", type: "m3u8" },
             { name: "HBO Family", url: "https://fl3.moveonjoy.com/HBO_FAMILY/index.m3u8", type: "m3u8" },
             { name: "HBO Zone", url: "https://fl3.moveonjoy.com/HBO_ZONE/index.m3u8", type: "m3u8" },
+        ]
+    },
+    { 
+        name: "Sportsnet", 
+        type: "dropdown",
+        options: [
+            { name: "Sportsnet One 👑", url: "https://topembed.pw/channel/SportsnetOne[Canada]", type: "iframe" },
+            { name: "Sportsnet East 👑", url: "https://topembed.pw/channel/SportsnetEast[Canada]", type: "iframe" },
+            { name: "Sportsnet West 👑", url: "https://topembed.pw/channel/SportsnetWest[Canada]", type: "iframe" },
+            { name: "Sportsnet Pacific 👑", url: "https://topembed.pw/channel/SportsnetPacific[Canada]", type: "iframe" },
+            { name: "Sportsnet World 👑", url: "https://topembed.pw/channel/SportsnetWorld[Canada]", type: "iframe" },
+            { name: "Sportsnet 360 👑", url: "https://topembed.pw/channel/Sportsnet360[Canada]", type: "iframe" },
+            { name: "Sportsnet Ontario 👑", url: "https://topembed.pw/channel/SportsnetOntario[Canada]", type: "iframe" },
+            { name: "Sportsnet Pittsburg 👑", url: "https://thedaddy.to/embed/stream-922.php", type: "iframe" },
+            { name: "Sportsnet LA 👑", url: "https://thedaddy.to/embed/stream-764.php", type: "iframe" },
+            { name: "Sportsnet New York", url: "https://fl3.moveonjoy.com/SNY/index.m3u8", type: "m3u8" },
         ]
     },
 ];

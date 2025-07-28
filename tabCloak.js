@@ -46,8 +46,8 @@ function setTabCloak(cloak) {
             icon = 'https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png';
             break;
         case 'powerschool':
-            title = 'Grades and Attendance';
-            icon = 'https://wcpss.powerschool.com/favicon.ico';
+            title = 'Student Profile | Home | Infinite Campus';
+            icon = 'https://920.ncsis.gov/campus/nav-wrapper/assets/icons/favicon-32x32.png';
             break;
         case 'docs':
             title = 'Google Docs';
