@@ -47,13 +47,6 @@
     { name: "SNY", url: "https://fl3.moveonjoy.com/SNY/index.m3u8", type: "m3u8" },
     { name: "Marquee Sports", url: "https://fl3.moveonjoy.com/MARQUEE_SPORTS_NETWORK/index.m3u8", type: "m3u8" },
     { name: "YES Network", url: "https://fl3.moveonjoy.com/YES_NETWORK/index.m3u8", type: "m3u8" },
-    { 
-        name: "MLB TV", 
-        type: "dropdown",
-        options: [
-            { name: "Loading games...", url: "#", type: "iframe" }
-        ]
-    },
     { name: "MLB Network", url: "https://fl3.moveonjoy.com/MLB_NETWORK/index.m3u8", type: "m3u8" },
     { 
         name: "DAZN", 
@@ -67,7 +60,7 @@
             { name: "Dazn 3 spanish", url: "https://popcdn.day/go.php?stream=DAZN3ES", type: "iframe" },
             { name: "Dazn 4 spanish", url: "https://popcdn.day/go.php?stream=DAZN4ES", type: "iframe" },
             { name: "Dazn laliga", url: "https://popcdn.day/go.php?stream=DAZNLaLiga", type: "iframe" },
-            { name: "Dazn laliga 2 👑", url: "https://topembed.pw/channel/DAZNLaLiga2[Spain]", type: "iframe" },
+            { name: "Dazn laliga 2", url: "https://topembed.pw/channel/DAZNLaLiga2[Spain]", type: "iframe" },
             { name: "Dazn Portugal", url: "https://popcdn.day/go.php?stream=ELEVEN1", type: "iframe" },
             { name: "Dazn Portugal 2", url: "https://popcdn.day/go.php?stream=ELEVEN2", type: "iframe" },
             { name: "Dazn Portugal 3", url: "https://popcdn.day/go.php?stream=ELEVEN3", type: "iframe" },
@@ -75,12 +68,48 @@
             { name: "Dazn Portugal 5", url: "https://popcdn.day/go.php?stream=ELEVEN5", type: "iframe" },
             { name: "Dazn Portugal 6", url: "https://popcdn.day/go.php?stream=ELEVEN6", type: "iframe" },
             { name: "Dazn France 1", url: "https://popcdn.day/go.php?stream=DAZN1FR", type: "iframe" },
-            { name: "Dazn Italy 1 👑", url: "https://topembed.pw/channel/DAZN1[Italy]", type: "iframe" },
-            { name: "Dazn Italy 2 👑", url: "https://topembed.pw/channel/DAZN2[Italy]", type: "iframe" },
+            { name: "Dazn Italy 1", url: "https://topembed.pw/channel/DAZN1[Italy]", type: "iframe" },
+            { name: "Dazn Italy 2", url: "https://topembed.pw/channel/DAZN2[Italy]", type: "iframe" },
 
         ]
     },
-     
+    { 
+        name: "MLB TV", 
+        type: "dropdown",
+        options: [
+            { name: "Diamondbacks", url: "https://mlbwebcast.com/stream/diamondbacks.html", type: "iframe" },
+            { name: "Braves", url: "https://mlbwebcast.com/stream/braves.html", type: "iframe" },
+            { name: "Orioles", url: "https://mlbwebcast.com/stream/orioles.html", type: "iframe" },
+            { name: "Red Sox", url: "https://mlbwebcast.com/stream/redsox.html", type: "iframe" },
+            { name: "Cubs", url: "https://mlbwebcast.com/stream/cubs.html", type: "iframe" },
+            { name: "White Sox", url: "https://mlbwebcast.com/stream/whitesox.html", type: "iframe" },
+            { name: "Reds", url: "https://mlbwebcast.com/stream/reds.html", type: "iframe" },
+            { name: "Guardians", url: "https://mlbwebcast.com/stream/guardians.html", type: "iframe" },
+            { name: "Rockies", url: "https://mlbwebcast.com/stream/rockies.html", type: "iframe" },
+            { name: "Tigers", url: "https://mlbwebcast.com/stream/tigers.html", type: "iframe" },
+            { name: "Astros", url: "https://mlbwebcast.com/stream/astros.html", type: "iframe" },
+            { name: "Royals", url: "https://mlbwebcast.com/stream/royals.html", type: "iframe" },
+            { name: "Angels", url: "https://mlbwebcast.com/stream/angels.html", type: "iframe" },
+            { name: "Dodgers", url: "https://mlbwebcast.com/stream/dodgers.html", type: "iframe" },
+            { name: "Marlins", url: "https://mlbwebcast.com/stream/marlins.html", type: "iframe" },
+            { name: "Brewers", url: "https://mlbwebcast.com/stream/brewers.html", type: "iframe" },
+            { name: "Twins", url: "https://mlbwebcast.com/stream/twins.html", type: "iframe" },
+            { name: "Mets", url: "https://mlbwebcast.com/stream/mets.html", type: "iframe" },
+            { name: "Yankees", url: "https://mlbwebcast.com/stream/yankees.html", type: "iframe" },
+            { name: "Athletics", url: "https://mlbwebcast.com/stream/athletics.html", type: "iframe" },
+            { name: "Phillies", url: "https://mlbwebcast.com/stream/phillies.html", type: "iframe" },
+            { name: "Pirates", url: "https://mlbwebcast.com/stream/pirates.html", type: "iframe" },
+            { name: "Padres", url: "https://mlbwebcast.com/stream/padres.html", type: "iframe" },
+            { name: "Giants", url: "https://mlbwebcast.com/stream/giants.html", type: "iframe" },
+            { name: "Mariners", url: "https://mlbwebcast.com/stream/mariners.html", type: "iframe" },
+            { name: "Cardinals", url: "https://mlbwebcast.com/stream/cardinals.html", type: "iframe" },
+            { name: "Rays", url: "https://mlbwebcast.com/stream/rays.html", type: "iframe" },
+            { name: "Rangers", url: "https://mlbwebcast.com/stream/rangers.html", type: "iframe" },
+            { name: "Blue Jays", url: "https://mlbwebcast.com/stream/bluejays.html", type: "iframe" },
+            { name: "Nationals", url: "https://mlbwebcast.com/stream/nationals.html", type: "iframe" }
+
+        ]
+    },
     { 
         name: "Fanduel sports", 
         type: "dropdown",

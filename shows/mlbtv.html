@@ -21,11 +21,12 @@
 
     :root {
       --bg-dark-primary: #0b0b0b;
-      --bg-dark-secondary: #1a1a1a;
-      --primary-red: #0e1735;
+      --bg-dark-secondary: #000f24;
+      --primary-red: #ffffff;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
     }
+
 
     * {
       box-sizing: border-box;
@@ -81,58 +82,153 @@
     main {
       flex: 1;
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
-      padding: 10px;
+      padding: 0;
+      overflow: hidden;
+      height: calc(100vh - 60px);
+      margin: 0;
     }
 
     .video-wrapper {
       width: 100%;
-      max-width: calc(100vw - 40px);
-      max-height: calc(100vh - 80px);
-      aspect-ratio: 16 / 9;
-      background-color: black;
-      border-radius: 8px;
+      height: 100%;
+      background-color: #000;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    iframe {
+    .video-wrapper iframe {
+      position: absolute;
       width: 100%;
       height: 100%;
       border: none;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="../images/mlb.png" alt="MLB Logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh70fCLzOnbfxhTEBTFXHQVwcSo-r5IUs8DQ&s" alt="MLB TV Logo">
     <select class="server-select" id="serverSelect" onchange="changeServer()">
-      <option value="">Loading games...</option>
+      <option value="server1">Arizona Diamondbacks</option>
+      <option value="server2">Atlanta Braves</option>
+      <option value="server3">Baltimore Orioles</option>
+      <option value="server4">Boston Red Sox</option>
+      <option value="server5">Chicago Cubs</option>
+      <option value="server6">Chicago White Sox</option>
+      <option value="server7">Cincinnati Reds</option>
+      <option value="server8">Cleveland Guardians</option>
+      <option value="server9">Colorado Rockies</option>
+      <option value="server10">Detroit Tigers</option>
+      <option value="server11">Houston Astros</option>
+      <option value="server12">Kansas City Royals</option>
+      <option value="server13">Los Angeles Angels</option>
+      <option value="server14">Los Angeles Dodgers</option>
+      <option value="server15">Miami Marlins</option>
+      <option value="server16">Milwaukee Brewers</option>
+      <option value="server17">Minnesota Twins</option>
+      <option value="server18">New York Mets</option>
+      <option value="server19">New York Yankees</option>
+      <option value="server20">Oakland Athletics</option>
+      <option value="server21">Philadelphia Phillies</option>
+      <option value="server22">Pittsburgh Pirates</option>
+      <option value="server23">San Diego Padres</option>
+      <option value="server24">San Francisco Giants</option>
+      <option value="server25">Seattle Mariners</option>
+      <option value="server26">St. Louis Cardinals</option>
+      <option value="server27">Tampa Bay Rays</option>
+      <option value="server28">Texas Rangers</option>
+      <option value="server29">Toronto Blue Jays</option>
+      <option value="server30">Washington Nationals</option>
     </select>
   </header>
 
   <main>
-    <div class="video-wrapper">
-      <iframe
-        id="streamFrame"
-        allowfullscreen
-        scrolling="no"
-        title="MLB Stream"
-        src="https://streamscenter.online/embed/ch15.php">
-      </iframe>
+    <div class="video-wrapper" id="playerContainer">
+      <!-- Player will be inserted here -->
     </div>
   </main>
 
   <script>
+    // Automatically select and load first server on page load
+    window.addEventListener('load', function() {
+      const select = document.getElementById('serverSelect');
+      // Select the first server option
+      select.value = 'server1';
+      // Trigger change event to load the stream
+      select.dispatchEvent(new Event('change'));
+    });
+
     function changeServer() {
       const select = document.getElementById('serverSelect');
-      const iframe = document.getElementById('streamFrame');
+      const container = document.getElementById('playerContainer');
       const selectedServer = select.value;
+      const servers = {
+        'server1': 'https://mlbwebcast.com/stream/diamondbacks.html',
+        'server2': 'https://mlbwebcast.com/stream/braves.html',
+        'server3': 'https://mlbwebcast.com/stream/orioles.html',
+        'server4': 'https://mlbwebcast.com/stream/redsox.html',
+        'server5': 'https://mlbwebcast.com/stream/cubs.html',
+        'server6': 'https://mlbwebcast.com/stream/whitesox.html',
+        'server7': 'https://mlbwebcast.com/stream/reds.html',
+        'server8': 'https://mlbwebcast.com/stream/guardians.html',
+        'server9': 'https://mlbwebcast.com/stream/rockies.html',
+        'server10': 'https://mlbwebcast.com/stream/tigers.html',
+        'server11': 'https://mlbwebcast.com/stream/astros.html',
+        'server12': 'https://mlbwebcast.com/stream/royals.html',
+        'server13': 'https://mlbwebcast.com/stream/angels.html',
+        'server14': 'https://mlbwebcast.com/stream/dodgers.html',
+        'server15': 'https://mlbwebcast.com/stream/marlins.html',
+        'server16': 'https://mlbwebcast.com/stream/brewers.html',
+        'server17': 'https://mlbwebcast.com/stream/twins.html',
+        'server18': 'https://mlbwebcast.com/stream/mets.html',
+        'server19': 'https://mlbwebcast.com/stream/yankees.html',
+        'server20': 'https://mlbwebcast.com/stream/athletics.html',
+        'server21': 'https://mlbwebcast.com/stream/phillies.html',
+        'server22': 'https://mlbwebcast.com/stream/pirates.html',
+        'server23': 'https://mlbwebcast.com/stream/padres.html',
+        'server24': 'https://mlbwebcast.com/stream/giants.html',
+        'server25': 'https://mlbwebcast.com/stream/mariners.html',
+        'server26': 'https://mlbwebcast.com/stream/cardinals.html',
+        'server27': 'https://mlbwebcast.com/stream/rays.html',
+        'server28': 'https://mlbwebcast.com/stream/rangers.html',
+        'server29': 'https://mlbwebcast.com/stream/bluejays.html',
+        'server30': 'https://mlbwebcast.com/stream/nationals.html',
+      };
       
-      if (selectedServer) {
-        iframe.src = `https://streamscenter.online/embed/${selectedServer}.php`;
+      if (selectedServer && servers[selectedServer]) {
+        const url = servers[selectedServer];
+        
+        // Clear existing player
+        container.innerHTML = '';
+        
+        // Check if URL is m3u8
+        if (url.toLowerCase().endsWith('.m3u8')) {
+          // Create JW Player
+          const player = jwplayer(container);
+          player.setup({
+            file: url,
+            width: '90%',
+            height: '90%',
+            primary: 'html5',
+            autostart: true
+          });
+        } else {
+          // Create iframe
+          const iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.allowfullscreen = true;
+          iframe.scrolling = 'no';
+          iframe.title = 'TNT Sports Stream';
+          container.appendChild(iframe);
+        }
       }
     }
   </script>
@@ -161,66 +257,8 @@
   <script src="../navbar.js"></script>
   <script src="../panicKey.js"></script>
   <script src="../backgroundTheme.js"></script>
-  <script src="../tabCloak.js"></script>
-  <script>
-    // Function to fetch MLB games for today
-    async function fetchMLBGames() {
-      const today = new Date();
-      const formattedDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-      
-      try {
-        // First, get the games for today
-        const scheduleRes = await fetch(`https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&date=${formattedDate}`);
-        const scheduleData = await scheduleRes.json();
-        
-        const select = document.getElementById('serverSelect');
-        select.innerHTML = '<option value="">Select Game</option>';
-        
-        if (!scheduleData.dates || scheduleData.dates.length === 0) {
-          select.innerHTML = '<option value="">No games scheduled for today</option>';
-          return;
-        }
-        
-        const games = scheduleData.dates[0].games;
-        
-        // Sort games by start time
-        games.sort((a, b) => new Date(a.gameDate) - new Date(b.gameDate));
-        
-        // Get team data for team names
-        const teamsRes = await fetch('https://statsapi.mlb.com/api/v1/teams?sportId=1');
-        const teamsData = await teamsRes.json();
-        const teams = {};
-        teamsData.teams.forEach(team => {
-          teams[team.id] = team.abbreviation;
-        });
-        
-        // Create options for each game
-        games.forEach((game, index) => {
-          const gameTime = new Date(game.gameDate);
-          const options = {
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true
-          };
-          
-          const timeString = gameTime.toLocaleTimeString('en-US', options);
-          const option = document.createElement('option');
-          option.value = `ch${15 + index}`;
-          option.textContent = timeString;
-          select.appendChild(option);
-        });
-        
-      } catch (error) {
-        console.error('Error fetching MLB games:', error);
-        const select = document.getElementById('serverSelect');
-        select.innerHTML = '<option value="">Error loading games</option>';
-      }
-    }
-    
-    // Load games when page loads
-    document.addEventListener('DOMContentLoaded', fetchMLBGames);
-  </script>
     <script src="../../scripts/panic-button.js"></script>
+
 
 </body>
 </html>
