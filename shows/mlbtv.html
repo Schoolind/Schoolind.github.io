@@ -21,12 +21,11 @@
 
     :root {
       --bg-dark-primary: #0b0b0b;
-      --bg-dark-secondary: #000f24;
-      --primary-red: #ffffff;
+      --bg-dark-secondary: #001531;
+      --primary-red: #b1b1b1;
       --text-primary: #ffffff;
       --padding-bottom: 20px;
     }
-
 
     * {
       box-sizing: border-box;
@@ -82,31 +81,26 @@
     main {
       flex: 1;
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
-      padding: 0;
-      overflow: hidden;
-      height: calc(100vh - 60px);
-      margin: 0;
+      padding: 10px;
     }
 
     .video-wrapper {
       width: 100%;
-      height: 100%;
-      background-color: #000;
+      max-width: calc(100vw - 40px);
+      max-height: calc(100vh - 80px);
+      aspect-ratio: 16 / 9;
+      background-color: black;
+      border-radius: 8px;
       overflow: hidden;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
 
-    .video-wrapper iframe {
-      position: absolute;
+    iframe {
       width: 100%;
       height: 100%;
       border: none;
-      object-fit: cover;
     }
   </style>
 </head>
@@ -115,6 +109,7 @@
   <header>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh70fCLzOnbfxhTEBTFXHQVwcSo-r5IUs8DQ&s" alt="MLB TV Logo">
     <select class="server-select" id="serverSelect" onchange="changeServer()">
+      <option value="">Select Server</option>
       <option value="server1">Arizona Diamondbacks</option>
       <option value="server2">Atlanta Braves</option>
       <option value="server3">Baltimore Orioles</option>
@@ -149,25 +144,23 @@
   </header>
 
   <main>
-    <div class="video-wrapper" id="playerContainer">
-      <!-- Player will be inserted here -->
+    <div class="video-wrapper">
+      <iframe
+        id="streamFrame"
+        allowfullscreen
+        scrolling="no"
+        title="TNT Sports Stream"
+        src="https://mlbwebcast.com/stream/diamondbacks.html">
+      </iframe>
     </div>
   </main>
 
   <script>
-    // Automatically select and load first server on page load
-    window.addEventListener('load', function() {
-      const select = document.getElementById('serverSelect');
-      // Select the first server option
-      select.value = 'server1';
-      // Trigger change event to load the stream
-      select.dispatchEvent(new Event('change'));
-    });
-
     function changeServer() {
       const select = document.getElementById('serverSelect');
-      const container = document.getElementById('playerContainer');
+      const iframe = document.getElementById('streamFrame');
       const selectedServer = select.value;
+      
       const servers = {
         'server1': 'https://mlbwebcast.com/stream/diamondbacks.html',
         'server2': 'https://mlbwebcast.com/stream/braves.html',
@@ -202,33 +195,7 @@
       };
       
       if (selectedServer && servers[selectedServer]) {
-        const url = servers[selectedServer];
-        
-        // Clear existing player
-        container.innerHTML = '';
-        
-        // Check if URL is m3u8
-        if (url.toLowerCase().endsWith('.m3u8')) {
-          // Create JW Player
-          const player = jwplayer(container);
-          player.setup({
-            file: url,
-            width: '90%',
-            height: '90%',
-            primary: 'html5',
-            autostart: true
-          });
-        } else {
-          // Create iframe
-          const iframe = document.createElement('iframe');
-          iframe.src = url;
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.allowfullscreen = true;
-          iframe.scrolling = 'no';
-          iframe.title = 'TNT Sports Stream';
-          container.appendChild(iframe);
-        }
+        iframe.src = servers[selectedServer];
       }
     }
   </script>
