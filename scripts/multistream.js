@@ -102,8 +102,8 @@
             { name: "Server 1", url: "https://fstv.us/player?link=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3L1ETOyU2YjhjZhFzNtYGZwgTLkRjN00SMzUzNtEWOyEGNzkzN/master.m3u8", type: "iframe" },
             { name: "Server 2", url: "https://fstv.us/player?link=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3L0YmNhlDZyETZzMjYtMTZ3IWLlRDO00yYxU2YtYWOmVDNzgTO/master.m3u8", type: "iframe" },
             { name: "Server 3", url: "https://fstv.us/player?link=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LkVzN2AzN3YDO5EzYtQGZ3kTLyEDO00SZ3EWNtkDM1QmZjFmZ/master.m3u8", type: "iframe" },
-            { name: "Server 4", url: "https://fstv.us/player?link=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LkVzN2AzN3YDO5EzYtQGZ3kTLyEDO00SZ3EWNtkDM1QmZjFmZ/master.m3u8", type: "iframe" },
-            { name: "Server 5 ", url: "https://fstv.us/player?link=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LkF2NwczY5MmZ4MWYtYWNykTLiRmY00CZiZDOtQDMxQzN5Y2Y/master.m3u8", type: "iframe" },
+            { name: "Server 4", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LzMjMjlTNwY2NlJmMtM2N3gTL2MDZ00yY4MTYtYmZiRzYjhTN/master.m3u8", type: "m3u8" },
+            { name: "Server 5 ", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LkF2NwczY5MmZ4MWYtYWNykTLiRmY00CZiZDOtQDMxQzN5Y2Y/master.m3u8", type: "m3u8" },
             { name: "Server 6 ", url: "https://topembed.pw/channel/TNTSports6[UK]", type: "iframe" },
             { name: "Server 7 ", url: "https://topembed.pw/channel/TNTSports7[UK]", type: "iframe" },
             { name: "Server 8 ", url: "https://topembed.pw/channel/TNTSports8[UK]", type: "iframe" },
@@ -124,10 +124,10 @@
         name: "ITV", 
         type: "dropdown",
         options: [
-            { name: "itv1", url: "https://popcdn.day/go.php?stream=ITV1", type: "m3u8" },
-            { name: "itv2", url: "https://popcdn.day/go.php?stream=ITV2", type: "m3u8" },
-            { name: "itv3", url: "https://popcdn.day/go.php?stream=ITV3", type: "m3u8" },
-            { name: "itv4", url: "https://popcdn.day/go.php?stream=ITV4", type: "m3u8" },
+            { name: "itv1", url: "https://popcdn.day/go.php?stream=ITV1", type: "iframe" },
+            { name: "itv2", url: "https://popcdn.day/go.php?stream=ITV2", type: "iframe" },
+            { name: "itv3", url: "https://popcdn.day/go.php?stream=ITV3", type: "iframe" },
+            { name: "itv4", url: "https://popcdn.day/go.php?stream=ITV4", type: "iframe" },
         ]
     },
     { 
