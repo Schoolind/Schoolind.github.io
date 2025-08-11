@@ -54,7 +54,7 @@
     }
 
     header img {
-      height: 36.5px;
+      height: 45px;
     }
 
     main {
@@ -66,63 +66,79 @@
     }
 
     .video-wrapper {
-      width: 100%;
-      max-width: calc(100vw - 40px);
-      max-height: calc(100vh - 80px); /* 60px header + 20px bottom padding */
-      aspect-ratio: 16 / 9;
+      width: 95%;
+      max-width: 95%;
+      height: calc(100vh - 100px); /* Account for header and some padding */
       background-color: black;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+    #my-jwplayer {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/NBC_Peacock_1986.svg/800px-NBC_Peacock_1986.svg.png" alt="FS2 Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/NBC_Peacock_1986.svg/800px-NBC_Peacock_1986.svg.png" alt="TNT Logo">
   </header>
 
   <main>
     <div class="video-wrapper">
-      <iframe
-        allowfullscreen
-        scrolling="no"
-        title="Cartoon Network Stream"
-        src="https://kleanplay.shop/embed/maqOnut62tRoHESac2r8ca9ay9b72hAw">
-      </iframe>
+      <div id="my-jwplayer"></div>
     </div>
   </main>
+
+  <script>
+    // Replace with your actual .m3u8 stream URL
+    const m3u8StreamUrl = "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3L5QGM1MGO0UWN3QDNtI2MlhTL5UjM00CMyAjNtM2YxE2NhRDM/master.m3u8";
+
+    jwplayer("my-jwplayer").setup({
+      file: m3u8StreamUrl,
+      width: "100%",
+      aspectratio: "16:9",
+      autostart: true,
+      controls: true,
+      mute: false,
+      stretching: "uniform",
+      skin: { name: "seven" },
+      primary: "html5"
+    });
+  </script>
+
   <script src="/checkAccess.js"></script>
-<script>
-    // Apply cloak on page load
+  <script>
     window.addEventListener('load', function() {
         const savedCloak = localStorage.getItem('tabCloak');
         if (savedCloak) {
             const cloak = JSON.parse(savedCloak);
             const existingFavicon = document.querySelector("link[rel*='icon']");
-            if (existingFavicon) {
-                existingFavicon.remove();
-            }
+            if (existingFavicon) existingFavicon.remove();
+
             const newFavicon = document.createElement('link');
             newFavicon.rel = 'icon';
             newFavicon.type = 'image/x-icon';
             newFavicon.href = cloak.icon;
             document.head.appendChild(newFavicon);
+
             document.title = cloak.title;
         }
     });
-</script>
-<link rel="stylesheet" href="../navbar.css">
-<script src="../navbar.js"></script>
-<script src="../panicKey.js"></script>
-<script src="../backgroundTheme.js"></script>
+  </script>
+
+  <link rel="stylesheet" href="../navbar.css">
+  <script src="../navbar.js"></script>
+  <script src="../panicKey.js"></script>
+  <script src="../backgroundTheme.js"></script>
     <script src="../../scripts/panic-button.js"></script>
 
 
