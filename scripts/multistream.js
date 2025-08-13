@@ -88,8 +88,8 @@
         type: "dropdown",
         options: [
             { name: "Server 1", url: "https://popcdn.day/go.php?stream=TNT1UK", type: "iframe" },
-            { name: "Server 2", url: "https://popcdn.day/go.php?stream=TNT2UK", type: "iframe" },
-            { name: "Server 3", url: "https://popcdn.day/go.php?stream=TNT3UK", type: "iframe" },
+            { name: "Server 2", url: "https://popcdn.day/go.php?stream=tntsports2", type: "iframe" },
+            { name: "Server 3", url: "https://popcdn.day/go.php?stream=tntsports3", type: "iframe" },
             { name: "Server 4", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LzMjMjlTNwY2NlJmMtM2N3gTL2MDZ00yY4MTYtYmZiRzYjhTN/master.m3u8", type: "m3u8" },
             { name: "Server 5", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LkF2NwczY5MmZ4MWYtYWNykTLiRmY00CZiZDOtQDMxQzN5Y2Y/master.m3u8", type: "m3u8" },
             { name: "Server 6", url: "https://topembed.pw/channel/TNTSports6[UK]", type: "iframe" },
