@@ -25,7 +25,7 @@
     { name: "fuboTV", url: "https://apollo.production-public.tubi.io/live/ac-fubo.m3u8", type: "m3u8" },
     { name: "ION", url: "https://fl3.moveonjoy.com/ION_TV/index.m3u8", type: "m3u8" },
     { name: "HGTV", url: "https://fl3.moveonjoy.com/HGTV/index.m3u8", type: "m3u8" },
-    { name: "laligatv", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/variant/VE1AO1NTbu8mbv12LxEWM21ycrNWYyR3LmJmNyETYmZjM4UWZtUmM2gTL0ITO00yNmVDZtcTNzY2Y3QWO/master.m3u8", type: "m3u8" },
+    { name: "laligatv", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1ZmI2MjFhZjYyOGVlLWUyNjgtNDI5NC03ZjVkLTc1M2ZjN2Q5/master.m3u8", type: "m3u8" },
     { name: "NBC", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1OWQwNWM4NGU1NzQ0LWIzZTgtOTUyNC0wMjA2LWNjMWE3YTQw/master.m3u8", type: "m3u8" },
     { name: "NBA TV", url: "https://fl3.moveonjoy.com/NBA_TV/index.m3u8", type: "m3u8" },
     { name: "NFL Network", url: "https://fl3.moveonjoy.com/NFL_NETWORK/index.m3u8", type: "m3u8" },
