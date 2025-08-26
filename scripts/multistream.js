@@ -66,8 +66,7 @@
             { name: "Dazn Portugal 6", url: "https://popcdn.day/go.php?stream=ELEVEN6", type: "iframe" },
             { name: "Dazn France 1", url: "https://popcdn.day/go.php?stream=DAZN1FR", type: "iframe" },
             { name: "Dazn Italy 1", url: "https://topembed.pw/channel/DAZN1[Italy]", type: "iframe" },
-            { name: "Dazn Italy 2", url: "https://topembed.pw/channel/DAZN2[Italy]", type: "iframe" },
-
+            { name: "Dazn F1", url: "https://popcdn.day/go.php?stream=DAZNF1ES", type: "iframe" },
         ]
     },
     { 
@@ -133,6 +132,7 @@
             { name: "skysports premier league", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1NTMwMTUyNDhlM2ExLTAwMGItNjE3NC02OGM0LThjZDU4YmQy/master.m3u8", type: "m3u8" },
             { name: "skysports racing", url: "https://popcdn.day/go.php?stream=SkySportsRacing", type: "iframe" },
             { name: "skysports tenis", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1N2RiNWY4OGU0MWUwLTk5MmEtZDk2NC1jZDM3LTE0Yzg5ZDUz/master.m3u8", type: "m3u8" },
+            { name: "skysports top event", url: "https://corsproxy.io/?url=https://5nhp186eg31fofnc.chinese-restaurant-api.site/v3/director/VE1NjgyNTVmNTE1M2M5LWM5OGItMGNjNC00YzdlLTliZWI4YWY3/master.m3u8", type: "m3u8" },
         
         ]
     },
