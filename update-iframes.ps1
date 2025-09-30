@@ -38,7 +38,7 @@ $pattern = '(?i)(<iframe[^>]*?src\s*=\s*["\'']?)https://Schooluk'
 Get-ChildItem -Path $Path -Recurse -Include *.html | ForEach-Object {
     $file = $_.FullName
     $content = Get-Content -Path $file -Raw
-    $newContent = $content -replace $pattern, '`$1https://schoolind'
+    $newContent = $content -replace $pattern, '$1https://schoolind'
 
     if ($newContent -ne $content) {
         Set-Content -Path $file -Value $newContent -Encoding UTF8
