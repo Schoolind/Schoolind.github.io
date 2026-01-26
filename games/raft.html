@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D1D7WGSDYH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D1D7WGSDYH');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
+  <style>
+
+
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: hsl(226, 97%, 62%)
+    }
+
+    iframe {
+      border: none;
+      border-radius: none;
+      width: 100%; /* 100% of the viewport width */
+      height: 100vh; /* 100% of the viewport height */
+    }
+
+   
+  
+  </style>
+</head>
+<body>
+  
+  <iframe id="gameFrame" class="game-frame" frameborder="0" src="" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-us&quot;&gt;
+	&lt;head&gt;
+    &lt;base href=&quot;https://cdn.jsdelivr.net/gh/genizy/web-port@main/raft/&quot;&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+		&lt;meta
+			name=&quot;viewport&quot;
+			content=&quot;width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;
+		/&gt;
+		&lt;title&gt;Unity WebGL Player | Raft&lt;/title&gt;
+		&lt;style&gt;
+			* {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				overflow: hidden;
+			}
+
+			body {
+				background: #000;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+			}
+
+			.webgl-content {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+
+			#unityContainer {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+
+			.footer {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				text-align: center;
+				padding: 10px 0;
+				background: rgba(0, 0, 0, 0.5);
+				z-index: 100;
+			}
+
+			.fullscreen {
+				cursor: pointer;
+				display: inline-block;
+				width: 24px;
+				height: 24px;
+			}
+		&lt;/style&gt;
+		&lt;script src=&quot;Build/UnityLoader.js&quot;&gt;&lt;/script&gt;
+		&lt;script&gt;
+      let max = 0;
+let done = 0;
+function mergeFiles(fileParts) {
+	return new Promise((resolve, reject) =&gt; {
+		let buffers = [];
+
+		function fetchPart(index) {
+			if (index &gt;= fileParts.length) {
+				let mergedBlob = new Blob(buffers);
+				let mergedFileUrl = URL.createObjectURL(mergedBlob);
+				resolve(mergedFileUrl);
+				return;
+			}
+			fetch(fileParts[index])
+				.then((response) =&gt; response.arrayBuffer())
+				.then((data) =&gt; {
+					buffers.push(data);
+					done = done+1;
+					document.querySelector(&quot;#loading-text&quot;).textContent = `LOADING... (${done}/${max})`;
+					fetchPart(index + 1);
+				})
+				.catch(reject);
+		}
+		fetchPart(0);
+	});
+}
+
+UnityLoader.downloadJob = function(e, t) {
+        var r = new XMLHttpRequest;
+        if (t.parameters.url.startsWith(&quot;Build/blob&quot;)) {
+          r.open(&quot;GET&quot;, t.parameters.url.replace(&quot;Build/&quot;, &quot;&quot;));
+        } else {
+          r.open(&quot;GET&quot;, t.parameters.url);
+        }
+        r.responseType = &quot;arraybuffer&quot;,
+        r.onload = function() {
+            UnityLoader.Compression.decompress(new Uint8Array(r.response), function(e) {
+                t.complete(e)
+            })
+        }
+        ,
+        t.parameters.onprogress &amp;&amp; r.addEventListener(&quot;progress&quot;, t.parameters.onprogress),
+        t.parameters.onload &amp;&amp; r.addEventListener(&quot;load&quot;, t.parameters.onload),
+        r.send()
+    };
+
+function getParts(file, start, end) {
+	let parts = [];
+	for (let i = start; i &lt;= end; i++) {
+		parts.push(file + &quot;.part&quot; + i);
+	}
+	max = max+end;
+	return parts;
+}
+
+			function resizeUnityContainer() {
+				var container = document.getElementById(&quot;unityContainer&quot;);
+				container.style.width = window.innerWidth + &quot;px&quot;;
+				container.style.height = window.innerHeight + &quot;px&quot;;
+			}
+			Promise.all([
+				mergeFiles(getParts(&quot;Build/Raft-WEBGL.data.unityweb&quot;, 1, 3)),
+        mergeFiles(getParts(&quot;Build/Raft-WEBGL.asm.code.unityweb&quot;, 1, 2)),
+			]).then(([dataUrl, asmCode]) =&gt; {
+				window.dataUrll = dataUrl;
+        window.asmUrll = asmCode;
+				var json = {
+&quot;TOTAL_MEMORY&quot;: 268435456,
+&quot;dataUrl&quot;: dataUrl,
+&quot;asmCodeUrl&quot;: asmCode,
+&quot;asmMemoryUrl&quot;: &quot;Raft-WEBGL.asm.memory.unityweb&quot;,
+&quot;asmFrameworkUrl&quot;: &quot;Raft-WEBGL.asm.framework.unityweb&quot;,
+&quot;splashScreenStyle&quot;: &quot;Dark&quot;,
+&quot;backgroundColor&quot;: &quot;#000000&quot;
+};
+				let blob = new Blob([JSON.stringify(json)], {
+					type: &quot;application/json&quot;,
+				});
+				let blobUrl = URL.createObjectURL(blob);
+				window.addEventListener(&quot;resize&quot;, resizeUnityContainer);
+				UnityLoader.instantiate(&quot;unityContainer&quot;, json, {
+					url: blobUrl,
+          Module: {
+						onRuntimeInitialized: function () {
+							resizeUnityContainer();
+							document.querySelector(&quot;#loading-text&quot;).remove();
+						},
+					},
+				});
+			});
+		&lt;/script&gt;
+	&lt;/head&gt;
+
+	&lt;body&gt;
+		&lt;div class=&quot;webgl-content&quot;&gt;
+			&lt;div
+				id=&quot;loading-text&quot;
+				style=&quot;
+					color: white;
+					font-size: 48px;
+					font-family: cursive;
+					text-align: center;
+					margin-top: 20px;
+				&quot;
+			&gt;
+				LOADING...
+			&lt;/div&gt;
+			&lt;div id=&quot;unityContainer&quot;&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+<script src="/checkAccess.js"></script>
+<script>
+    // Apply cloak on page load
+    window.addEventListener('load', function() {
+        const savedCloak = localStorage.getItem('tabCloak');
+        if (savedCloak) {
+            const cloak = JSON.parse(savedCloak);
+            const existingFavicon = document.querySelector("link[rel*='icon']");
+            if (existingFavicon) {
+                existingFavicon.remove();
+            }
+            const newFavicon = document.createElement('link');
+            newFavicon.rel = 'icon';
+            newFavicon.type = 'image/x-icon';
+            newFavicon.href = cloak.icon;
+            document.head.appendChild(newFavicon);
+            document.title = cloak.title;
+        }
+    });
+</script>
+<link rel="stylesheet" href="../navbar.css">
+<script src="../navbar.js"></script>
+<script src="../panicKey.js"></script>
+<script src="../backgroundTheme.js"></script>
+    <script src="../scripts/panic-button.js"></script>
+
+</body>
+    <script src="../scripts/panic-button.js"></script>
+
+
+</body>
+
+</html>
